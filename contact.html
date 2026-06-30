@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request Early Access — Konfident</title>
+<meta name="description" content="Request early access to Konfident. We're in private beta and accepting a small cohort of Shopify merchants. Tell us about your store." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--black:#08090a;--navy:#0d1117;--navy-2:#161b22;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--teal-dim:rgba(0,201,167,.12);--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:'Inter',sans-serif}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;margin-right:40px;text-decoration:none;flex-shrink:0}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-links{display:flex;align-items:center}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;transition:color .15s;text-decoration:none}
+.nav-link:hover{color:var(--white)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px;cursor:pointer}
+.btn-nav-cta{font-size:14px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:9px 20px;border-radius:8px;text-decoration:none;display:inline-block}
+
+/* LAYOUT */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - var(--nav-h))}
+
+/* LEFT PANEL */
+.contact-left{background:var(--navy);padding:72px 60px;display:flex;flex-direction:column;justify-content:space-between}
+.contact-eyebrow{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.contact-h1{font-size:clamp(32px,4vw,46px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;color:var(--white);margin-bottom:24px}
+.contact-h1 em{font-style:normal;color:var(--teal)}
+.contact-desc{font-size:16px;color:rgba(255,255,255,.5);line-height:1.7;max-width:380px;margin-bottom:48px}
+
+.contact-stat{margin-bottom:32px}
+.contact-stat-num{font-size:40px;font-weight:900;color:var(--white);letter-spacing:-2px;line-height:1}
+.contact-stat-num span{color:var(--teal)}
+.contact-stat-label{font-size:13px;color:rgba(255,255,255,.4);margin-top:4px}
+.contact-stat-source{font-size:11px;color:rgba(255,255,255,.2);margin-top:2px}
+
+.contact-what{margin-top:auto;padding-top:48px;border-top:1px solid rgba(255,255,255,.08)}
+.contact-what-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:16px}
+.contact-what-item{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px;color:rgba(255,255,255,.6)}
+.cwi-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+/* RIGHT PANEL */
+.contact-right{padding:72px 60px;background:var(--g50);display:flex;flex-direction:column;justify-content:center}
+.form-title{font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--g900);margin-bottom:6px}
+.form-sub{font-size:14px;color:var(--g500);margin-bottom:36px}
+
+.form-group{margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--g700);margin-bottom:6px}
+.form-input{width:100%;border:1.5px solid var(--g200);background:var(--white);color:var(--g900);font-size:14px;padding:11px 14px;border-radius:8px;outline:none;transition:border-color .15s}
+.form-input:focus{border-color:var(--teal)}
+.form-input::placeholder{color:var(--g300)}
+select.form-input{cursor:pointer}
+textarea.form-input{resize:vertical;min-height:100px;line-height:1.5}
+.form-submit{width:100%;background:var(--teal);color:var(--black);font-size:15px;font-weight:700;border:none;padding:14px;border-radius:10px;cursor:pointer;transition:background .15s;margin-top:8px}
+.form-submit:hover{background:var(--teal-d)}
+.form-note{font-size:12px;color:var(--g400);text-align:center;margin-top:14px}
+
+/* SUCCESS STATE */
+.form-success{display:none;text-align:center;padding:48px 20px}
+.form-success-icon{font-size:48px;margin-bottom:16px}
+.form-success h3{font-size:22px;font-weight:800;color:var(--g900);margin-bottom:8px}
+.form-success p{font-size:15px;color:var(--g500)}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:48px 28px 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.footer-logo{font-size:18px;font-weight:900;color:var(--white);letter-spacing:-.6px}
+.footer-logo span{color:var(--teal)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.fc-link{font-size:13px;color:rgba(255,255,255,.4);transition:color .15s}
+.fc-link:hover{color:var(--white)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.2)}
+
+@media(max-width:860px){
+  .contact-layout{grid-template-columns:1fr}
+  .contact-left{padding:48px 28px}
+  .contact-right{padding:48px 28px}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Solutions</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <a class="btn-nav-cta" href="/contact.html">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<div class="contact-layout">
+  <!-- LEFT -->
+  <div class="contact-left">
+    <div>
+      <div class="contact-eyebrow">Private beta</div>
+      <h1 class="contact-h1">Let's see if<br/>Konfident is<br/>right for <em>you.</em></h1>
+      <p class="contact-desc">We're accepting a small cohort of early merchants. Tell us about your store — we'll get back to you within 48 hours with next steps.</p>
+
+      <div class="contact-stat">
+        <div class="contact-stat-num">$<span>890</span>B</div>
+        <div class="contact-stat-label">in merchandise returned in 2024</div>
+        <div class="contact-stat-source">NRF + Happy Returns, 2024</div>
+      </div>
+      <div class="contact-stat">
+        <div class="contact-stat-num"><span>99.75</span>%</div>
+        <div class="contact-stat-label">of shoppers read reviews before buying</div>
+        <div class="contact-stat-source">PowerReviews Consumer Survey, 2023</div>
+      </div>
+      <div class="contact-stat">
+        <div class="contact-stat-num"><span>70</span>%</div>
+        <div class="contact-stat-label">average cart abandonment rate</div>
+        <div class="contact-stat-source">Baymard Institute, 2025</div>
+      </div>
+    </div>
+
+    <div class="contact-what">
+      <div class="contact-what-title">What happens next</div>
+      <div class="contact-what-item"><span class="cwi-dot"></span>We review your submission (48h)</div>
+      <div class="contact-what-item"><span class="cwi-dot"></span>A short call to understand your store (optional)</div>
+      <div class="contact-what-item"><span class="cwi-dot"></span>Guided Shopify install, live in under 10 min</div>
+      <div class="contact-what-item"><span class="cwi-dot"></span>Starter plan is free — no card needed</div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="contact-right">
+    <div id="form-wrap">
+      <div class="form-title">Tell us about your store</div>
+      <div class="form-sub">No sales pressure. We'll only reach out if there's a genuine fit.</div>
+
+      <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fname">First name *</label>
+            <input class="form-input" type="text" id="fname" name="fname" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lname">Last name *</label>
+            <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Work email *</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="jane@yourbrand.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="store">Shopify store URL *</label>
+          <input class="form-input" type="url" id="store" name="store" placeholder="https://yourbrand.myshopify.com" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="category">Product category *</label>
+            <select class="form-input" id="category" name="category" required>
+              <option value="">Select one…</option>
+              <option value="beauty">Beauty & Skincare</option>
+              <option value="apparel">Apparel & Footwear</option>
+              <option value="home">Home & Furniture</option>
+              <option value="supplements">Supplements & Wellness</option>
+              <option value="electronics">Electronics & Gadgets</option>
+              <option value="pets">Pet Products</option>
+              <option value="food">Food & Beverage</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="revenue">Monthly revenue (approx.) *</label>
+            <select class="form-input" id="revenue" name="revenue" required>
+              <option value="">Select range…</option>
+              <option value="lt50k">Under $50K/mo</option>
+              <option value="50-250k">$50K – $250K/mo</option>
+              <option value="250-1m">$250K – $1M/mo</option>
+              <option value="gt1m">Over $1M/mo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="review-platform">Current review platform *</label>
+          <select class="form-input" id="review-platform" name="review-platform" required>
+            <option value="">Select one…</option>
+            <option value="yotpo">Yotpo</option>
+            <option value="judgeme">Judge.me</option>
+            <option value="okendo">Okendo</option>
+            <option value="stamped">Stamped.io</option>
+            <option value="loox">Loox</option>
+            <option value="reviewsio">REVIEWS.io</option>
+            <option value="other">Other</option>
+            <option value="none">No review platform yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="return-rate">Approximate return rate (optional)</label>
+          <select class="form-input" id="return-rate" name="return-rate">
+            <option value="">Not sure / prefer not to say</option>
+            <option value="lt5">Under 5%</option>
+            <option value="5-15">5% – 15%</option>
+            <option value="15-25">15% – 25%</option>
+            <option value="gt25">Over 25%</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="note">Anything else? (optional)</label>
+          <textarea class="form-input" id="note" name="note" placeholder="What's prompting you to look at this? What would make Konfident valuable for your brand?"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Request early access →</button>
+        <div class="form-note">We review every submission personally and respond within 48 hours.</div>
+      </form>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="form-success-icon">✓</div>
+      <h3>Got it — we'll be in touch.</h3>
+      <p>We review every submission personally. Expect a response within 48 hours. In the meantime, <a href="/product.html" style="color:var(--teal);font-weight:600">learn more about how Konfident works</a>.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Konfident<span>·</span></div>
+    <div class="footer-links">
+      <a class="fc-link" href="/product.html">Product</a>
+      <a class="fc-link" href="/pricing.html">Pricing</a>
+      <a class="fc-link" href="/faq.html">FAQ</a>
+      <a class="fc-link" href="/about.html">About</a>
+      <a class="fc-link" href="/blog/index.html">Blog</a>
+      <a class="fc-link" href="/privacy.html">Privacy</a>
+      <a class="fc-link" href="/terms.html">Terms</a>
+    </div>
+    <div class="footer-copy">© 2025 Konfident, Inc.</div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+  form.style.opacity = '0';
+  form.style.transition = 'opacity .3s';
+  setTimeout(() => {
+    document.getElementById('form-wrap').innerHTML = '';
+    document.getElementById('form-wrap').appendChild(success);
+    success.style.display = 'block';
+  }, 300);
+}
+</script>
+</body>
+</html>

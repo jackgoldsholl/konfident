@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solutions by Merchant Type — Konfident</title>
+<meta name="description" content="Konfident works differently for each product category. See how purchase confidence signals work for beauty, apparel, home goods, supplements, and pets." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--black:#08090a;--navy:#0d1117;--navy-2:#161b22;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--teal-dim:rgba(0,201,167,.12);--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'Inter',sans-serif}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;margin-right:40px;text-decoration:none}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-links{display:flex;align-items:center}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;transition:color .15s;text-decoration:none}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px}
+.btn-nav-cta{font-size:14px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:9px 20px;border-radius:8px;text-decoration:none;display:inline-block}
+.btn-nav-cta:hover{background:var(--teal-d)}
+
+/* HERO */
+.merchant-hero{background:var(--navy);padding:80px 28px 64px;text-align:center}
+.hero-eyebrow{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.merchant-h1{font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-2px;line-height:1.05;color:var(--white);max-width:700px;margin:0 auto 20px}
+.merchant-h1 em{font-style:normal;color:var(--teal)}
+.merchant-sub{font-size:17px;color:rgba(255,255,255,.5);max-width:500px;margin:0 auto 40px}
+.category-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.cat-pill{display:inline-block;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;color:rgba(255,255,255,.5);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);transition:all .15s;text-decoration:none}
+.cat-pill:hover{color:var(--white);background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.2)}
+
+/* VERTICAL SECTIONS */
+.vertical{padding:96px 28px;scroll-margin-top:80px}
+.vertical:nth-child(even){background:var(--g50)}
+.vertical-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.vertical-inner.reverse{direction:rtl}
+.vertical-inner.reverse > *{direction:ltr}
+.v-eyebrow{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.v-h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-1.5px;color:var(--g900);margin-bottom:16px}
+.v-h2 em{font-style:normal;color:var(--teal)}
+.v-desc{font-size:15px;color:var(--g600);line-height:1.75;margin-bottom:28px}
+.v-signals-title{font-size:12px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+.v-signal-list{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.v-signal{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--g700)}
+.vs-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:7px}
+.v-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--teal);transition:gap .15s}
+.v-cta:hover{gap:12px}
+.v-stat{font-size:11px;color:var(--g400);margin-top:6px}
+.v-stat strong{color:var(--g600)}
+
+/* VISUAL WIDGET CARDS */
+.v-widget{background:var(--white);border:1.5px solid var(--g200);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.v-widget-pdp{display:grid;grid-template-columns:1fr 1fr}
+.v-widget-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:56px}
+.v-widget-details{padding:20px}
+.v-widget-product{font-size:16px;font-weight:800;color:var(--g900);margin-bottom:4px}
+.v-widget-price{font-size:20px;font-weight:900;color:var(--g900);margin-bottom:14px}
+.konfident-card{margin:0 0 0;padding:14px 16px;border-top:1px solid var(--g100)}
+.kc-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.kc-icon{width:22px;height:22px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--black);flex-shrink:0}
+.kc-title{font-size:12px;font-weight:800;color:var(--g900)}
+.kc-sub{font-size:10px;color:var(--g400)}
+.kc-signal{font-size:12px;color:var(--g600);line-height:1.5;margin-bottom:8px}
+.kc-badges{display:flex;gap:5px;flex-wrap:wrap}
+.kc-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--g50);border:1px solid var(--g200);color:var(--g500)}
+
+/* FINAL CTA */
+.merchant-cta{background:var(--navy);padding:80px 28px;text-align:center}
+.merchant-cta h2{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-2px;color:var(--white);margin-bottom:16px}
+.merchant-cta h2 em{font-style:normal;color:var(--teal)}
+.merchant-cta p{font-size:16px;color:rgba(255,255,255,.5);max-width:440px;margin:0 auto 32px}
+.cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-teal{font-size:15px;font-weight:700;color:var(--black);background:var(--teal);padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-teal:hover{background:var(--teal-d)}
+.btn-ghost{font-size:14px;font-weight:600;color:rgba(255,255,255,.6);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:13px 24px;border-radius:10px;text-decoration:none;display:inline-block}
+.btn-ghost:hover{background:rgba(255,255,255,.13);color:var(--white)}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 28px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.footer-logo{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.8px;margin-bottom:12px}
+.footer-logo span{color:var(--teal)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;max-width:220px}
+.fc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px}
+.fc-link{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .15s}
+.fc-link:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+@media(max-width:860px){.vertical-inner{grid-template-columns:1fr;gap:32px}.vertical-inner.reverse{direction:ltr}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link active" href="/merchants.html">Solutions</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <a class="btn-nav-cta" href="/contact.html">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<div class="merchant-hero">
+  <div class="hero-eyebrow">Solutions by category</div>
+  <h1 class="merchant-h1">The signals that matter<br/>are different for <em>every category.</em></h1>
+  <p class="merchant-sub">Konfident synthesizes different dimensions of your reviews depending on what shoppers actually need to know before buying your product type.</p>
+  <div class="category-nav">
+    <a href="#beauty" class="cat-pill">🧴 Beauty & Skincare</a>
+    <a href="#apparel" class="cat-pill">👗 Apparel & Footwear</a>
+    <a href="#home" class="cat-pill">🏠 Home & Furniture</a>
+    <a href="#supplements" class="cat-pill">💊 Supplements & Wellness</a>
+    <a href="#pets" class="cat-pill">🐾 Pet Products</a>
+    <a href="#electronics" class="cat-pill">⚡ Electronics</a>
+  </div>
+</div>
+
+<!-- BEAUTY -->
+<div class="vertical" id="beauty">
+  <div class="vertical-inner">
+    <div>
+      <div class="v-eyebrow" style="color:#e879a0">🧴 Beauty & Skincare</div>
+      <h2 class="v-h2">Skin type, results timeline,<br/>and <em>honest texture.</em></h2>
+      <p class="v-desc">Beauty returns are low by category — but unmet expectations around results timeline and skin type compatibility are the #1 reason shoppers hesitate before checkout. Konfident synthesizes exactly those dimensions from your existing reviews.</p>
+      <div class="v-signals-title">Signals synthesized for beauty</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Skin type compatibility (oily, dry, combination, sensitive)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Results timeline (how long before visible improvement)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Texture and finish (lightweight, heavy, matte, dewy)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Consistency of results across reviewers</div>
+        <div class="v-signal"><span class="vs-dot"></span>Scent and sensory experience</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for beauty brands →</a>
+      <div class="v-stat">Industry context: <strong>65% of online returns</strong> cite fit or expectation mismatch as the cause — beauty included. Source: DealNews consumer survey.</div>
+    </div>
+    <div>
+      <div class="v-widget">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#fef9f0,#fde8c0)">
+            <svg viewBox="0 0 90 140" width="64" height="100"><defs><linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5a623"/><stop offset="100%" stop-color="#c8760b"/></linearGradient></defs><rect x="41" y="6" width="8" height="18" rx="3" fill="#6b4f20"/><ellipse cx="45" cy="26" rx="7" ry="8" fill="#4a3518"/><rect x="30" y="34" width="30" height="84" rx="9" fill="url(#b1)"/><rect x="33" y="52" width="24" height="40" rx="3" fill="white" opacity=".9"/><rect x="35" y="56" width="20" height="2" rx="1" fill="#c8760b"/><rect x="35" y="61" width="14" height="1.5" rx="1" fill="#d4a85a"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Hydra-Glow Serum</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★★ 214 reviews</div>
+            <div class="v-widget-price">$68</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 214 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Best for dry and combination skin. Reviewers report visible results in 2–4 weeks with consistent morning and evening use. Most describe the texture as lightweight and non-greasy.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">87% confidence</span>
+            <span class="kc-badge">Dry skin ✓</span>
+            <span class="kc-badge">2–4 weeks results</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APPAREL -->
+<div class="vertical" id="apparel">
+  <div class="vertical-inner reverse">
+    <div>
+      <div class="v-eyebrow" style="color:#7c3aed">👗 Apparel & Footwear</div>
+      <h2 class="v-h2">Fit, sizing, and <em>what the fabric feels like.</em></h2>
+      <p class="v-desc">Apparel has the highest return rates of any category — driven almost entirely by fit and sizing mismatches. According to industry data, sizing problems account for the majority of avoidable apparel returns. Konfident synthesizes fit signals from your reviews so shoppers order the right size the first time.</p>
+      <div class="v-signals-title">Signals synthesized for apparel</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Sizing accuracy (runs large, true to size, runs small)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Fit profile (relaxed, structured, stretch, cropped)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Fabric feel (softness, weight, breathability)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Care and durability (wash-and-wear performance, pilling)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Body type compatibility signals from reviewers</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for apparel brands →</a>
+      <div class="v-stat">Apparel return rates consistently run <strong>above the 16.9% average</strong> across ecommerce. Source: NRF + Happy Returns 2024.</div>
+    </div>
+    <div>
+      <div class="v-widget">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#f0f4ff,#dbeafe)">
+            <svg viewBox="0 0 100 100" width="80" height="80"><rect x="30" y="10" width="40" height="50" rx="4" fill="#6366f1" opacity=".8"/><rect x="18" y="10" width="15" height="30" rx="4" fill="#6366f1" opacity=".6"/><rect x="67" y="10" width="15" height="30" rx="4" fill="#6366f1" opacity=".6"/><rect x="35" y="60" width="12" height="30" rx="3" fill="#4f46e5" opacity=".7"/><rect x="53" y="60" width="12" height="30" rx="3" fill="#4f46e5" opacity=".7"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Merino Crewneck Sweater</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★☆ 318 reviews</div>
+            <div class="v-widget-price">$135</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 318 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Reviewers consistently say it runs true to size with a relaxed but not boxy fit. Fabric feels soft, not scratchy. Most wearers prefer to size down if between sizes.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">True to size</span>
+            <span class="kc-badge">Relaxed fit</span>
+            <span class="kc-badge">Soft, not scratchy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="vertical" id="home">
+  <div class="vertical-inner">
+    <div>
+      <div class="v-eyebrow" style="color:#0d9488">🏠 Home & Furniture</div>
+      <h2 class="v-h2">Size, assembly, <em>and whether it actually holds up.</em></h2>
+      <p class="v-desc">Home goods returns happen when shoppers misjudge dimensions, assembly complexity, or product durability. Konfident synthesizes the practical, tactile signals that photos can't convey and specs don't cover.</p>
+      <div class="v-signals-title">Signals synthesized for home goods</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Assembly difficulty and time to assemble</div>
+        <div class="v-signal"><span class="vs-dot"></span>Durability and long-term quality</div>
+        <div class="v-signal"><span class="vs-dot"></span>Cushion firmness and comfort level</div>
+        <div class="v-signal"><span class="vs-dot"></span>Color accuracy vs. photos</div>
+        <div class="v-signal"><span class="vs-dot"></span>Room-fit recommendations from reviewers</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for home brands →</a>
+      <div class="v-stat"><strong>31% of returns</strong> happen because the item didn't match its description — color and dimension mismatches are common home goods culprits. Source: DealNews consumer survey.</div>
+    </div>
+    <div>
+      <div class="v-widget">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#f0faf5,#d1fae5)">
+            <svg viewBox="0 0 100 80" width="80" height="64"><rect x="10" y="30" width="80" height="30" rx="8" fill="#10b981" opacity=".7"/><rect x="5" y="54" width="14" height="20" rx="4" fill="#065f46"/><rect x="81" y="54" width="14" height="20" rx="4" fill="#065f46"/><rect x="8" y="20" width="84" height="16" rx="6" fill="#34d399" opacity=".8"/><rect x="20" y="13" width="60" height="10" rx="4" fill="#6ee7b7"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Sage 3-Seat Sofa</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★★ 89 reviews</div>
+            <div class="v-widget-price">$1,200</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 89 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Assembly takes 1–2 hours with two people. Cushions described as medium-firm. Color matches photos well. Most reviewers fit it in living rooms under 14 feet wide comfortably.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">Medium-firm cushions</span>
+            <span class="kc-badge">1–2h assembly</span>
+            <span class="kc-badge">Color accurate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPLEMENTS -->
+<div class="vertical" id="supplements">
+  <div class="vertical-inner reverse">
+    <div>
+      <div class="v-eyebrow" style="color:#d97706">💊 Supplements & Wellness</div>
+      <h2 class="v-h2">Results timeline, taste,<br/>and <em>who it actually works for.</em></h2>
+      <p class="v-desc">Supplement shoppers are often skeptical — they've been burned by products that don't deliver. Konfident synthesizes what your verified buyers report about results timeline, taste, and which use cases the product works best for.</p>
+      <div class="v-signals-title">Signals synthesized for supplements</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Results timeline (days to weeks before effect is felt)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Taste and mixability (for powders and drinks)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Use case specificity (energy, sleep, focus, recovery)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Side effects mentioned in reviews</div>
+        <div class="v-signal"><span class="vs-dot"></span>Best use timing (morning, pre-workout, before bed)</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for supplement brands →</a>
+      <div class="v-stat"><strong>82% of shoppers</strong> now read AI-generated review summaries before buying. Supplement shoppers are among the most research-intensive. Source: BrightLocal, 2026.</div>
+    </div>
+    <div>
+      <div class="v-widget">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#fffbeb,#fde68a)">
+            <svg viewBox="0 0 80 120" width="64" height="96"><defs><linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/></linearGradient></defs><rect x="22" y="10" width="36" height="90" rx="10" fill="url(#s1)"/><rect x="28" y="18" width="24" height="32" rx="3" fill="white" opacity=".9"/><rect x="30" y="22" width="20" height="2" rx="1" fill="#b45309"/><rect x="30" y="27" width="14" height="1.5" rx="1" fill="#f59e0b" opacity=".6"/><circle cx="40" cy="106" r="6" fill="#92400e"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Daily Collagen Peptides</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★★ 476 reviews</div>
+            <div class="v-widget-price">$42</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 476 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Mixes cleanly into hot or cold drinks with no clumps. Most reviewers report skin and joint improvements after 4–6 weeks of daily use. Flavor described as neutral.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">Neutral taste</span>
+            <span class="kc-badge">4–6 weeks</span>
+            <span class="kc-badge">Mixes easily</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PETS -->
+<div class="vertical" id="pets">
+  <div class="vertical-inner">
+    <div>
+      <div class="v-eyebrow" style="color:#7c3aed">🐾 Pet Products</div>
+      <h2 class="v-h2">Breed, size, and <em>whether the dog will actually use it.</em></h2>
+      <p class="v-desc">Pet product purchases involve a third party who can't weigh in — the pet. Konfident synthesizes which breeds, sizes, and personality types the product worked for, from people who already found out for you.</p>
+      <div class="v-signals-title">Signals synthesized for pet products</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Size range compatibility (breed, weight)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Pet acceptance rate (did the pet like it?)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Durability with aggressive chewers or active pets</div>
+        <div class="v-signal"><span class="vs-dot"></span>Taste palatability (for treats and supplements)</div>
+        <div class="v-signal"><span class="vs-dot"></span>Ease of cleaning and maintenance</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for pet brands →</a>
+    </div>
+    <div>
+      <div class="v-widget">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#fdf4ff,#e9d5ff)">
+            <svg viewBox="0 0 100 80" width="80" height="64"><ellipse cx="50" cy="50" rx="30" ry="20" fill="#a855f7" opacity=".7"/><ellipse cx="50" cy="34" rx="16" ry="14" fill="#9333ea" opacity=".8"/><circle cx="44" cy="28" r="4" fill="#6b21a8"/><circle cx="56" cy="28" r="4" fill="#6b21a8"/><ellipse cx="50" cy="38" rx="6" ry="4" fill="#581c87"/><ellipse cx="30" cy="24" rx="5" ry="8" fill="#a855f7" opacity=".6"/><ellipse cx="70" cy="24" rx="5" ry="8" fill="#a855f7" opacity=".6"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Orthopedic Dog Bed — Large</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★★ 142 reviews</div>
+            <div class="v-widget-price">$89</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 142 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Works best for dogs 40–85 lbs. Most dogs use it consistently from day one. Holds up well with medium chewers; reviewers with heavy chewers suggest the XL size. Easy to wash in a front-loader.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">40–85 lb dogs ✓</span>
+            <span class="kc-badge">Machine washable</span>
+            <span class="kc-badge">High adoption rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ELECTRONICS -->
+<div class="vertical" id="electronics">
+  <div class="vertical-inner reverse">
+    <div>
+      <div class="v-eyebrow" style="color:#2563eb">⚡ Electronics & Gadgets</div>
+      <h2 class="v-h2">Setup complexity, battery life,<br/>and <em>real-world compatibility.</em></h2>
+      <p class="v-desc">Electronics shoppers are technical and skeptical. Returns often happen because setup was harder than expected or the device didn't work with their existing ecosystem. Konfident synthesizes the practical setup and compatibility signals your spec sheet doesn't cover.</p>
+      <div class="v-signals-title">Signals synthesized for electronics</div>
+      <div class="v-signal-list">
+        <div class="v-signal"><span class="vs-dot"></span>Setup difficulty and time to first use</div>
+        <div class="v-signal"><span class="vs-dot"></span>Battery life accuracy vs. listed specs</div>
+        <div class="v-signal"><span class="vs-dot"></span>Device and ecosystem compatibility</div>
+        <div class="v-signal"><span class="vs-dot"></span>Durability and long-term reliability</div>
+        <div class="v-signal"><span class="vs-dot"></span>Sound/video/display quality vs. expectations</div>
+      </div>
+      <a href="/contact.html" class="v-cta">Request early access for electronics brands →</a>
+      <div class="v-stat">Electronics ecommerce return rates run <strong>15–20%</strong> — typically driven by compatibility mismatches and unmet spec expectations. Source: Appriss Retail / NRF historical data.</div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <div class="v-widget" style="width:100%">
+        <div class="v-widget-pdp">
+          <div class="v-widget-img" style="background:linear-gradient(135deg,#f0f4ff,#dbeafe)">
+            <svg viewBox="0 0 100 80" width="80" height="64"><rect x="20" y="10" width="60" height="40" rx="6" fill="#3b82f6" opacity=".8"/><rect x="25" y="15" width="50" height="30" rx="3" fill="#1e40af"/><circle cx="50" cy="58" r="6" fill="#3b82f6" opacity=".6"/><rect x="36" y="66" width="28" height="6" rx="2" fill="#93c5fd"/></svg>
+          </div>
+          <div class="v-widget-details">
+            <div class="v-widget-product">Wireless Earbuds Pro</div>
+            <div style="font-size:11px;color:#9ca3af;margin-bottom:8px">★★★★☆ 521 reviews</div>
+            <div class="v-widget-price">$129</div>
+          </div>
+        </div>
+        <div class="konfident-card">
+          <div class="kc-header">
+            <div class="kc-icon">K</div>
+            <div><div class="kc-title">Purchase Confidence</div><div class="kc-sub">Based on 521 verified reviews</div></div>
+          </div>
+          <div class="kc-signal">Setup takes under 3 minutes on iOS and Android. Reviewers average 5–6 hours of actual battery life (vs. 7h listed). Works well with Spotify and Apple Music. ANC described as strong for the price.</div>
+          <div class="kc-badges">
+            <span class="kc-badge">Easy setup</span>
+            <span class="kc-badge">~5.5h real battery</span>
+            <span class="kc-badge">iOS + Android</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="merchant-cta">
+  <h2>What category are<br/><em>you building for?</em></h2>
+  <p>We work with brands across all categories. Tell us about your store and we'll show you what signals Konfident would surface for your products.</p>
+  <div class="cta-row">
+    <a href="/contact.html" class="btn-teal">Request early access →</a>
+    <a href="/pricing.html" class="btn-ghost">See pricing</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Konfident<span>·</span></div>
+      <div class="footer-tagline">Purchase confidence for every product page.</div>
+    </div>
+    <div><div class="fc-title">Product</div><a class="fc-link" href="/product.html">How It Works</a><a class="fc-link" href="/pricing.html">Pricing</a><a class="fc-link" href="/contact.html">Request Access</a></div>
+    <div><div class="fc-title">Solutions</div><a class="fc-link" href="/merchants.html#beauty">Beauty & Skincare</a><a class="fc-link" href="/merchants.html#apparel">Apparel</a><a class="fc-link" href="/merchants.html#home">Home & Lifestyle</a><a class="fc-link" href="/merchants.html#supplements">Supplements</a><a class="fc-link" href="/merchants.html#pets">Pet Products</a></div>
+    <div><div class="fc-title">Resources</div><a class="fc-link" href="/blog/index.html">Blog</a><a class="fc-link" href="/faq.html">FAQ</a><a class="fc-link" href="/about.html">About</a><a class="fc-link" href="/contact.html">Contact</a></div>
+    <div><div class="fc-title">Legal</div><a class="fc-link" href="/privacy.html">Privacy Policy</a><a class="fc-link" href="/terms.html">Terms of Service</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Konfident, Inc. All rights reserved.</span></div>
+</footer>
+
+</body>
+</html>

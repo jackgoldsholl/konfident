@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ — Konfident</title>
+<meta name="description" content="Frequently asked questions about Konfident — how it works, pricing, integrations, and what makes it different from standard review platforms." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--black:#08090a;--navy:#0d1117;--navy-2:#161b22;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--teal-dim:rgba(0,201,167,.12);--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'Inter',sans-serif}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;margin-right:40px;text-decoration:none}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-links{display:flex;align-items:center}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;transition:color .15s;text-decoration:none}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px}
+.btn-nav-cta{font-size:14px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:9px 20px;border-radius:8px;text-decoration:none;display:inline-block}
+.btn-nav-cta:hover{background:var(--teal-d)}
+
+/* HERO */
+.faq-hero{background:var(--navy);padding:80px 28px 64px;text-align:center}
+.faq-eyebrow{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.faq-h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-2px;line-height:1.1;color:var(--white);margin-bottom:16px}
+.faq-sub{font-size:16px;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto}
+
+/* FAQ BODY */
+.faq-body{max-width:760px;margin:0 auto;padding:64px 28px}
+
+.faq-section-title{font-size:12px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin:48px 0 20px}
+.faq-section-title:first-child{margin-top:0}
+
+.faq-item{border-bottom:1px solid var(--g100)}
+.faq-q{padding:20px 0;font-size:15px;font-weight:600;color:var(--g900);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-arr{font-size:22px;color:var(--g300);flex-shrink:0;transition:transform .2s,color .15s;line-height:1}
+.faq-item.open .faq-arr{transform:rotate(45deg);color:var(--teal)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:0 0 20px;font-size:15px;color:var(--g600);line-height:1.75}
+.faq-a-inner a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.faq-a-inner strong{color:var(--g900)}
+
+/* CTA */
+.faq-cta{background:var(--g50);border-top:1px solid var(--g200);padding:64px 28px;text-align:center}
+.faq-cta h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;color:var(--g900);margin-bottom:12px}
+.faq-cta p{font-size:15px;color:var(--g500);max-width:440px;margin:0 auto 28px}
+.btn-teal{font-size:15px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s;margin-right:12px}
+.btn-teal:hover{background:var(--teal-d)}
+.btn-outline{font-size:14px;font-weight:600;color:var(--g700);background:transparent;border:1.5px solid var(--g200);padding:13px 24px;border-radius:10px;text-decoration:none;display:inline-block;transition:border-color .15s}
+.btn-outline:hover{border-color:var(--g400)}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 28px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.footer-logo{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.8px;margin-bottom:12px}
+.footer-logo span{color:var(--teal)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;max-width:220px}
+.fc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px}
+.fc-link{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .15s}
+.fc-link:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.25)}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Solutions</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-link active" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <a class="btn-nav-cta" href="/contact.html">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<div class="faq-hero">
+  <div class="faq-eyebrow">FAQ</div>
+  <h1 class="faq-h1">Common questions,<br/>honest answers.</h1>
+  <p class="faq-sub">We're in private beta and building in public. Here's everything worth knowing before you evaluate Konfident.</p>
+</div>
+
+<div class="faq-body">
+
+  <div class="faq-section-title">How it works</div>
+
+  <div class="faq-item">
+    <div class="faq-q">What exactly is a "confidence signal"? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">A confidence signal is a short, AI-synthesized statement that tells a shopper — at the moment they're deciding whether to buy — what your existing reviews say about the specific thing they're likely wondering. For a face serum, that might be: <em>"Works well for combination and dry skin. Takes 2–4 weeks to see results. 91% of reviewers would buy again."</em> It's not a summary paragraph. It's not a star rating. It's the specific, actionable signal that resolves purchase uncertainty — surfaced automatically from your existing reviews.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does Konfident replace my review platform? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No — and that's intentional. Konfident works on top of whatever you already use: <strong>Yotpo, Judge.me, Okendo, Stamped, Loox, REVIEWS.io</strong>, or any other review platform. It reads your existing reviews and synthesizes them into a confidence signal. Your reviews stay where they are. Konfident adds a layer of interpretation on top. Think of it as a translation layer between "here are 847 reviews" and "here is what those reviews mean for this shopper."</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How does Konfident access my reviews? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Through a read-only OAuth connection to your review platform. We never modify your reviews, add to them, or write back to your review platform. We read your existing reviews, synthesize the confidence signal, cache it per SKU, and serve it on your product pages. We request only the minimum permissions needed and you can revoke access at any time.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How long does setup take? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Under 10 minutes for Shopify merchants — it's a single-click install. You connect your review platform via OAuth, and confidence signals start generating immediately for products with enough review volume. No developer, no custom configuration, no onboarding call required. You're live immediately after connecting.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What happens if a product doesn't have many reviews? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">The Konfident widget activates only once a product has enough review signal to synthesize something meaningful. For products with fewer than a threshold of reviews (which varies by review quality and topic coverage), the widget stays hidden rather than showing a thin or potentially misleading summary. As your review catalog grows, more products activate automatically. You don't manage this manually — it happens on its own.</div></div>
+  </div>
+
+  <div class="faq-section-title">Signal controls</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I control which reviews power the confidence signal? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes — you have full control over your signal mode:
+      <br/><br/><strong>Positive-only:</strong> Surfaces only your strongest, most confident reviews. Maximizes purchase intent, best for products with consistently strong reviews.
+      <br/><br/><strong>Balanced (recommended for most):</strong> Includes positive reviews alongside critical context — e.g., "great for oily skin, less ideal for dry" — which tends to build more trust with skeptical shoppers without hiding legitimate concerns.
+      <br/><br/><strong>Full-spectrum:</strong> Draws from all reviews including negative and mixed ones. Useful when transparency is a core part of your brand identity. Research from BrightLocal (2026) found that 82% of consumers now read AI-generated review summaries — full-spectrum mode serves this audience well.
+      <br/><br/>You can set a default mode store-wide and override per product. Growth and Pro plans include all three modes; Starter includes positive-only.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I customize the widget's appearance? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">The widget inherits your store's theme fonts and brand colors by default, so it looks native to your product page without any configuration. Full custom styling (custom CSS, positioning, layout overrides) is available on the Pro plan. On Starter and Growth, the widget uses a clean, minimal design that works well across most Shopify themes.</div></div>
+  </div>
+
+  <div class="faq-section-title">Integrations & platforms</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Which review platforms does Konfident support? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Currently supported: <strong>Yotpo, Judge.me, Okendo, Stamped.io, Loox, REVIEWS.io,</strong> and Bazaarvoice. We're adding more review platforms regularly — <a href="/contact.html">contact us</a> if yours isn't listed and we'll tell you when it's coming.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does Konfident work on WooCommerce or BigCommerce? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Not yet. We're currently Shopify-only. WooCommerce and BigCommerce support is on the roadmap for Pro plan merchants — if this is blocking for you, <a href="/contact.html">let us know</a> and we'll prioritize based on demand.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does it work with Klaviyo? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes, on the Pro plan. The Klaviyo integration passes confidence signal events to your Klaviyo account — you can use this to trigger post-purchase flows based on whether a shopper engaged with the confidence widget before buying, segment for retention campaigns, or feed return-rate data back into your email strategy. The integration is read/write to Klaviyo event data only.</div></div>
+  </div>
+
+  <div class="faq-section-title">Pricing & plans</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is there really a free plan? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes. The Starter plan is free for up to 500 monthly orders with no credit card required. It includes the core confidence widget with positive-only signal mode and connects to your existing review platform. It's a real free tier, not a gated demo. <a href="/pricing.html">See full plan details.</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What does "purchase outcome intelligence" mean on the Pro plan? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Purchase outcome intelligence is a return prediction layer that connects your post-purchase return data to the confidence signals shown at purchase. Over time, it identifies which signals correlate with higher return rates for specific SKUs — letting Konfident refine the synthesis to weight toward review content that correlates with satisfied buyers. It's a data feedback loop that improves signal accuracy. This is optional, and your data is never shared with other merchants.</div></div>
+  </div>
+
+  <div class="faq-section-title">Privacy & security</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is my data shared with other merchants? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No. Individual merchant data — including your reviews, SKU data, return rates, and customer information — is never shared with other merchants. If you opt into the purchase outcome intelligence layer (Pro plan), your return data contributes to model improvement in anonymized, aggregated form only. The terms governing this are in our <a href="/privacy.html">Privacy Policy</a>.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Will Konfident slow down my product pages? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No. The confidence signal is pre-synthesized and cached per SKU — it loads asynchronously and doesn't block your page rendering pipeline. The widget JavaScript is lightweight by design. We built it specifically to have no measurable impact on page speed scores or Core Web Vitals, because page speed is a conversion factor in its own right and we won't win by hurting it.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What data does Konfident store? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">We store the synthesized confidence signals per SKU (not the raw reviews — those stay in your review platform), widget impression and engagement events (anonymous), and account configuration. We do not store individual shopper PII. Full details are in our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>.</div></div>
+  </div>
+
+  <div class="faq-section-title">Company & product stage</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is Konfident a real product or a landing page? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">It's a real product in private beta. The Shopify widget, review synthesis engine, dashboard, and review platform integrations are all built and functional. We're onboarding a small cohort of early merchants and collecting feedback to improve the product before a wider launch. <a href="/about.html">Read the honest version of where we are.</a></div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I know the statistics on this site are accurate? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Every statistic we cite is sourced from published third-party research — NRF, Baymard Institute, PowerReviews, BrightLocal, DealNews — and phrased as industry data, not our own results. We don't have customer case studies with verified conversion data yet (we're being explicit about that on our <a href="/about.html">About page</a>). When we have data we can stand behind, we'll publish it with full methodology.</div></div>
+  </div>
+
+</div>
+
+<div class="faq-cta">
+  <h2>Still have questions?</h2>
+  <p>We read every message personally. If something isn't covered here, ask us directly.</p>
+  <a href="/contact.html" class="btn-teal">Get in touch →</a>
+  <a href="/pricing.html" class="btn-outline">See pricing</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Konfident<span>·</span></div>
+      <div class="footer-tagline">Purchase confidence for every product page.</div>
+    </div>
+    <div><div class="fc-title">Product</div><a class="fc-link" href="/product.html">How It Works</a><a class="fc-link" href="/pricing.html">Pricing</a><a class="fc-link" href="/contact.html">Request Access</a></div>
+    <div><div class="fc-title">Solutions</div><a class="fc-link" href="/merchants.html#beauty">Beauty & Skincare</a><a class="fc-link" href="/merchants.html#apparel">Apparel</a><a class="fc-link" href="/merchants.html#home">Home & Lifestyle</a><a class="fc-link" href="/merchants.html#supplements">Supplements</a></div>
+    <div><div class="fc-title">Resources</div><a class="fc-link" href="/blog/index.html">Blog</a><a class="fc-link" href="/faq.html">FAQ</a><a class="fc-link" href="/about.html">About</a><a class="fc-link" href="/contact.html">Contact</a></div>
+    <div><div class="fc-title">Legal</div><a class="fc-link" href="/privacy.html">Privacy Policy</a><a class="fc-link" href="/terms.html">Terms of Service</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Konfident, Inc. All rights reserved.</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

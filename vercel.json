@@ -1,8 +1,27 @@
 {
   "version": 2,
-  "builds": [{ "src": "konfident.html", "use": "@vercel/static" }],
+  "builds": [
+    { "src": "**/*.html", "use": "@vercel/static" }
+  ],
   "routes": [
-    { "src": "/", "dest": "/konfident.html" },
-    { "src": "/konfident.html", "dest": "/konfident.html" }
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/product", "dest": "/product.html" },
+    { "src": "/pricing", "dest": "/pricing.html" },
+    { "src": "/merchants", "dest": "/merchants.html" },
+    { "src": "/faq", "dest": "/faq.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/privacy", "dest": "/privacy.html" },
+    { "src": "/terms", "dest": "/terms.html" },
+    { "src": "/blog", "dest": "/blog/index.html" },
+    { "src": "/blog/ecommerce-returns-2024", "dest": "/blog/ecommerce-returns-2024.html" },
+    { "src": "/blog/purchase-confidence-psychology", "dest": "/blog/purchase-confidence-psychology.html" },
+    { "src": "/blog/ai-review-synthesis", "dest": "/blog/ai-review-synthesis.html" },
+    { "src": "/blog/pdp-optimization-guide", "dest": "/blog/pdp-optimization-guide.html" },
+    { "src": "/blog/return-prevention-playbook", "dest": "/blog/return-prevention-playbook.html" },
+    { "src": "/blog/dtc-benchmarks-2024", "dest": "/blog/dtc-benchmarks-2024.html" },
+    { "src": "/blog/review-signal-vs-rating", "dest": "/blog/review-signal-vs-rating.html" },
+    { "src": "/(.*)\\.html", "dest": "/$1.html" },
+    { "src": "/(.*)", "dest": "/$1.html" }
   ]
 }

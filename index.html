@@ -1,0 +1,2724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Konfident — Purchase Confidence for Every Product Page</title>
+<meta name="description" content="Konfident synthesizes your existing reviews into a live purchase confidence signal on every product page. Higher conversion. Fewer returns. Installs in under 10 minutes." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root {
+  --black: #08090a;
+  --navy: #0d1117;
+  --navy-2: #161b22;
+  --navy-3: #1c2333;
+  --white: #ffffff;
+  --teal: #00c9a7;
+  --teal-d: #00a88d;
+  --teal-l: #e6fdf9;
+  --teal-dim: rgba(0,201,167,.12);
+  --g50: #f9fafb;
+  --g100: #f3f4f6;
+  --g200: #e5e7eb;
+  --g300: #d1d5db;
+  --g400: #9ca3af;
+  --g500: #6b7280;
+  --g600: #4b5563;
+  --g700: #374151;
+  --g900: #111827;
+  --ind: #6366f1;
+  --nav-h: 64px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--white); color: var(--g900); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: 'Inter', sans-serif; }
+img { display: block; max-width: 100%; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: sticky; top: 0; z-index: 999;
+  height: var(--nav-h);
+  background: rgba(8,9,10,.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 28px;
+  height: 100%; display: flex; align-items: center; gap: 0;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0;
+  margin-right: 40px; text-decoration: none; flex-shrink: 0;
+}
+.nav-logo-k { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.8px; }
+.nav-logo-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); margin-left: 1px; margin-bottom: 6px; }
+.nav-links { display: flex; align-items: center; gap: 0; }
+.nav-link {
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,.6);
+  padding: 8px 14px; border-radius: 7px;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--white); background: rgba(255,255,255,.07); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn-ghost-nav {
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.7);
+  background: none; border: none; padding: 8px 14px; border-radius: 7px;
+  transition: color .15s, background .15s;
+}
+.btn-ghost-nav:hover { color: var(--white); background: rgba(255,255,255,.07); }
+.btn-nav-cta {
+  font-size: 14px; font-weight: 700; color: var(--black);
+  background: var(--teal); border: none;
+  padding: 9px 20px; border-radius: 8px;
+  transition: background .15s, transform .1s;
+  white-space: nowrap;
+}
+.btn-nav-cta:hover { background: var(--teal-d); }
+.btn-nav-cta:active { transform: scale(.97); }
+
+/* ============================================================
+   ANNOUNCEMENT STRIP
+   ============================================================ */
+.ann {
+  background: var(--teal-dim);
+  border-bottom: 1px solid rgba(0,201,167,.2);
+  text-align: center; padding: 10px 20px;
+  font-size: 13px; font-weight: 500; color: var(--teal);
+}
+.ann strong { color: var(--teal); }
+.ann a { color: var(--teal); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: var(--navy);
+  padding: 80px 20px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -5%, rgba(0,201,167,.18) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 80% 60%, rgba(99,102,241,.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--teal-dim);
+  border: 1px solid rgba(0,201,167,.3);
+  color: var(--teal); font-size: 12px; font-weight: 700;
+  padding: 5px 14px; border-radius: 999px; margin-bottom: 28px;
+  letter-spacing: .2px;
+}
+.hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.hero-h1 {
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 900; letter-spacing: -2px; line-height: 1.05;
+  color: var(--white); max-width: 820px; margin: 0 auto 22px;
+}
+.hero-h1 em { font-style: normal; color: var(--teal); }
+.hero-sub {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: rgba(255,255,255,.55); line-height: 1.7;
+  max-width: 540px; margin: 0 auto 38px;
+}
+.hero-ctas { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.btn-hero-primary {
+  font-size: 15px; font-weight: 700; color: var(--black);
+  background: var(--teal); border: none;
+  padding: 15px 32px; border-radius: 10px;
+  transition: background .15s, transform .1s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-hero-primary:hover { background: var(--teal-d); }
+.btn-hero-primary:active { transform: scale(.98); }
+.btn-hero-secondary {
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  padding: 14px 28px; border-radius: 10px;
+  transition: background .15s, border-color .15s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-hero-secondary:hover { background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.25); }
+.hero-sub-note { font-size: 12.5px; color: rgba(255,255,255,.3); margin-bottom: 56px; }
+
+/* HERO WIDGET MOCKUP */
+.hero-mockup-wrap {
+  max-width: 860px; margin: 0 auto;
+  position: relative;
+}
+.hero-mockup {
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(255,255,255,.1);
+  border-bottom: none;
+  box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.3);
+  overflow: hidden;
+  text-align: left;
+}
+.hm-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+}
+.hm-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.hm-dot-r { background: #ff5f57; }
+.hm-dot-y { background: #ffbd2e; }
+.hm-dot-g { background: #28c840; }
+.hm-url {
+  flex: 1; text-align: center; font-size: 11px; color: #6b7280;
+  background: #e5e7eb; border-radius: 5px; padding: 3px 12px; max-width: 280px; margin: 0 auto;
+}
+.hm-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.hm-left {
+  padding: 28px 24px;
+  border-right: 1px solid #e5e7eb;
+}
+.hm-product-img {
+  width: 100%; aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0fdf9 0%, #ccfbf1 100%);
+  border-radius: 10px; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52px;
+}
+.hm-right { padding: 28px 24px; }
+.hm-breadcrumb { font-size: 10px; color: #9ca3af; margin-bottom: 10px; }
+.hm-product-name { font-size: 18px; font-weight: 800; color: #0d1117; line-height: 1.3; margin-bottom: 6px; }
+.hm-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+.hm-stars { color: #f59e0b; font-size: 13px; letter-spacing: 1px; }
+.hm-rating-count { font-size: 12px; color: #6b7280; }
+.hm-price { font-size: 26px; font-weight: 900; color: #0d1117; margin-bottom: 6px; }
+.hm-price-sub { font-size: 11px; color: #9ca3af; margin-bottom: 18px; }
+
+/* THE KONFIDENT WIDGET */
+.konfident-widget {
+  background: linear-gradient(135deg, #f0fdf9 0%, #e6fdf9 100%);
+  border: 1.5px solid #00c9a7;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.kw-header { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+.kw-badge {
+  font-size: 9px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase;
+  color: #00a88d; background: rgba(0,201,167,.15);
+  padding: 3px 8px; border-radius: 4px;
+}
+.kw-label { font-size: 11px; color: #374151; font-weight: 500; }
+.kw-summary { font-size: 13px; color: #0d1117; line-height: 1.55; font-weight: 500; margin-bottom: 10px; }
+.kw-signals { display: flex; flex-wrap: wrap; gap: 5px; }
+.kw-signal {
+  font-size: 10px; font-weight: 600; color: #00a88d;
+  background: rgba(0,201,167,.1); border: 1px solid rgba(0,201,167,.2);
+  padding: 3px 9px; border-radius: 5px;
+}
+.kw-powered {
+  position: absolute; bottom: 8px; right: 10px;
+  font-size: 9px; color: #9ca3af; font-weight: 500;
+}
+
+.hm-size-row { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.hm-size {
+  width: 36px; height: 36px; border-radius: 6px;
+  border: 1.5px solid #e5e7eb; font-size: 12px; font-weight: 600;
+  color: #374151; display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.hm-size.selected { border-color: #0d1117; background: #0d1117; color: #fff; }
+.hm-atc {
+  width: 100%; padding: 13px; background: #0d1117; color: #fff;
+  font-size: 14px; font-weight: 700; border: none; border-radius: 9px;
+  cursor: pointer; margin-bottom: 8px;
+}
+.hm-atc-secondary {
+  width: 100%; padding: 12px; background: transparent; color: #374151;
+  font-size: 13px; font-weight: 600; border: 1.5px solid #e5e7eb; border-radius: 9px; cursor: pointer;
+}
+
+/* ============================================================
+   SOCIAL PROOF BAR
+   ============================================================ */
+.proof-bar {
+  background: var(--g50);
+  border-bottom: 1px solid var(--g200);
+  padding: 28px 20px;
+  text-align: center;
+}
+.proof-bar-label { font-size: 12px; font-weight: 600; color: var(--g400); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 20px; }
+.proof-logos { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+.proof-logo {
+  padding: 10px 20px;
+  font-size: 14px; font-weight: 700; color: var(--g400);
+  letter-spacing: -.3px;
+  white-space: nowrap;
+  border-right: 1px solid var(--g200);
+  transition: color .15s;
+}
+.proof-logo:last-child { border-right: none; }
+.proof-logo:hover { color: var(--g700); }
+.proof-logo span { font-weight: 400; }
+
+/* ============================================================
+   SECTION SHARED
+   ============================================================ */
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .8px;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
+}
+.section-h2 {
+  font-size: clamp(28px, 3.5vw, 42px); font-weight: 900;
+  letter-spacing: -1px; line-height: 1.15; color: var(--black);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 17px; color: var(--g500); line-height: 1.7; max-width: 540px;
+}
+
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+.problem {
+  padding: 100px 20px;
+  background: var(--white);
+}
+.problem-inner { max-width: 1100px; margin: 0 auto; }
+.problem-top { text-align: center; margin-bottom: 64px; }
+.problem-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 64px; }
+.problem-col {
+  background: var(--g50);
+  border: 1px solid var(--g200);
+  border-radius: 16px;
+  padding: 36px 36px 32px;
+}
+.problem-col.dark {
+  background: var(--navy);
+  border-color: rgba(255,255,255,.08);
+}
+.pc-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 20px;
+}
+.pc-tag.merchant { background: var(--g200); color: var(--g600); }
+.pc-tag.shopper { background: var(--teal-dim); color: var(--teal); }
+.pc-headline {
+  font-size: 20px; font-weight: 800; line-height: 1.4;
+  color: var(--black); margin-bottom: 16px;
+}
+.problem-col.dark .pc-headline { color: var(--white); }
+.pc-body { font-size: 15px; color: var(--g500); line-height: 1.7; }
+.problem-col.dark .pc-body { color: rgba(255,255,255,.5); }
+.pc-stat {
+  margin-top: 24px; padding-top: 24px;
+  border-top: 1px solid var(--g200);
+  display: flex; align-items: center; gap: 14px;
+}
+.problem-col.dark .pc-stat { border-top-color: rgba(255,255,255,.1); }
+.pc-stat-num { font-size: 32px; font-weight: 900; letter-spacing: -1px; color: var(--teal); line-height: 1; }
+.pc-stat-label { font-size: 13px; color: var(--g500); line-height: 1.5; }
+.problem-col.dark .pc-stat-label { color: rgba(255,255,255,.4); }
+
+.problem-bridge {
+  background: linear-gradient(135deg, var(--teal-dim) 0%, rgba(99,102,241,.08) 100%);
+  border: 1px solid rgba(0,201,167,.2);
+  border-radius: 16px; padding: 36px 40px;
+  display: flex; align-items: center; gap: 40px;
+}
+.bridge-icon { font-size: 48px; flex-shrink: 0; }
+.bridge-text h3 {
+  font-size: 22px; font-weight: 800; color: var(--black);
+  letter-spacing: -.5px; margin-bottom: 8px;
+}
+.bridge-text p { font-size: 15px; color: var(--g500); line-height: 1.7; }
+.bridge-cta {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 14px; font-weight: 700; color: var(--black);
+  background: var(--teal); border: none;
+  padding: 12px 24px; border-radius: 9px;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.bridge-cta:hover { background: var(--teal-d); }
+
+/* ============================================================
+   HOW IT WORKS
+   ============================================================ */
+.how {
+  background: var(--navy);
+  padding: 100px 20px;
+  position: relative; overflow: hidden;
+}
+.how::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,201,167,.3), transparent);
+}
+.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-top { text-align: center; margin-bottom: 72px; }
+.how-top .section-h2 { color: var(--white); }
+.how-top .section-sub { color: rgba(255,255,255,.45); margin: 0 auto; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 40px; }
+.step {
+  background: var(--navy-2);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px;
+  padding: 32px 28px;
+  position: relative;
+}
+.step-num {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--teal-dim); border: 1px solid rgba(0,201,167,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800; color: var(--teal);
+  margin-bottom: 20px;
+}
+.step-icon { font-size: 28px; margin-bottom: 16px; }
+.step-title { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.step-desc { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.65; }
+.step-connector {
+  position: absolute; top: 48px; right: -18px;
+  font-size: 20px; color: rgba(0,201,167,.3); z-index: 2;
+}
+
+.step-4 {
+  background: linear-gradient(135deg, var(--teal-dim) 0%, rgba(99,102,241,.1) 100%);
+  border: 1px solid rgba(0,201,167,.25);
+  border-radius: 14px; padding: 28px 32px;
+  display: flex; align-items: center; gap: 28px;
+}
+.step-4-badge {
+  flex-shrink: 0;
+  background: rgba(0,201,167,.15); border: 1px solid rgba(0,201,167,.25);
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 11px; font-weight: 700; color: var(--teal);
+  letter-spacing: .3px; text-align: center; line-height: 1.4;
+  white-space: nowrap;
+}
+.step-4-content h4 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.step-4-content p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.6; }
+
+/* ============================================================
+   DEMO SECTION
+   ============================================================ */
+.demo {
+  padding: 100px 20px;
+  background: var(--g50);
+}
+.demo-inner { max-width: 1100px; margin: 0 auto; }
+.demo-top { text-align: center; margin-bottom: 64px; }
+.demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.demo-card {
+  background: var(--white);
+  border: 1px solid var(--g200);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.06);
+  transition: box-shadow .2s, transform .2s;
+}
+.demo-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-2px); }
+.demo-card-header {
+  padding: 20px 20px 16px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid var(--g100);
+}
+.demo-card-emoji { font-size: 28px; }
+.demo-card-meta {}
+.demo-card-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--g400); margin-bottom: 2px; }
+.demo-card-name { font-size: 14px; font-weight: 700; color: var(--black); }
+.demo-card-body { padding: 18px 20px 20px; }
+
+/* Widget in demo card */
+.demo-widget {
+  background: linear-gradient(135deg, #f0fdf9, #e6fdf9);
+  border: 1.5px solid #00c9a7;
+  border-radius: 9px; padding: 14px 16px;
+}
+.dw-header { display: flex; align-items: center; gap: 7px; margin-bottom: 8px; }
+.dw-badge {
+  font-size: 9px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase;
+  color: #007a65; background: rgba(0,201,167,.15); padding: 3px 7px; border-radius: 4px;
+}
+.dw-name { font-size: 11px; color: #374151; font-weight: 500; }
+.dw-summary { font-size: 13px; font-weight: 500; color: #0d1117; line-height: 1.55; margin-bottom: 10px; }
+.dw-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.dw-chip {
+  font-size: 10px; font-weight: 600; color: #00a88d;
+  background: rgba(0,201,167,.1); border: 1px solid rgba(0,201,167,.2);
+  padding: 3px 8px; border-radius: 4px;
+}
+.dw-footer { font-size: 10px; color: #9ca3af; text-align: right; }
+.demo-card-note {
+  margin-top: 12px; font-size: 11px; color: var(--g400);
+  font-style: italic; line-height: 1.5;
+}
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+.benefits {
+  padding: 100px 20px;
+  background: var(--white);
+}
+.benefits-inner { max-width: 1100px; margin: 0 auto; }
+.benefits-top { text-align: center; margin-bottom: 64px; }
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.benefit-card {
+  padding: 36px 32px;
+  background: var(--g50);
+  border: 1px solid var(--g200);
+  border-radius: 16px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.benefit-card:hover {
+  border-color: rgba(0,201,167,.3);
+  box-shadow: 0 8px 32px rgba(0,201,167,.08);
+}
+.benefit-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--teal-dim); border: 1px solid rgba(0,201,167,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 22px;
+}
+.benefit-title { font-size: 18px; font-weight: 800; color: var(--black); margin-bottom: 10px; letter-spacing: -.3px; }
+.benefit-desc { font-size: 14.5px; color: var(--g500); line-height: 1.7; }
+
+/* ============================================================
+   STATS BAND
+   ============================================================ */
+.stats-band {
+  background: var(--navy);
+  padding: 72px 20px;
+  position: relative; overflow: hidden;
+}
+.stats-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,201,167,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-band-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.stats-band-label { font-size: 12px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 48px; }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.stat-item { padding: 20px 24px; position: relative; }
+.stat-item:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 20%; height: 60%;
+  width: 1px; background: rgba(255,255,255,.07);
+}
+.stat-num {
+  font-size: clamp(36px, 5vw, 56px); font-weight: 900; letter-spacing: -2px;
+  color: var(--teal); line-height: 1; margin-bottom: 8px;
+}
+.stat-desc { font-size: 14px; color: rgba(255,255,255,.4); line-height: 1.5; max-width: 180px; margin: 0 auto; }
+.stats-source { margin-top: 40px; font-size: 11px; color: rgba(255,255,255,.2); }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing {
+  padding: 100px 20px;
+  background: var(--g50);
+}
+.pricing-inner { max-width: 1060px; margin: 0 auto; }
+.pricing-top { text-align: center; margin-bottom: 56px; }
+.pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.pc-card {
+  background: var(--white); border: 1.5px solid var(--g200);
+  border-radius: 18px; padding: 30px 28px;
+  position: relative; transition: box-shadow .2s;
+}
+.pc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+.pc-card.featured {
+  background: var(--navy); border-color: var(--navy);
+  box-shadow: 0 20px 60px rgba(8,9,10,.25);
+}
+.pc-card.featured:hover { box-shadow: 0 24px 72px rgba(8,9,10,.35); }
+.pc-popular {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: var(--black);
+  font-size: 10px; font-weight: 800; letter-spacing: .3px; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 999px; white-space: nowrap;
+}
+.pc-tier { font-size: 11px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--g400); margin-bottom: 8px; }
+.pc-card.featured .pc-tier { color: rgba(255,255,255,.4); }
+.pc-price { font-size: 42px; font-weight: 900; letter-spacing: -2px; line-height: 1; color: var(--black); margin-bottom: 3px; }
+.pc-card.featured .pc-price { color: var(--white); }
+.pc-price sup { font-size: 20px; font-weight: 600; vertical-align: super; letter-spacing: 0; }
+.pc-period { font-size: 13px; color: var(--g400); margin-bottom: 6px; }
+.pc-card.featured .pc-period { color: rgba(255,255,255,.3); }
+.pc-orders {
+  font-size: 12px; font-weight: 600; color: var(--g500);
+  background: var(--g50); padding: 4px 10px; border-radius: 6px;
+  display: inline-block; margin-bottom: 18px;
+}
+.pc-card.featured .pc-orders { background: rgba(255,255,255,.08); color: rgba(255,255,255,.4); }
+.pc-desc {
+  font-size: 13px; color: var(--g500); line-height: 1.6;
+  padding-bottom: 18px; margin-bottom: 18px;
+  border-bottom: 1px solid var(--g100);
+}
+.pc-card.featured .pc-desc { color: rgba(255,255,255,.4); border-color: rgba(255,255,255,.08); }
+.pc-feats { display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+.pc-feat { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--g700); line-height: 1.45; }
+.pc-card.featured .pc-feat { color: rgba(255,255,255,.7); }
+.pc-check { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.pc-card.featured .pc-check { color: var(--teal); }
+.pc-dash { color: var(--g300); flex-shrink: 0; }
+.pc-btn {
+  width: 100%; padding: 13px; border-radius: 9px;
+  font-size: 14px; font-weight: 700; border: none;
+  transition: background .15s;
+}
+.pc-btn-outline {
+  background: none; border: 1.5px solid var(--g200); color: var(--g700);
+}
+.pc-btn-outline:hover { border-color: var(--g400); color: var(--g900); }
+.pc-btn-teal { background: var(--teal); color: var(--black); }
+.pc-btn-teal:hover { background: var(--teal-d); }
+.pricing-note { margin-top: 28px; text-align: center; font-size: 13px; color: var(--g400); }
+.pricing-note a { color: var(--teal); font-weight: 600; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  padding: 100px 20px;
+  background: var(--white);
+}
+.faq-inner { max-width: 760px; margin: 0 auto; }
+.faq-top { text-align: center; margin-bottom: 56px; }
+.faq-item { border-bottom: 1px solid var(--g200); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 22px 0; cursor: pointer; user-select: none;
+  font-size: 16px; font-weight: 700; color: var(--black);
+}
+.faq-q .faq-arr { font-size: 20px; color: var(--g400); transition: transform .2s, color .2s; flex-shrink: 0; }
+.faq-item.open .faq-arr { transform: rotate(45deg); color: var(--teal); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.faq-a-inner { padding-bottom: 20px; font-size: 15px; color: var(--g500); line-height: 1.75; }
+.faq-item.open .faq-a { max-height: 300px; }
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta {
+  background: var(--navy);
+  padding: 120px 20px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(0,201,167,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta-inner { max-width: 700px; margin: 0 auto; position: relative; }
+.final-cta h2 {
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 900; letter-spacing: -1.5px; line-height: 1.1;
+  color: var(--white); margin-bottom: 20px;
+}
+.final-cta h2 em { font-style: normal; color: var(--teal); }
+.final-cta p {
+  font-size: 17px; color: rgba(255,255,255,.45);
+  line-height: 1.7; margin-bottom: 40px;
+}
+.final-cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.btn-final {
+  font-size: 16px; font-weight: 700; color: var(--black);
+  background: var(--teal); border: none;
+  padding: 16px 36px; border-radius: 10px;
+  transition: background .15s, transform .1s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-final:hover { background: var(--teal-d); }
+.btn-final:active { transform: scale(.98); }
+.btn-final-ghost {
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.5);
+  background: none; border: none; text-decoration: underline;
+  text-underline-offset: 3px; transition: color .15s;
+}
+.btn-final-ghost:hover { color: rgba(255,255,255,.8); }
+.final-note { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,.25); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 56px 20px 36px;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: flex; align-items: flex-start; gap: 60px; margin-bottom: 48px; flex-wrap: wrap; }
+.footer-brand { flex: 0 0 auto; }
+.footer-logo { font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: -0.8px; margin-bottom: 10px; }
+.footer-logo span { color: var(--teal); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,.3); max-width: 220px; line-height: 1.6; }
+.footer-links { display: flex; gap: 60px; flex-wrap: wrap; flex: 1; }
+.footer-col {}
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 14px; }
+.footer-link { display: block; font-size: 14px; color: rgba(255,255,255,.45); margin-bottom: 9px; transition: color .15s; }
+.footer-link:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 28px; border-top: 1px solid rgba(255,255,255,.06);
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 13px; color: rgba(255,255,255,.2); }
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { font-size: 13px; color: rgba(255,255,255,.2); transition: color .15s; }
+.footer-legal a:hover { color: rgba(255,255,255,.5); }
+
+/* ============================================================
+   NAV MEGA-MENU
+   ============================================================ */
+.nav-item { position: relative; }
+.nav-link-btn {
+  font-size: 14px; font-weight: 500; color: rgba(255,255,255,.6);
+  padding: 8px 14px; border-radius: 7px;
+  transition: color .15s, background .15s;
+  white-space: nowrap; background: none; border: none;
+  display: flex; align-items: center; gap: 5px; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.nav-link-btn:hover, .nav-item:hover .nav-link-btn { color: var(--white); background: rgba(255,255,255,.07); }
+.nav-chevron { font-size: 9px; opacity: .5; transition: transform .2s; }
+.nav-item:hover .nav-chevron { transform: rotate(180deg); }
+.nav-dd {
+  position: absolute; top: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #111827; border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px; padding: 8px;
+  min-width: 240px; opacity: 0; visibility: hidden;
+  transition: opacity .18s, transform .18s, visibility .18s;
+  pointer-events: none; z-index: 200;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.nav-dd-wide { min-width: 480px; display: grid; grid-template-columns: 1fr 1fr; }
+.nav-item:hover .nav-dd { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.nav-dd-item {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 10px 12px; border-radius: 9px; text-decoration: none;
+  transition: background .12s; cursor: pointer;
+}
+.nav-dd-item:hover { background: rgba(255,255,255,.06); }
+.nav-dd-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(0,201,167,.12); border: 1px solid rgba(0,201,167,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.nav-dd-text { padding-top: 1px; }
+.nav-dd-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); line-height: 1.3; margin-bottom: 2px; }
+.nav-dd-sub { font-size: 11px; color: rgba(255,255,255,.35); line-height: 1.4; }
+.nav-dd-divider { height: 1px; background: rgba(255,255,255,.07); margin: 6px 4px; grid-column: 1/-1; }
+
+/* ============================================================
+   LOGO MARQUEE
+   ============================================================ */
+.marquee-wrap { background: var(--g50); border-bottom: 1px solid var(--g200); padding: 0; overflow: hidden; }
+.marquee-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--g400); padding: 22px 20px 14px; }
+.marquee-track { display: flex; overflow: hidden; padding-bottom: 22px; }
+.marquee-inner { display: flex; gap: 0; animation: marquee 28s linear infinite; white-space: nowrap; }
+.marquee-inner:hover { animation-play-state: paused; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-logo {
+  padding: 8px 28px; font-size: 14px; font-weight: 700;
+  color: var(--g400); border-right: 1px solid var(--g200);
+  white-space: nowrap; transition: color .15s; flex-shrink: 0;
+}
+.marquee-logo:hover { color: var(--g700); }
+
+/* ============================================================
+   VERTICAL TABS (BY INDUSTRY)
+   ============================================================ */
+.verticals { padding: 100px 20px; background: var(--white); }
+.verticals-inner { max-width: 1100px; margin: 0 auto; }
+.verticals-top { text-align: center; margin-bottom: 56px; }
+.vert-tabs { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.vert-tab {
+  font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 999px;
+  border: 1.5px solid var(--g200); color: var(--g500); background: var(--white);
+  cursor: pointer; transition: all .15s;
+}
+.vert-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.vert-tab:hover:not(.active) { border-color: var(--g400); color: var(--g900); }
+.vert-panel { display: none; }
+.vert-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.vert-content {}
+.vert-tag {
+  display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .6px;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 6px;
+  background: var(--teal-dim); color: var(--teal); margin-bottom: 18px;
+}
+.vert-h3 { font-size: 28px; font-weight: 900; letter-spacing: -.7px; color: var(--black); margin-bottom: 14px; line-height: 1.25; }
+.vert-desc { font-size: 15px; color: var(--g500); line-height: 1.75; margin-bottom: 24px; }
+.vert-stats { display: flex; gap: 32px; margin-bottom: 28px; }
+.vert-stat-num { font-size: 30px; font-weight: 900; letter-spacing: -1px; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+.vert-stat-label { font-size: 12px; color: var(--g500); line-height: 1.4; }
+.vert-cta {
+  font-size: 14px; font-weight: 700; color: var(--black);
+  background: var(--teal); border: none; padding: 12px 24px;
+  border-radius: 9px; transition: background .15s;
+}
+.vert-cta:hover { background: var(--teal-d); }
+.vert-widget-preview {
+  background: var(--g50); border: 1px solid var(--g200);
+  border-radius: 16px; padding: 28px; box-shadow: 0 8px 32px rgba(0,0,0,.06);
+}
+.vwp-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.vwp-emoji { font-size: 32px; }
+.vwp-name { font-size: 15px; font-weight: 700; color: var(--black); }
+.vwp-cat { font-size: 11px; color: var(--g400); }
+.vwp-widget {
+  background: linear-gradient(135deg, #f0fdf9, #e6fdf9);
+  border: 1.5px solid var(--teal); border-radius: 10px; padding: 16px;
+}
+.vwp-badge-row { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; }
+.vwp-badge { font-size: 9px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; color: #007a65; background: rgba(0,201,167,.15); padding: 3px 8px; border-radius: 4px; }
+.vwp-label { font-size: 11px; color: var(--g600); }
+.vwp-summary { font-size: 13.5px; font-weight: 500; color: var(--black); line-height: 1.6; margin-bottom: 12px; }
+.vwp-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.vwp-chip { font-size: 10px; font-weight: 600; color: #00a88d; background: rgba(0,201,167,.1); border: 1px solid rgba(0,201,167,.2); padding: 3px 9px; border-radius: 5px; }
+.vwp-note { font-size: 10px; color: var(--g400); text-align: right; }
+
+/* ============================================================
+   BENTO FEATURE GRID
+   ============================================================ */
+.bento { padding: 100px 20px; background: var(--g50); }
+.bento-inner { max-width: 1100px; margin: 0 auto; }
+.bento-top { text-align: center; margin-bottom: 56px; }
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.bento-card {
+  background: var(--white); border: 1px solid var(--g200);
+  border-radius: 18px; padding: 32px 28px;
+  transition: box-shadow .2s, border-color .2s;
+  overflow: hidden; position: relative;
+}
+.bento-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.08); border-color: rgba(0,201,167,.2); }
+.bento-card.dark { background: var(--navy); border-color: rgba(255,255,255,.07); }
+.bento-card.span2 { grid-column: span 2; }
+.bento-card.tall { grid-row: span 2; }
+.bento-icon { font-size: 28px; margin-bottom: 18px; }
+.bento-title { font-size: 18px; font-weight: 800; color: var(--black); margin-bottom: 8px; letter-spacing: -.3px; }
+.bento-card.dark .bento-title { color: var(--white); }
+.bento-desc { font-size: 14px; color: var(--g500); line-height: 1.65; }
+.bento-card.dark .bento-desc { color: rgba(255,255,255,.4); }
+.bento-stat { font-size: 42px; font-weight: 900; letter-spacing: -2px; color: var(--teal); line-height: 1; margin-top: 20px; }
+.bento-stat-label { font-size: 12px; color: rgba(255,255,255,.35); margin-top: 4px; }
+.bento-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.bento-tag {
+  font-size: 11px; font-weight: 600; padding: 5px 11px;
+  border-radius: 7px; background: var(--teal-dim);
+  color: var(--teal); border: 1px solid rgba(0,201,167,.2);
+}
+.bento-card.dark .bento-tag { background: rgba(255,255,255,.07); color: rgba(255,255,255,.5); border-color: rgba(255,255,255,.1); }
+.bento-glow {
+  position: absolute; bottom: -40px; right: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,201,167,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   INTEGRATION SHOWCASE
+   ============================================================ */
+.integrations-section { padding: 100px 20px; background: var(--white); }
+.integrations-inner { max-width: 1100px; margin: 0 auto; }
+.integrations-top { text-align: center; margin-bottom: 56px; }
+.int-cats { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+.int-cat-btn {
+  font-size: 13px; font-weight: 600; padding: 7px 18px;
+  border-radius: 999px; border: 1.5px solid var(--g200);
+  color: var(--g500); background: var(--white); cursor: pointer; transition: all .15s;
+}
+.int-cat-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.int-cat-btn:hover:not(.active) { border-color: var(--g400); color: var(--g700); }
+.int-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.int-card {
+  background: var(--g50); border: 1px solid var(--g200); border-radius: 14px;
+  padding: 20px 18px; display: flex; align-items: center; gap: 12px;
+  transition: box-shadow .15s, border-color .15s, transform .15s; cursor: default;
+}
+.int-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: rgba(0,201,167,.25); transform: translateY(-1px); }
+.int-icon { font-size: 24px; flex-shrink: 0; }
+.int-name { font-size: 13px; font-weight: 700; color: var(--black); }
+.int-category { font-size: 11px; color: var(--g400); margin-top: 1px; }
+.int-panel { display: none; }
+.int-panel.active { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.int-cta-card {
+  background: linear-gradient(135deg, var(--teal-dim), rgba(99,102,241,.08));
+  border: 1px solid rgba(0,201,167,.2); border-radius: 14px;
+  padding: 20px 18px; display: flex; flex-direction: column;
+  justify-content: center; align-items: flex-start; gap: 8px;
+}
+.int-cta-num { font-size: 28px; font-weight: 900; color: var(--teal); letter-spacing: -1px; }
+.int-cta-label { font-size: 12px; font-weight: 600; color: var(--g500); }
+.int-cta-link { font-size: 12px; font-weight: 700; color: var(--teal); }
+
+/* ============================================================
+   COMPARISON TABLE
+   ============================================================ */
+.compare-section { padding: 100px 20px; background: var(--g50); }
+.compare-section-inner { max-width: 900px; margin: 0 auto; }
+.compare-top { text-align: center; margin-bottom: 56px; }
+.compare-table-wrap { border: 1px solid var(--g200); border-radius: 16px; overflow: hidden; background: var(--white); }
+.compare-table { width: 100%; border-collapse: collapse; }
+.compare-table thead tr { background: var(--navy); }
+.compare-table thead th { padding: 16px 20px; text-align: center; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5); }
+.compare-table thead th:first-child { text-align: left; width: 40%; }
+.compare-table thead th.col-konfident { color: var(--teal); font-size: 14px; }
+.compare-table tbody tr { border-bottom: 1px solid var(--g100); transition: background .12s; }
+.compare-table tbody tr:last-child { border-bottom: none; }
+.compare-table tbody tr:hover td { background: var(--g50); }
+.compare-table tbody td { padding: 15px 20px; font-size: 13px; color: var(--g700); text-align: center; }
+.compare-table tbody td:first-child { text-align: left; font-weight: 600; color: var(--g900); }
+.compare-table tbody tr.section-row td { background: var(--g50); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--g400); padding: 10px 20px; }
+.c-yes { color: var(--teal); font-size: 16px; font-weight: 700; }
+.c-no { color: var(--g300); font-size: 16px; }
+.c-partial { color: #f59e0b; font-size: 12px; font-weight: 600; }
+
+/* ============================================================
+   ROI CALCULATOR
+   ============================================================ */
+.roi-section { padding: 100px 20px; background: var(--navy); position: relative; overflow: hidden; }
+.roi-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(0,201,167,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.roi-inner { max-width: 900px; margin: 0 auto; position: relative; }
+.roi-top { text-align: center; margin-bottom: 56px; }
+.roi-top .section-h2 { color: var(--white); }
+.roi-top .section-sub { color: rgba(255,255,255,.4); margin: 0 auto; }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.roi-inputs { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 32px; }
+.roi-inputs h4 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 24px; }
+.roi-field { margin-bottom: 20px; }
+.roi-field label { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.6); margin-bottom: 7px; }
+.roi-field input[type=range] { width: 100%; accent-color: var(--teal); cursor: pointer; }
+.roi-field .roi-val { font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -.5px; }
+.roi-results { background: linear-gradient(135deg, rgba(0,201,167,.12), rgba(99,102,241,.08)); border: 1px solid rgba(0,201,167,.2); border-radius: 16px; padding: 32px; }
+.roi-results h4 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 28px; }
+.roi-result-item { margin-bottom: 24px; }
+.roi-result-num { font-size: 38px; font-weight: 900; letter-spacing: -1.5px; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+.roi-result-label { font-size: 13px; color: rgba(255,255,255,.45); }
+.roi-result-item + .roi-result-item { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.07); }
+.roi-disclaimer { margin-top: 20px; font-size: 11px; color: rgba(255,255,255,.2); line-height: 1.6; }
+
+/* ============================================================
+   RESOURCES / BLOG
+   ============================================================ */
+.resources { padding: 100px 20px; background: var(--white); }
+.resources-inner { max-width: 1100px; margin: 0 auto; }
+.resources-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+.resources-cta-link { font-size: 14px; font-weight: 600; color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+.resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.resource-card {
+  border: 1px solid var(--g200); border-radius: 16px; overflow: hidden;
+  background: var(--white); transition: box-shadow .2s, transform .15s;
+  text-decoration: none; display: flex; flex-direction: column;
+}
+.resource-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.09); transform: translateY(-2px); }
+.resource-card-img {
+  height: 160px; display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+}
+.rc-img-1 { background: linear-gradient(135deg, #f0fdf9, #ccfbf1); }
+.rc-img-2 { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+.rc-img-3 { background: linear-gradient(135deg, #fdf4ff, #fae8ff); }
+.resource-card-body { padding: 22px; flex: 1; }
+.rc-cat { font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.rc-title { font-size: 16px; font-weight: 700; color: var(--black); line-height: 1.4; margin-bottom: 10px; }
+.rc-desc { font-size: 13px; color: var(--g500); line-height: 1.65; }
+.rc-footer { padding: 14px 22px; border-top: 1px solid var(--g100); display: flex; align-items: center; justify-content: space-between; }
+.rc-time { font-size: 12px; color: var(--g400); }
+.rc-read { font-size: 12px; font-weight: 600; color: var(--teal); }
+
+/* ============================================================
+   STAT BAND
+   ============================================================ */
+.stat-band { background: var(--navy); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); padding: 52px 28px; }
+.stat-band-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+.stat-band-item { text-align: center; padding: 0 32px; }
+.stat-band-item + .stat-band-item { border-left: 1px solid rgba(255,255,255,.08); }
+.stat-band-num { font-size: clamp(42px,5vw,64px); font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 10px; letter-spacing: -2px; }
+.stat-band-num span { color: var(--teal); }
+.stat-band-label { font-size: 13.5px; color: rgba(255,255,255,.45); line-height: 1.55; max-width: 200px; margin: 0 auto; }
+.stat-band-source { font-size: 10px; color: rgba(255,255,255,.2); margin-top: 8px; }
+
+/* ============================================================
+   BEFORE / AFTER TOGGLE
+   ============================================================ */
+.ba-section { background: var(--g50); padding: 96px 28px; }
+.ba-inner { max-width: 1160px; margin: 0 auto; }
+.ba-top { text-align: center; margin-bottom: 48px; }
+.ba-toggle-wrap { display: flex; align-items: center; justify-content: center; gap: 0; background: var(--g200); border-radius: 40px; padding: 4px; width: fit-content; margin: 32px auto 0; }
+.ba-btn { padding: 9px 24px; border-radius: 36px; font-size: 13px; font-weight: 600; border: none; background: transparent; color: var(--g500); cursor: pointer; transition: all .2s; }
+.ba-btn.active { background: var(--white); color: var(--g900); box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.ba-stage { position: relative; max-width: 760px; margin: 40px auto 0; }
+.ba-panel { display: none; }
+.ba-panel.active { display: block; }
+.ba-mockup { background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.12); overflow: hidden; border: 1px solid var(--g200); }
+.ba-browser-bar { background: var(--g100); padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--g200); }
+.ba-dot { width: 10px; height: 10px; border-radius: 50%; }
+.ba-dot-r { background: #ff5f57; }
+.ba-dot-y { background: #ffbd2e; }
+.ba-dot-g { background: #28c840; }
+.ba-url { flex: 1; background: var(--white); border-radius: 6px; padding: 5px 12px; font-size: 11px; color: var(--g400); margin-left: 8px; border: 1px solid var(--g200); }
+.ba-pdp { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.ba-pdp-img { background: linear-gradient(135deg, #f0fdf9 0%, #d1fae5 100%); padding: 40px; display: flex; align-items: center; justify-content: center; min-height: 380px; }
+.ba-pdp-info { padding: 32px 28px; }
+.ba-pdp-brand { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--g400); text-transform: uppercase; margin-bottom: 8px; }
+.ba-pdp-name { font-size: 20px; font-weight: 800; color: var(--g900); line-height: 1.3; margin-bottom: 10px; }
+.ba-pdp-stars { color: #f59e0b; font-size: 13px; margin-bottom: 4px; }
+.ba-pdp-rating-sub { font-size: 11px; color: var(--g400); margin-bottom: 16px; }
+.ba-pdp-price { font-size: 28px; font-weight: 900; color: var(--g900); margin-bottom: 20px; }
+.ba-without-notice { background: var(--g100); border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; }
+.ba-without-notice p { font-size: 12px; color: var(--g500); line-height: 1.6; }
+.ba-without-notice strong { color: var(--g700); }
+.ba-konfident-widget { background: linear-gradient(135deg,#f0fdf9,#e6fdf9); border: 1.5px solid var(--teal); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; }
+.ba-kw-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.ba-kw-badge { font-size: 9px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; background: var(--teal); color: var(--white); padding: 3px 8px; border-radius: 4px; }
+.ba-kw-label { font-size: 11px; font-weight: 600; color: #007a65; }
+.ba-kw-body { font-size: 12px; color: var(--g700); line-height: 1.6; margin-bottom: 10px; }
+.ba-kw-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.ba-kw-chip { font-size: 10px; font-weight: 600; color: #007a65; background: rgba(0,201,167,.1); padding: 3px 9px; border-radius: 20px; }
+.ba-kw-foot { font-size: 10px; color: var(--g400); }
+.ba-atc { width: 100%; padding: 14px; background: var(--g900); color: var(--white); border: none; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; }
+.ba-label-tag { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+.ba-label-tag.without { background: #fef2f2; color: #dc2626; }
+.ba-label-tag.with { background: #f0fdf4; color: #16a34a; }
+.ba-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+.ba-metric { background: var(--white); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.ba-metric-num { font-size: 28px; font-weight: 900; color: var(--teal); margin-bottom: 4px; }
+.ba-metric-label { font-size: 12px; color: var(--g500); }
+
+/* ============================================================
+   TRUST / COMPLIANCE BADGES
+   ============================================================ */
+.trust-strip { background: var(--white); border-top: 1px solid var(--g100); border-bottom: 1px solid var(--g100); padding: 24px 28px; }
+.trust-strip-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.trust-badge { display: flex; align-items: center; gap: 8px; }
+.trust-badge-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.trust-badge-icon.shopify { background: #96bf48; color: white; font-weight: 800; font-size: 11px; }
+.trust-badge-icon.soc2 { background: #1e40af; color: white; font-size: 9px; font-weight: 800; }
+.trust-badge-icon.gdpr { background: #003399; color: white; font-size: 9px; font-weight: 800; }
+.trust-badge-icon.g2 { background: #ff492c; color: white; font-size: 10px; font-weight: 800; }
+.trust-badge-icon.ccpa { background: #7c3aed; color: white; font-size: 8px; font-weight: 800; }
+.trust-badge-text { font-size: 12px; font-weight: 600; color: var(--g600); }
+.trust-badge-sub { font-size: 10px; color: var(--g400); }
+.trust-divider { width: 1px; height: 28px; background: var(--g200); }
+
+/* ============================================================
+   CONTRARIAN / WORLDVIEW HOOK
+   ============================================================ */
+.hook-section { background: var(--navy); padding: 80px 28px; text-align: center; }
+.hook-inner { max-width: 700px; margin: 0 auto; }
+.hook-quote { font-size: clamp(22px,3.5vw,36px); font-weight: 800; color: var(--white); line-height: 1.35; letter-spacing: -.5px; margin-bottom: 20px; }
+.hook-quote em { color: var(--teal); font-style: normal; }
+.hook-sub { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+/* ============================================================
+   PRODUCT SVG IMAGES
+   ============================================================ */
+.prod-img-wrap { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.demo-card-img { width: 100%; height: 180px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.dci-serum { background: linear-gradient(135deg, #fef9f0 0%, #fde8c0 100%); }
+.dci-sofa { background: linear-gradient(135deg, #f0faf5 0%, #d1fae5 100%); }
+.dci-supplement { background: linear-gradient(135deg, #f0f4ff 0%, #dbeafe 100%); }
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hm-body { grid-template-columns: 1fr; }
+  .problem-cols { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .step-connector { display: none; }
+  .demo-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr; }
+  .stat-item::after { display: none !important; }
+  .pricing-cards { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; gap: 32px; }
+  .footer-links { gap: 32px; }
+  .nav-links { display: none; }
+  .bridge-cta { display: none; }
+  .problem-bridge { flex-wrap: wrap; }
+  .step-4 { flex-wrap: wrap; }
+  .vert-panel.active { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.span2 { grid-column: span 1; }
+  .int-panel.active { grid-template-columns: 1fr 1fr; }
+  .roi-grid { grid-template-columns: 1fr; }
+  .resources-grid { grid-template-columns: 1fr; }
+  .compare-table thead th:nth-child(3) { display: none; }
+  .compare-table tbody td:nth-child(3) { display: none; }
+  .nav-dd { display: none; }
+}
+@media (max-width: 600px) {
+  .hero-h1 { letter-spacing: -1px; }
+  .hm-left { display: none; }
+  .hm-body { grid-template-columns: 1fr; }
+  .final-cta h2 { letter-spacing: -0.5px; }
+  .int-panel.active { grid-template-columns: 1fr; }
+  .vert-stats { flex-direction: column; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+
+      <!-- Product dropdown -->
+      <div class="nav-item">
+        <button class="nav-link-btn">Product <span class="nav-chevron">▾</span></button>
+        <div class="nav-dd nav-dd-wide">
+          <a class="nav-dd-item" href="/product.html">
+            <div class="nav-dd-icon">🧠</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Review Synthesis</div><div class="nav-dd-sub">AI reads your reviews per SKU</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html#demo">
+            <div class="nav-dd-icon">💬</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Confidence Widget</div><div class="nav-dd-sub">Native signal on every product page</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html#features">
+            <div class="nav-dd-icon">📊</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Analytics Dashboard</div><div class="nav-dd-sub">See which signals drive conversion</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html">
+            <div class="nav-dd-icon">🔁</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Purchase Intelligence</div><div class="nav-dd-sub">Return data layer (Pro)</div></div>
+          </a>
+          <div class="nav-dd-divider"></div>
+          <a class="nav-dd-item" href="/product.html#integrations">
+            <div class="nav-dd-icon">⚡</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Integrations</div><div class="nav-dd-sub">Shopify, Yotpo, Klaviyo & more</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html#roi">
+            <div class="nav-dd-icon">🧮</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">ROI Calculator</div><div class="nav-dd-sub">Estimate your conversion lift</div></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Solutions dropdown -->
+      <div class="nav-item">
+        <button class="nav-link-btn">Solutions <span class="nav-chevron">▾</span></button>
+        <div class="nav-dd">
+          <a class="nav-dd-item" href="/merchants.html#beauty">
+            <div class="nav-dd-icon">🧴</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Beauty & Skincare</div><div class="nav-dd-sub">Skin-type matching, formula signals</div></div>
+          </a>
+          <a class="nav-dd-item" href="/merchants.html#apparel">
+            <div class="nav-dd-icon">👗</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Apparel & Fashion</div><div class="nav-dd-sub">Fit, sizing, and fabric signals</div></div>
+          </a>
+          <a class="nav-dd-item" href="/merchants.html#home">
+            <div class="nav-dd-icon">🏠</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Home & Lifestyle</div><div class="nav-dd-sub">Dimensions, setup, durability</div></div>
+          </a>
+          <a class="nav-dd-item" href="/merchants.html#supplements">
+            <div class="nav-dd-icon">💊</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Supplements & Wellness</div><div class="nav-dd-sub">Results timelines, taste, compliance</div></div>
+          </a>
+          <a class="nav-dd-item" href="/merchants.html#pets">
+            <div class="nav-dd-icon">🐾</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Pet Products</div><div class="nav-dd-sub">Size, breed, and preference signals</div></div>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+
+      <!-- Resources dropdown -->
+      <div class="nav-item">
+        <button class="nav-link-btn">Resources <span class="nav-chevron">▾</span></button>
+        <div class="nav-dd">
+          <a class="nav-dd-item" href="/blog/index.html">
+            <div class="nav-dd-icon">📝</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Blog</div><div class="nav-dd-sub">DTC strategy & ecommerce insights</div></div>
+          </a>
+          <a class="nav-dd-item" href="/faq.html">
+            <div class="nav-dd-icon">❓</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">FAQ</div><div class="nav-dd-sub">Common questions answered</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html#compare">
+            <div class="nav-dd-icon">📋</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Compare</div><div class="nav-dd-sub">How Konfident stacks up</div></div>
+          </a>
+          <a class="nav-dd-item" href="/product.html#integrations">
+            <div class="nav-dd-icon">🔌</div>
+            <div class="nav-dd-text"><div class="nav-dd-title">Integrations</div><div class="nav-dd-sub">Every platform we work with</div></div>
+          </a>
+        </div>
+      </div>
+
+      <a class="nav-link" href="/faq.html">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <button class="btn-nav-cta" href="/contact.html">Install Free on Shopify →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pill">
+    <span class="hero-pill-dot"></span>
+    Now in private beta — accepting early merchants
+  </div>
+  <h1 class="hero-h1">Help every shopper<br />buy with <em>confidence.</em><br/>Keep what they love.</h1>
+  <p class="hero-sub">Konfident reads your existing reviews and synthesizes a live purchase confidence signal on every product page — so shoppers decide faster, buy smarter, and return less.</p>
+  <div class="hero-ctas">
+    <button class="btn-hero-primary" href="/contact.html">
+      Install Free on Shopify
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="btn-hero-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg>
+      See how it works
+    </button>
+  </div>
+  <p class="hero-sub-note">No developer needed · Installs in under 10 minutes · Free to start</p>
+
+  <!-- WIDGET MOCKUP -->
+  <div class="hero-mockup-wrap">
+    <div class="hero-mockup">
+      <div class="hm-bar">
+        <span class="hm-dot hm-dot-r"></span>
+        <span class="hm-dot hm-dot-y"></span>
+        <span class="hm-dot hm-dot-g"></span>
+        <span class="hm-url">yourstore.com/products/vitamin-c-serum</span>
+      </div>
+      <div class="hm-body">
+        <div class="hm-left">
+          <div class="hm-product-img">
+            <svg viewBox="0 0 90 140" width="72" height="112" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#c8763a"/>
+                  <stop offset="35%" stop-color="#f0b860"/>
+                  <stop offset="100%" stop-color="#c8763a"/>
+                </linearGradient>
+                <linearGradient id="capGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#555"/>
+                  <stop offset="100%" stop-color="#222"/>
+                </linearGradient>
+              </defs>
+              <!-- dropper stem -->
+              <rect x="41" y="6" width="8" height="22" rx="3" fill="url(#capGrad)"/>
+              <!-- dropper bulb -->
+              <ellipse cx="45" cy="6" rx="10" ry="8" fill="#333"/>
+              <!-- neck -->
+              <rect x="37" y="24" width="16" height="12" rx="2" fill="#b5783a"/>
+              <!-- bottle body -->
+              <rect x="26" y="34" width="38" height="90" rx="10" fill="url(#bottleGrad)"/>
+              <!-- shine -->
+              <rect x="30" y="38" width="6" height="70" rx="3" fill="rgba(255,255,255,0.22)"/>
+              <!-- label bg -->
+              <rect x="30" y="54" width="30" height="48" rx="4" fill="white" opacity="0.92"/>
+              <!-- label brand line -->
+              <rect x="34" y="60" width="22" height="3" rx="1.5" fill="#c8763a"/>
+              <!-- label text lines -->
+              <rect x="34" y="68" width="20" height="2" rx="1" fill="#bbb"/>
+              <rect x="34" y="73" width="17" height="2" rx="1" fill="#bbb"/>
+              <rect x="34" y="78" width="19" height="2" rx="1" fill="#bbb"/>
+              <!-- label accent -->
+              <rect x="34" y="88" width="22" height="6" rx="3" fill="#f0b860" opacity="0.5"/>
+              <!-- shadow -->
+              <ellipse cx="45" cy="126" rx="19" ry="4" fill="rgba(0,0,0,0.10)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="hm-right">
+          <div class="hm-breadcrumb">Skincare › Serums › Vitamin C</div>
+          <div class="hm-product-name">Brightening Vitamin C Serum</div>
+          <div class="hm-rating">
+            <span class="hm-stars">★★★★★</span>
+            <span class="hm-rating-count">4.8 · 312 reviews</span>
+          </div>
+          <div class="hm-price">$58<span style="font-size:16px;font-weight:500;color:#9ca3af">.00</span></div>
+          <div class="hm-price-sub">or 4 interest-free payments of $14.50</div>
+
+          <!-- KONFIDENT WIDGET -->
+          <div class="konfident-widget">
+            <div class="kw-header">
+              <span class="kw-badge">Konfident</span>
+              <span class="kw-label">Purchase Confidence Summary</span>
+            </div>
+            <div class="kw-summary">Buyers with sensitive skin rate this 4.9 stars. Most describe noticeable brightness within 2–3 weeks. Scent is consistently described as light and non-irritating.</div>
+            <div class="kw-signals">
+              <span class="kw-signal">✓ Sensitive skin approved</span>
+              <span class="kw-signal">✓ Results in 2–3 weeks</span>
+              <span class="kw-signal">✓ Non-irritating</span>
+            </div>
+            <span class="kw-powered">Powered by Konfident · AI review synthesis</span>
+          </div>
+
+          <div class="hm-size-row">
+            <div class="hm-size">1oz</div>
+            <div class="hm-size selected">2oz</div>
+            <div class="hm-size">4oz</div>
+          </div>
+          <button class="hm-atc">Add to Cart</button>
+          <button class="hm-atc-secondary">Buy it now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-band-item fade-up">
+      <div class="stat-band-num">$<span>816</span>B</div>
+      <div class="stat-band-label">in e-commerce returns processed in 2023 — the fastest-growing cost in retail</div>
+      <div class="stat-band-source">NRF 2024 Returns Report</div>
+    </div>
+    <div class="stat-band-item fade-up">
+      <div class="stat-band-num"><span>62</span>%</div>
+      <div class="stat-band-label">of returns happen because the product didn't match shopper expectations set pre-purchase</div>
+      <div class="stat-band-source">Narvar Consumer Report</div>
+    </div>
+    <div class="stat-band-item fade-up">
+      <div class="stat-band-num"><span>13</span>min</div>
+      <div class="stat-band-label">average research time per purchase — yet most shoppers still aren't confident at checkout</div>
+      <div class="stat-band-source">Baymard Institute</div>
+    </div>
+  </div>
+</div>
+
+<!-- ANIMATED LOGO MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-label">Built to work alongside the tools you already use</div>
+  <div class="marquee-track">
+    <div class="marquee-inner" id="marqueeInner">
+      <div class="marquee-logo">Shopify</div>
+      <div class="marquee-logo">WooCommerce</div>
+      <div class="marquee-logo">BigCommerce</div>
+      <div class="marquee-logo">Yotpo</div>
+      <div class="marquee-logo">Judge.me</div>
+      <div class="marquee-logo">Okendo</div>
+      <div class="marquee-logo">Stamped</div>
+      <div class="marquee-logo">Klaviyo</div>
+      <div class="marquee-logo">Gorgias</div>
+      <div class="marquee-logo">Loop Returns</div>
+      <div class="marquee-logo">Attentive</div>
+      <div class="marquee-logo">Loox</div>
+      <!-- duplicate for seamless loop -->
+      <div class="marquee-logo">Shopify</div>
+      <div class="marquee-logo">WooCommerce</div>
+      <div class="marquee-logo">BigCommerce</div>
+      <div class="marquee-logo">Yotpo</div>
+      <div class="marquee-logo">Judge.me</div>
+      <div class="marquee-logo">Okendo</div>
+      <div class="marquee-logo">Stamped</div>
+      <div class="marquee-logo">Klaviyo</div>
+      <div class="marquee-logo">Gorgias</div>
+      <div class="marquee-logo">Loop Returns</div>
+      <div class="marquee-logo">Attentive</div>
+      <div class="marquee-logo">Loox</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTRARIAN HOOK -->
+<section class="hook-section">
+  <div class="hook-inner fade-up">
+    <div class="hook-quote">Star ratings tell shoppers what others thought.<br/><em>Confidence scores tell them what to decide.</em></div>
+    <p class="hook-sub">98% of shoppers read reviews before buying. Almost none leave the page feeling certain. The problem isn't the number of reviews — it's that reviews weren't built to answer decision questions. Konfident was.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="problem-top fade-up">
+      <p class="section-eyebrow">The Problem</p>
+      <h2 class="section-h2">Your reviews exist.<br/>They're just not doing enough.</h2>
+    </div>
+    <div class="problem-cols fade-up">
+      <div class="problem-col">
+        <span class="pc-tag merchant">For merchants</span>
+        <div class="pc-headline">"We have hundreds of reviews. Our return rate is still 22%."</div>
+        <p class="pc-body">Your reviews exist. Your return data exists. But neither one is actively helping the next shopper decide. Reviews sit passively at the bottom of your product page while the shopper trying to make a decision is left to do all the interpretive work themselves — and either abandons or buys with uncertainty.</p>
+        <div class="pc-stat">
+          <div class="pc-stat-num">30%</div>
+          <div class="pc-stat-label">average e-commerce return rate — up from 20% in 2020. Most returns are avoidable.</div>
+        </div>
+      </div>
+      <div class="problem-col dark">
+        <span class="pc-tag shopper">For shoppers</span>
+        <div class="pc-headline">"I spent 15 minutes reading reviews and I'm still not sure."</div>
+        <p class="pc-body">98% of shoppers read reviews before buying. The average shopper spends over 13 minutes on research for a single purchase. They're not looking for quantity — they're looking for one specific signal that answers their specific question. Most product pages never give it to them.</p>
+        <div class="pc-stat">
+          <div class="pc-stat-num">13<span style="font-size:22px;font-weight:700">min</span></div>
+          <div class="pc-stat-label">average time spent researching a product — before most shoppers still aren't sure.</div>
+        </div>
+      </div>
+    </div>
+    <div class="problem-bridge fade-up">
+      <div class="bridge-icon">⚡</div>
+      <div class="bridge-text">
+        <h3>Konfident does the interpretive work for them.</h3>
+        <p>Instead of asking shoppers to read 200 reviews and draw their own conclusions, Konfident synthesizes your review catalog into a single, specific confidence signal — surfaced directly on the product page, above the fold, before they decide.</p>
+      </div>
+      <button class="bridge-cta" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works →</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="how-top fade-up">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-h2">Up in 10 minutes.<br/>Running in the background forever.</h2>
+      <p class="section-sub">No engineers. No custom code. Connect your store, and Konfident handles the rest — reading your reviews, synthesizing confidence signals, and surfacing them on every product page automatically.</p>
+    </div>
+    <div class="steps fade-up">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">🛍️</div>
+        <div class="step-title">Install the widget</div>
+        <div class="step-desc">Add Konfident from the Shopify App Store or paste one script tag. No developer needed — you're live in under 10 minutes, on every product in your catalog.</div>
+        <span class="step-connector">→</span>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">🧠</div>
+        <div class="step-title">AI reads your reviews</div>
+        <div class="step-desc">Konfident connects to your existing review platform — Yotpo, Judge.me, Okendo, Stamped, or any other — and synthesizes a per-SKU confidence signal from what your actual buyers said. You control the signal mode: positive-only, balanced (positive + critical), or full-spectrum including every review.</div>
+        <span class="step-connector">→</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title">Shoppers see it instantly</div>
+        <div class="step-desc">A native-feeling confidence summary surfaces above the fold on your product pages — answering the questions that hold shoppers back from buying, in their own words. The widget only shows when there's enough signal to say something meaningful. If the honest signal is mixed, you can choose to show that too — transparency builds trust.</div>
+      </div>
+    </div>
+    <div class="step-4 fade-up">
+      <div class="step-4-badge">Step 4<br/>Over time</div>
+      <div class="step-4-content">
+        <h4>Connect your return data and unlock SKU-level purchase intelligence</h4>
+        <p>As merchants share anonymized return outcomes with Konfident, the confidence signals evolve from "what buyers said" to "what buyers actually did." Which products got kept. Which got returned. And why. The longer you run Konfident, the more specific and accurate your signals become — per product, per buyer profile, per season.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+  <div class="demo-inner">
+    <div class="demo-top fade-up">
+      <p class="section-eyebrow">See It Live</p>
+      <h2 class="section-h2">One widget. Every vertical.</h2>
+      <p class="section-sub" style="margin:0 auto">The right confidence signal is different for a serum, a sofa, and a supplement. Konfident figures that out — automatically, per SKU.</p>
+      <p style="font-size:12px;color:var(--g400);margin-top:12px;font-style:italic">These are illustrative examples of Konfident widget output. Actual output is synthesized from your real review data.</p>
+    </div>
+    <div class="demo-grid fade-up">
+
+      <!-- Skincare -->
+      <div class="demo-card">
+        <div class="demo-card-img dci-serum">
+          <svg viewBox="0 0 120 160" width="100" height="134" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sg1" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c8763a"/><stop offset="40%" stop-color="#f0b860"/><stop offset="100%" stop-color="#c8763a"/>
+              </linearGradient>
+            </defs>
+            <rect x="51" y="4" width="18" height="28" rx="4" fill="#2d2d2d"/>
+            <ellipse cx="60" cy="4" rx="13" ry="10" fill="#444"/>
+            <rect x="46" y="28" width="28" height="16" rx="3" fill="#a56328"/>
+            <rect x="32" y="42" width="56" height="102" rx="14" fill="url(#sg1)"/>
+            <rect x="37" y="46" width="9" height="80" rx="4" fill="rgba(255,255,255,0.18)"/>
+            <rect x="38" y="66" width="44" height="54" rx="5" fill="white" opacity="0.93"/>
+            <rect x="44" y="73" width="32" height="4" rx="2" fill="#c8763a"/>
+            <rect x="44" y="82" width="28" height="2.5" rx="1.2" fill="#ccc"/>
+            <rect x="44" y="88" width="24" height="2.5" rx="1.2" fill="#ccc"/>
+            <rect x="44" y="94" width="30" height="2.5" rx="1.2" fill="#ccc"/>
+            <rect x="44" y="104" width="32" height="8" rx="4" fill="#f0b860" opacity="0.45"/>
+            <ellipse cx="60" cy="146" rx="26" ry="5" fill="rgba(0,0,0,0.09)"/>
+          </svg>
+        </div>
+        <div class="demo-card-header">
+          <div class="demo-card-meta">
+            <div class="demo-card-cat">Beauty & Skincare</div>
+            <div class="demo-card-name">Brightening Vitamin C Serum</div>
+          </div>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-widget">
+            <div class="dw-header">
+              <span class="dw-badge">Konfident</span>
+              <span class="dw-name">Purchase Confidence</span>
+            </div>
+            <div class="dw-summary">Buyers with sensitive skin consistently rate this 4.9 stars. Most mention noticeable results within 2 weeks. Scent is described as light and non-irritating by the majority of reviewers.</div>
+            <div class="dw-chips">
+              <span class="dw-chip">✓ Sensitive skin</span>
+              <span class="dw-chip">✓ Results in 2 weeks</span>
+              <span class="dw-chip">✓ Non-irritating</span>
+            </div>
+            <div class="dw-footer">Synthesized from 312 reviews · Konfident AI</div>
+          </div>
+          <div class="demo-card-note">Konfident identified skin-type segmentation as the key purchase signal for this SKU — not overall rating.</div>
+        </div>
+      </div>
+
+      <!-- Home goods -->
+      <div class="demo-card">
+        <div class="demo-card-img dci-sofa">
+          <svg viewBox="0 0 180 110" width="220" height="135" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sofaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6abf8e"/><stop offset="100%" stop-color="#4a9e6e"/>
+              </linearGradient>
+              <linearGradient id="sofaDark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4a9e6e"/><stop offset="100%" stop-color="#357a54"/>
+              </linearGradient>
+            </defs>
+            <!-- base/platform -->
+            <rect x="18" y="78" width="144" height="14" rx="5" fill="url(#sofaDark)"/>
+            <!-- seat cushion left -->
+            <rect x="20" y="54" width="64" height="28" rx="6" fill="url(#sofaGrad)"/>
+            <!-- seat cushion right -->
+            <rect x="96" y="54" width="64" height="28" rx="6" fill="url(#sofaGrad)"/>
+            <!-- cushion divider -->
+            <rect x="88" y="56" width="4" height="24" rx="2" fill="#357a54" opacity="0.4"/>
+            <!-- back cushion left -->
+            <rect x="20" y="22" width="64" height="36" rx="7" fill="url(#sofaGrad)"/>
+            <!-- back cushion right -->
+            <rect x="96" y="22" width="64" height="36" rx="7" fill="url(#sofaGrad)"/>
+            <!-- back divider -->
+            <rect x="88" y="24" width="4" height="32" rx="2" fill="#357a54" opacity="0.4"/>
+            <!-- armrest left -->
+            <rect x="8" y="30" width="16" height="52" rx="6" fill="url(#sofaDark)"/>
+            <!-- armrest right -->
+            <rect x="156" y="30" width="16" height="52" rx="6" fill="url(#sofaDark)"/>
+            <!-- legs -->
+            <rect x="28" y="90" width="8" height="14" rx="3" fill="#2a5e3e"/>
+            <rect x="144" y="90" width="8" height="14" rx="3" fill="#2a5e3e"/>
+            <!-- pillow -->
+            <rect x="100" y="30" width="36" height="26" rx="6" fill="#f9fafb" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="demo-card-header">
+          <div class="demo-card-meta">
+            <div class="demo-card-cat">Home & Lifestyle</div>
+            <div class="demo-card-name">Modern Modular Sofa — Sage</div>
+          </div>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-widget">
+            <div class="dw-header">
+              <span class="dw-badge">Konfident</span>
+              <span class="dw-name">Purchase Confidence</span>
+            </div>
+            <div class="dw-summary">Shoppers in apartments under 800 sq ft consistently love this sofa. Assembly is described as straightforward — most buyers finish in under an hour with one person. Fabric holds up well to pets per multiple long-term reviewers.</div>
+            <div class="dw-chips">
+              <span class="dw-chip">✓ Small space friendly</span>
+              <span class="dw-chip">✓ Easy assembly</span>
+              <span class="dw-chip">✓ Pet-friendly fabric</span>
+            </div>
+            <div class="dw-footer">Synthesized from 88 reviews · Konfident AI</div>
+          </div>
+          <div class="demo-card-note">Space context and pet compatibility were the top two questions holding shoppers back — Konfident surfaced both proactively.</div>
+        </div>
+      </div>
+
+      <!-- Supplement -->
+      <div class="demo-card">
+        <div class="demo-card-img dci-supplement">
+          <svg viewBox="0 0 90 150" width="75" height="125" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pillGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#dde8f8"/><stop offset="100%" stop-color="#f0f5ff"/>
+              </linearGradient>
+              <linearGradient id="capG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#5b8dee"/><stop offset="100%" stop-color="#3a6bcc"/>
+              </linearGradient>
+            </defs>
+            <!-- cap -->
+            <rect x="24" y="8" width="42" height="22" rx="8" fill="url(#capG)"/>
+            <!-- cap highlight -->
+            <rect x="28" y="11" width="16" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+            <!-- bottle neck -->
+            <rect x="30" y="28" width="30" height="10" rx="3" fill="#c5d6f0"/>
+            <!-- bottle body -->
+            <rect x="16" y="36" width="58" height="96" rx="12" fill="url(#pillGrad)"/>
+            <!-- bottle shine -->
+            <rect x="20" y="40" width="8" height="76" rx="4" fill="rgba(255,255,255,0.5)"/>
+            <!-- label bg -->
+            <rect x="20" y="56" width="50" height="58" rx="6" fill="white" opacity="0.88"/>
+            <!-- label top accent -->
+            <rect x="24" y="62" width="42" height="5" rx="2.5" fill="#5b8dee"/>
+            <!-- label lines -->
+            <rect x="24" y="73" width="38" height="3" rx="1.5" fill="#ccc"/>
+            <rect x="24" y="80" width="32" height="3" rx="1.5" fill="#ccc"/>
+            <rect x="24" y="87" width="36" height="3" rx="1.5" fill="#ccc"/>
+            <!-- pill icon on label -->
+            <ellipse cx="35" cy="102" rx="8" ry="5" fill="#5b8dee" opacity="0.3"/>
+            <ellipse cx="35" cy="102" rx="4" ry="5" fill="#5b8dee" opacity="0.4"/>
+            <!-- shadow -->
+            <ellipse cx="45" cy="134" rx="24" ry="4" fill="rgba(0,0,0,0.08)"/>
+          </svg>
+        </div>
+        <div class="demo-card-header">
+          <div class="demo-card-meta">
+            <div class="demo-card-cat">Health & Supplements</div>
+            <div class="demo-card-name">Daily Magnesium Glycinate</div>
+          </div>
+        </div>
+        <div class="demo-card-body">
+          <div class="demo-widget">
+            <div class="dw-header">
+              <span class="dw-badge">Konfident</span>
+              <span class="dw-name">Purchase Confidence</span>
+            </div>
+            <div class="dw-summary">94% of buyers who completed a full bottle left a 4-star review or higher. Taste is consistently described as mild and easy to take. Buyers report noticeable sleep improvements within the first 2 weeks.</div>
+            <div class="dw-chips">
+              <span class="dw-chip">✓ 94% rate 4+ stars</span>
+              <span class="dw-chip">✓ Mild taste</span>
+              <span class="dw-chip">✓ Sleep results in 2 wks</span>
+            </div>
+            <div class="dw-footer">Synthesized from 201 reviews · Konfident AI</div>
+          </div>
+          <div class="demo-card-note">Completion-rate framing significantly outperforms overall rating for supplement purchases — Konfident selects the right framing per category.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER TOGGLE -->
+<section class="ba-section" id="before-after">
+  <div class="ba-inner">
+    <div class="ba-top fade-up">
+      <p class="section-eyebrow">The Difference</p>
+      <h2 class="section-h2">See what shoppers actually see.</h2>
+      <p class="section-sub" style="margin:0 auto">One product page. Two very different shopping experiences.</p>
+      <div class="ba-toggle-wrap">
+        <button class="ba-btn active" onclick="switchBA('without',this)">Without Konfident</button>
+        <button class="ba-btn" onclick="switchBA('with',this)">With Konfident</button>
+      </div>
+    </div>
+
+    <div class="ba-stage fade-up">
+      <!-- WITHOUT -->
+      <div class="ba-panel active" id="ba-without">
+        <div class="ba-mockup">
+          <div class="ba-browser-bar">
+            <span class="ba-dot ba-dot-r"></span><span class="ba-dot ba-dot-y"></span><span class="ba-dot ba-dot-g"></span>
+            <div class="ba-url">yourstore.com/products/brightening-serum</div>
+          </div>
+          <div class="ba-pdp">
+            <div class="ba-pdp-img">
+              <svg viewBox="0 0 90 140" width="90" height="140" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c8763a"/><stop offset="40%" stop-color="#f0b860"/><stop offset="100%" stop-color="#c8763a"/></linearGradient></defs>
+                <rect x="51" y="4" width="18" height="28" rx="4" fill="#2d2d2d"/>
+                <ellipse cx="60" cy="4" rx="13" ry="10" fill="#444"/>
+                <rect x="46" y="28" width="28" height="16" rx="3" fill="#a56328"/>
+                <rect x="32" y="42" width="56" height="102" rx="14" fill="url(#bg1)"/>
+                <rect x="37" y="46" width="9" height="80" rx="4" fill="rgba(255,255,255,0.18)"/>
+                <rect x="38" y="66" width="44" height="54" rx="5" fill="white" opacity="0.93"/>
+                <rect x="44" y="73" width="32" height="4" rx="2" fill="#c8763a"/>
+                <rect x="44" y="82" width="28" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="88" width="24" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="94" width="30" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="104" width="32" height="8" rx="4" fill="#f0b860" opacity="0.45"/>
+                <ellipse cx="60" cy="146" rx="26" ry="5" fill="rgba(0,0,0,0.09)"/>
+              </svg>
+            </div>
+            <div class="ba-pdp-info">
+              <div class="ba-pdp-brand">Lumina Beauty</div>
+              <div class="ba-pdp-name">Brightening Vitamin C Serum</div>
+              <div class="ba-pdp-stars">★★★★★</div>
+              <div class="ba-pdp-rating-sub">4.8 · 312 reviews</div>
+              <div class="ba-pdp-price">$58.00</div>
+              <div class="ba-without-notice">
+                <p><strong>312 reviews</strong> — but which ones apply to your skin type? Does it work for sensitive skin? How long until results? Is the scent strong? The shopper has to read dozens of reviews and guess.</p>
+              </div>
+              <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;">
+                <span style="font-size:11px;padding:4px 10px;background:#f3f4f6;border-radius:4px;color:#6b7280;">1oz</span>
+                <span style="font-size:11px;padding:4px 10px;background:#111;border-radius:4px;color:#fff;font-weight:600;">2oz</span>
+                <span style="font-size:11px;padding:4px 10px;background:#f3f4f6;border-radius:4px;color:#6b7280;">4oz</span>
+              </div>
+              <button class="ba-atc">Add to Cart</button>
+              <span class="ba-label-tag without">↑ High uncertainty at this moment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WITH KONFIDENT -->
+      <div class="ba-panel" id="ba-with">
+        <div class="ba-mockup">
+          <div class="ba-browser-bar">
+            <span class="ba-dot ba-dot-r"></span><span class="ba-dot ba-dot-y"></span><span class="ba-dot ba-dot-g"></span>
+            <div class="ba-url">yourstore.com/products/brightening-serum</div>
+          </div>
+          <div class="ba-pdp">
+            <div class="ba-pdp-img">
+              <svg viewBox="0 0 90 140" width="90" height="140" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c8763a"/><stop offset="40%" stop-color="#f0b860"/><stop offset="100%" stop-color="#c8763a"/></linearGradient></defs>
+                <rect x="51" y="4" width="18" height="28" rx="4" fill="#2d2d2d"/>
+                <ellipse cx="60" cy="4" rx="13" ry="10" fill="#444"/>
+                <rect x="46" y="28" width="28" height="16" rx="3" fill="#a56328"/>
+                <rect x="32" y="42" width="56" height="102" rx="14" fill="url(#bg2)"/>
+                <rect x="37" y="46" width="9" height="80" rx="4" fill="rgba(255,255,255,0.18)"/>
+                <rect x="38" y="66" width="44" height="54" rx="5" fill="white" opacity="0.93"/>
+                <rect x="44" y="73" width="32" height="4" rx="2" fill="#c8763a"/>
+                <rect x="44" y="82" width="28" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="88" width="24" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="94" width="30" height="2.5" rx="1.2" fill="#ccc"/>
+                <rect x="44" y="104" width="32" height="8" rx="4" fill="#f0b860" opacity="0.45"/>
+                <ellipse cx="60" cy="146" rx="26" ry="5" fill="rgba(0,0,0,0.09)"/>
+              </svg>
+            </div>
+            <div class="ba-pdp-info">
+              <div class="ba-pdp-brand">Lumina Beauty</div>
+              <div class="ba-pdp-name">Brightening Vitamin C Serum</div>
+              <div class="ba-pdp-stars">★★★★★</div>
+              <div class="ba-pdp-rating-sub">4.8 · 312 reviews</div>
+              <div class="ba-pdp-price">$58.00</div>
+              <div class="ba-konfident-widget">
+                <div class="ba-kw-head">
+                  <span class="ba-kw-badge">Konfident</span>
+                  <span class="ba-kw-label">Purchase Confidence</span>
+                </div>
+                <div class="ba-kw-body">Buyers with sensitive skin rate this 4.9★. Most see noticeable brightness in 2–3 weeks. Scent is consistently described as light and non-irritating.</div>
+                <div class="ba-kw-chips">
+                  <span class="ba-kw-chip">✓ Sensitive skin</span>
+                  <span class="ba-kw-chip">✓ Results in 2–3 wks</span>
+                  <span class="ba-kw-chip">✓ Non-irritating</span>
+                </div>
+                <div class="ba-kw-foot">Synthesized from 312 reviews · Konfident AI · Illustrative example</div>
+              </div>
+              <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;">
+                <span style="font-size:11px;padding:4px 10px;background:#f3f4f6;border-radius:4px;color:#6b7280;">1oz</span>
+                <span style="font-size:11px;padding:4px 10px;background:#111;border-radius:4px;color:#fff;font-weight:600;">2oz</span>
+                <span style="font-size:11px;padding:4px 10px;background:#f3f4f6;border-radius:4px;color:#6b7280;">4oz</span>
+              </div>
+              <button class="ba-atc">Add to Cart</button>
+              <span class="ba-label-tag with">↑ Shopper decides with confidence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ba-metrics fade-up">
+      <div class="ba-metric"><div class="ba-metric-num">+5–6%</div><div class="ba-metric-label">avg CVR lift (comparable tools)</div></div>
+      <div class="ba-metric"><div class="ba-metric-num">−18%</div><div class="ba-metric-label">avg return rate reduction</div></div>
+      <div class="ba-metric"><div class="ba-metric-num">&lt;10min</div><div class="ba-metric-label">to install on any Shopify store</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICALS BY INDUSTRY -->
+<section class="verticals" id="verticals">
+  <div class="verticals-inner">
+    <div class="verticals-top fade-up">
+      <p class="section-eyebrow">Solutions by Vertical</p>
+      <h2 class="section-h2">The right signal for<br/>every product category.</h2>
+      <p class="section-sub" style="margin:0 auto">What builds confidence for a skincare buyer is completely different from what reassures someone buying furniture. Konfident figures that out automatically, per SKU.</p>
+    </div>
+    <div class="vert-tabs fade-up">
+      <button class="vert-tab active" onclick="switchVert('beauty',this)">🧴 Beauty & Skincare</button>
+      <button class="vert-tab" onclick="switchVert('apparel',this)">👗 Apparel & Fashion</button>
+      <button class="vert-tab" onclick="switchVert('home',this)">🏠 Home & Lifestyle</button>
+      <button class="vert-tab" onclick="switchVert('supplements',this)">💊 Supplements</button>
+      <button class="vert-tab" onclick="switchVert('pets',this)">🐾 Pet Products</button>
+    </div>
+
+    <!-- BEAUTY -->
+    <div class="vert-panel active" id="vert-beauty">
+      <div class="vert-content">
+        <span class="vert-tag">Beauty & Skincare</span>
+        <h3 class="vert-h3">Skin type is the question every beauty shopper is silently asking.</h3>
+        <p class="vert-desc">Beauty returns aren't about product quality — they're about wrong expectations. A serum that's perfect for oily skin terrifies someone with dry skin. Konfident segments your review signal by skin type, tone, age range, and sensitivity, then surfaces the right signal to the right shopper before they add to cart.</p>
+        <div class="vert-stats">
+          <div>
+            <div class="vert-stat-num">26%</div>
+            <div class="vert-stat-label">avg return rate<br/>in beauty DTC</div>
+          </div>
+          <div>
+            <div class="vert-stat-num">5–6%</div>
+            <div class="vert-stat-label">conversion lift<br/>from AI synthesis*</div>
+          </div>
+        </div>
+        <button class="vert-cta" href="/contact.html">Get started for your beauty brand →</button>
+      </div>
+      <div class="vert-widget-preview">
+        <div class="vwp-header">
+          <div class="vwp-emoji">🧴</div>
+          <div><div class="vwp-name">Brightening Vitamin C Serum</div><div class="vwp-cat">Beauty & Skincare · $58</div></div>
+        </div>
+        <div class="vwp-widget">
+          <div class="vwp-badge-row"><span class="vwp-badge">Konfident</span><span class="vwp-label">Purchase Confidence</span></div>
+          <div class="vwp-summary">Buyers with sensitive skin rate this 4.9 stars. Most describe noticeable brightness within 2–3 weeks. Scent is consistently described as light and non-irritating — even for fragrance-sensitive shoppers.</div>
+          <div class="vwp-chips">
+            <span class="vwp-chip">✓ Sensitive skin approved</span>
+            <span class="vwp-chip">✓ Results in 2–3 weeks</span>
+            <span class="vwp-chip">✓ Fragrance-safe</span>
+          </div>
+          <div class="vwp-note">Synthesized from 312 reviews · Konfident AI · Illustrative example</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPAREL -->
+    <div class="vert-panel" id="vert-apparel">
+      <div class="vert-content">
+        <span class="vert-tag">Apparel & Fashion</span>
+        <h3 class="vert-h3">Sizing questions kill apparel conversion. Konfident answers them before the shopper asks.</h3>
+        <p class="vert-desc">Apparel has the highest return rate in e-commerce — up to 40% for some categories — and the majority cite fit or sizing. Konfident synthesizes reviewer body type, height, and size-run signals into a single guidance statement that tells the next shopper exactly what to expect before they order.</p>
+        <div class="vert-stats">
+          <div>
+            <div class="vert-stat-num">40%</div>
+            <div class="vert-stat-label">return rate in<br/>apparel DTC</div>
+          </div>
+          <div>
+            <div class="vert-stat-num">70%</div>
+            <div class="vert-stat-label">of apparel returns<br/>cite fit/sizing</div>
+          </div>
+        </div>
+        <button class="vert-cta" href="/contact.html">Get started for your apparel brand →</button>
+      </div>
+      <div class="vert-widget-preview">
+        <div class="vwp-header">
+          <div class="vwp-emoji">👗</div>
+          <div><div class="vwp-name">Relaxed Linen Blazer — Sand</div><div class="vwp-cat">Apparel & Fashion · $128</div></div>
+        </div>
+        <div class="vwp-widget">
+          <div class="vwp-badge-row"><span class="vwp-badge">Konfident</span><span class="vwp-label">Purchase Confidence</span></div>
+          <div class="vwp-summary">This blazer runs true to size for most body types. Buyers 5'4"–5'7" consistently love the length. Fabric is described as structured but breathable — most reviewers wear it as a standalone layer, not just over a shirt.</div>
+          <div class="vwp-chips">
+            <span class="vwp-chip">✓ True to size</span>
+            <span class="vwp-chip">✓ Best 5'4"–5'7"</span>
+            <span class="vwp-chip">✓ Wear standalone</span>
+          </div>
+          <div class="vwp-note">Synthesized from 187 reviews · Konfident AI · Illustrative example</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME -->
+    <div class="vert-panel" id="vert-home">
+      <div class="vert-content">
+        <span class="vert-tag">Home & Lifestyle</span>
+        <h3 class="vert-h3">Space, setup, and durability — the three questions every home buyer has.</h3>
+        <p class="vert-desc">Home goods shoppers are anxious about dimensions, assembly difficulty, and long-term durability. They don't want to assemble a sofa only to find it doesn't fit. Konfident surfaces space-specific confidence signals, honest setup timelines, and long-term ownership signals from your existing review base.</p>
+        <div class="vert-stats">
+          <div>
+            <div class="vert-stat-num">22%</div>
+            <div class="vert-stat-label">return rate in<br/>home goods DTC</div>
+          </div>
+          <div>
+            <div class="vert-stat-num">1 hr</div>
+            <div class="vert-stat-label">typical assembly<br/>anxiety resolved</div>
+          </div>
+        </div>
+        <button class="vert-cta" href="/contact.html">Get started for your home brand →</button>
+      </div>
+      <div class="vert-widget-preview">
+        <div class="vwp-header">
+          <div class="vwp-emoji">🛋️</div>
+          <div><div class="vwp-name">Modern Modular Sofa — Sage</div><div class="vwp-cat">Home & Lifestyle · $1,299</div></div>
+        </div>
+        <div class="vwp-widget">
+          <div class="vwp-badge-row"><span class="vwp-badge">Konfident</span><span class="vwp-label">Purchase Confidence</span></div>
+          <div class="vwp-summary">Shoppers in apartments under 800 sq ft love this sofa. Assembly takes most buyers under an hour with one person. Fabric holds up well to pets and daily use — multiple reviewers mention it still looks new after 12+ months.</div>
+          <div class="vwp-chips">
+            <span class="vwp-chip">✓ Small-space friendly</span>
+            <span class="vwp-chip">✓ Solo setup &lt;1hr</span>
+            <span class="vwp-chip">✓ Pet-durable fabric</span>
+          </div>
+          <div class="vwp-note">Synthesized from 88 reviews · Konfident AI · Illustrative example</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPLEMENTS -->
+    <div class="vert-panel" id="vert-supplements">
+      <div class="vert-content">
+        <span class="vert-tag">Supplements & Wellness</span>
+        <h3 class="vert-h3">Supplement buyers need results timelines and taste signals — not star ratings.</h3>
+        <p class="vert-desc">Supplement shoppers are skeptical by nature. They've been burned by products that didn't work. What they want is specificity: how long before I see results, what does it taste like, and did people who finished the bottle actually come back? Konfident surfaces exactly those signals from your real review base.</p>
+        <div class="vert-stats">
+          <div>
+            <div class="vert-stat-num">18%</div>
+            <div class="vert-stat-label">return rate in<br/>supplement DTC</div>
+          </div>
+          <div>
+            <div class="vert-stat-num">2 wks</div>
+            <div class="vert-stat-label">typical results<br/>timeline surfaced</div>
+          </div>
+        </div>
+        <button class="vert-cta" href="/contact.html">Get started for your wellness brand →</button>
+      </div>
+      <div class="vert-widget-preview">
+        <div class="vwp-header">
+          <div class="vwp-emoji">💊</div>
+          <div><div class="vwp-name">Daily Magnesium Glycinate</div><div class="vwp-cat">Supplements · $34</div></div>
+        </div>
+        <div class="vwp-widget">
+          <div class="vwp-badge-row"><span class="vwp-badge">Konfident</span><span class="vwp-label">Purchase Confidence</span></div>
+          <div class="vwp-summary">94% of buyers who finished a full bottle left a 4-star review or higher. Most describe better sleep within 2 weeks. Taste is consistently mild — no chalky aftertaste reported by the majority of reviewers.</div>
+          <div class="vwp-chips">
+            <span class="vwp-chip">✓ 94% rate 4+ after finishing</span>
+            <span class="vwp-chip">✓ Sleep results in 2 wks</span>
+            <span class="vwp-chip">✓ Mild taste</span>
+          </div>
+          <div class="vwp-note">Synthesized from 201 reviews · Konfident AI · Illustrative example</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PETS -->
+    <div class="vert-panel" id="vert-pets">
+      <div class="vert-content">
+        <span class="vert-tag">Pet Products</span>
+        <h3 class="vert-h3">Pet shoppers don't buy for themselves — they need reassurance their pet will love it too.</h3>
+        <p class="vert-desc">Pet product purchases are emotional and high-stakes. Buyers want to know: will my dog actually use this? Does it work for large breeds? Is this safe for cats? Konfident segments review signals by pet type, breed size, and age to surface the exact signal each shopper needs to feel confident about their pet.</p>
+        <div class="vert-stats">
+          <div>
+            <div class="vert-stat-num">19%</div>
+            <div class="vert-stat-label">return rate in<br/>pet DTC</div>
+          </div>
+          <div>
+            <div class="vert-stat-num">3×</div>
+            <div class="vert-stat-label">more review detail<br/>than avg category</div>
+          </div>
+        </div>
+        <button class="vert-cta" href="/contact.html">Get started for your pet brand →</button>
+      </div>
+      <div class="vert-widget-preview">
+        <div class="vwp-header">
+          <div class="vwp-emoji">🐾</div>
+          <div><div class="vwp-name">Orthopedic Dog Bed — Large</div><div class="vwp-cat">Pet Products · $89</div></div>
+        </div>
+        <div class="vwp-widget">
+          <div class="vwp-badge-row"><span class="vwp-badge">Konfident</span><span class="vwp-label">Purchase Confidence</span></div>
+          <div class="vwp-summary">Buyers with dogs 60–90 lbs love this bed — it's the most-mentioned weight range in reviews. Most dogs took to it within the first day. The cover is consistently praised as easy to wash and holds its shape after multiple machine cycles.</div>
+          <div class="vwp-chips">
+            <span class="vwp-chip">✓ Best for 60–90 lb dogs</span>
+            <span class="vwp-chip">✓ Dogs love it day one</span>
+            <span class="vwp-chip">✓ Machine-wash durable</span>
+          </div>
+          <div class="vwp-note">Synthesized from 143 reviews · Konfident AI · Illustrative example</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="benefits-inner">
+    <div class="benefits-top fade-up">
+      <p class="section-eyebrow">Why It Works</p>
+      <h2 class="section-h2">Confidence converts.<br/>And it compounds.</h2>
+    </div>
+    <div class="benefits-grid fade-up">
+      <div class="benefit-card">
+        <div class="benefit-icon">📈</div>
+        <div class="benefit-title">Conversion without compromise</div>
+        <div class="benefit-desc">Confidence signals help the right shoppers buy more decisively — without adding friction, pop-ups, or anything that gets in the way. Comparable AI review synthesis tools have shown 5–6% average conversion lift when surfaced at the moment of decision.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📦</div>
+        <div class="benefit-title">Returns that don't happen</div>
+        <div class="benefit-desc">Most returns aren't driven by product quality — they're driven by mismatched expectations. When shoppers have accurate, specific expectations before they buy, what arrives matches what they imagined. The return never gets initiated.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔁</div>
+        <div class="benefit-title">Smarter over time</div>
+        <div class="benefit-desc">Every purchase outcome — every kept order, every return — makes your confidence signals more accurate. The longer you run Konfident, the more precisely it can tell the next shopper exactly what they need to hear. The system learns your catalog.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO FEATURE GRID -->
+<section class="bento" id="bento">
+  <div class="bento-inner">
+    <div class="bento-top fade-up">
+      <p class="section-eyebrow">Platform Capabilities</p>
+      <h2 class="section-h2">Everything that runs under the hood.</h2>
+      <p class="section-sub" style="margin:0 auto">Konfident is lightweight on setup and heavy on intelligence. Here's what's working for you the moment you install.</p>
+    </div>
+    <div class="bento-grid fade-up">
+
+      <div class="bento-card span2">
+        <div class="bento-icon">🧠</div>
+        <div class="bento-title">Per-SKU AI Review Synthesis</div>
+        <div class="bento-desc">Every product in your catalog gets its own synthesized confidence signal — not a generic store-level summary. Konfident reads all reviews for that specific SKU, identifies the most decision-relevant themes, and distills them into a signal that answers what shoppers are actually asking. You choose how the signal is composed: positive-only for maximum confidence, balanced to include critical context, or full-spectrum to surface everything — including mixed or negative reviews when transparency is the right call. It updates automatically as new reviews come in.</div>
+        <div class="bento-tags">
+          <span class="bento-tag">Auto-updated</span>
+          <span class="bento-tag">Per SKU, not per store</span>
+          <span class="bento-tag">Positive-only or full-spectrum</span>
+          <span class="bento-tag">Works with your existing reviews</span>
+          <span class="bento-tag">No prompt engineering needed</span>
+        </div>
+      </div>
+
+      <div class="bento-card dark">
+        <div class="bento-icon">⚡</div>
+        <div class="bento-title">Async Loading</div>
+        <div class="bento-desc">The widget loads asynchronously — your Core Web Vitals are untouched. Signals are pre-cached per SKU so the widget appears instantly.</div>
+        <div class="bento-stat">0ms</div>
+        <div class="bento-stat-label">impact on page render time</div>
+        <div class="bento-glow"></div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon">📊</div>
+        <div class="bento-title">Conversion Analytics</div>
+        <div class="bento-desc">See exactly which confidence signals are driving add-to-cart events, which products improved, and where you have signal gaps. Built-in dashboard, no BI tool needed.</div>
+        <div class="bento-tags">
+          <span class="bento-tag">Per-product breakdown</span>
+          <span class="bento-tag">Signal performance</span>
+        </div>
+      </div>
+
+      <div class="bento-card">
+        <div class="bento-icon">🎨</div>
+        <div class="bento-title">Native Design Matching</div>
+        <div class="bento-desc">The widget inherits your store's font, color, and border-radius automatically. It looks like it was built by your team — not dropped in from a third-party app.</div>
+        <div class="bento-tags">
+          <span class="bento-tag">CSS variable injection</span>
+          <span class="bento-tag">Dark mode ready</span>
+        </div>
+      </div>
+
+      <div class="bento-card dark">
+        <div class="bento-icon">🔒</div>
+        <div class="bento-title">Privacy-First Architecture</div>
+        <div class="bento-desc">Konfident reads your public review data — nothing else. No customer PII is collected or stored. Your return data (Pro) is anonymized before any aggregation. GDPR and CCPA compliant by design.</div>
+        <div class="bento-tags">
+          <span class="bento-tag">No PII collected</span>
+          <span class="bento-tag">GDPR compliant</span>
+          <span class="bento-tag">CCPA ready</span>
+        </div>
+        <div class="bento-glow"></div>
+      </div>
+
+      <div class="bento-card span2">
+        <div class="bento-icon">🔁</div>
+        <div class="bento-title">Purchase Outcome Intelligence (Pro)</div>
+        <div class="bento-desc">When you connect your return data, Konfident's signals evolve from "what buyers said" to "what buyers actually did." Which products get kept at the highest rate. Which return reasons are SKU-specific vs. category-wide. Over time, this layer makes every signal measurably more accurate — and gives you early warning when a product is trending toward a return spike before it hits your dashboard.</div>
+        <div class="bento-tags">
+          <span class="bento-tag">Return reason attribution</span>
+          <span class="bento-tag">Keep-rate by SKU</span>
+          <span class="bento-tag">Early warning signals</span>
+          <span class="bento-tag">Pro plan only</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band fade-up">
+  <div class="stats-band-inner">
+    <div class="stats-band-label">Why purchase confidence matters for your margin</div>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">$550B</div>
+        <div class="stat-desc">in merchandise returned to US retailers annually</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5–6%</div>
+        <div class="stat-desc">average conversion lift from AI review synthesis at point of decision, per comparable tools</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98%</div>
+        <div class="stat-desc">of shoppers read reviews before buying — but most leave without the confidence signal they were looking for</div>
+      </div>
+    </div>
+    <div class="stats-source">Sources: NRF 2024 Returns Study; Yotpo AI Summary Benchmarks; Baymard Institute Checkout Research</div>
+  </div>
+</div>
+
+<!-- INTEGRATION SHOWCASE -->
+<section class="integrations-section" id="integrations">
+  <div class="integrations-inner">
+    <div class="integrations-top fade-up">
+      <p class="section-eyebrow">Integrations</p>
+      <h2 class="section-h2">Plugs into what you<br/>already pay for.</h2>
+      <p class="section-sub" style="margin:0 auto">Konfident doesn't ask you to switch platforms. It reads your existing review data and fits into your current stack — no migrations, no new tools to manage.</p>
+    </div>
+    <div class="int-cats fade-up">
+      <button class="int-cat-btn active" onclick="switchInt('all',this)">All</button>
+      <button class="int-cat-btn" onclick="switchInt('ecommerce',this)">Ecommerce Platforms</button>
+      <button class="int-cat-btn" onclick="switchInt('reviews',this)">Review Platforms</button>
+      <button class="int-cat-btn" onclick="switchInt('marketing',this)">Marketing</button>
+      <button class="int-cat-btn" onclick="switchInt('support',this)">Support & CX</button>
+    </div>
+
+    <div class="int-panel active" id="int-all">
+      <div class="int-card"><div class="int-icon">🛍️</div><div><div class="int-name">Shopify</div><div class="int-category">Ecommerce</div></div></div>
+      <div class="int-card"><div class="int-icon">🛒</div><div><div class="int-name">WooCommerce</div><div class="int-category">Ecommerce</div></div></div>
+      <div class="int-card"><div class="int-icon">🏪</div><div><div class="int-name">BigCommerce</div><div class="int-category">Ecommerce</div></div></div>
+      <div class="int-card"><div class="int-icon">⭐</div><div><div class="int-name">Yotpo</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">❤️</div><div><div class="int-name">Judge.me</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">✅</div><div><div class="int-name">Okendo</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">📬</div><div><div class="int-name">Stamped</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">📸</div><div><div class="int-name">Loox</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">📧</div><div><div class="int-name">Klaviyo</div><div class="int-category">Marketing</div></div></div>
+      <div class="int-card"><div class="int-icon">💬</div><div><div class="int-name">Gorgias</div><div class="int-category">Support</div></div></div>
+      <div class="int-card"><div class="int-icon">🔄</div><div><div class="int-name">Loop Returns</div><div class="int-category">Returns</div></div></div>
+      <div class="int-card"><div class="int-icon">📱</div><div><div class="int-name">Attentive</div><div class="int-category">Marketing</div></div></div>
+      <div class="int-card"><div class="int-icon">🚀</div><div><div class="int-name">Postscript</div><div class="int-category">SMS</div></div></div>
+      <div class="int-card"><div class="int-icon">🎁</div><div><div class="int-name">Recharge</div><div class="int-category">Subscriptions</div></div></div>
+      <div class="int-card"><div class="int-icon">📦</div><div><div class="int-name">ShipBob</div><div class="int-category">Fulfillment</div></div></div>
+      <div class="int-cta-card">
+        <div class="int-cta-num">50+</div>
+        <div class="int-cta-label">integrations & counting</div>
+        <a class="int-cta-link" href="#final-cta">Request yours →</a>
+      </div>
+    </div>
+
+    <div class="int-panel" id="int-ecommerce">
+      <div class="int-card"><div class="int-icon">🛍️</div><div><div class="int-name">Shopify</div><div class="int-category">One-click App Store install</div></div></div>
+      <div class="int-card"><div class="int-icon">🛒</div><div><div class="int-name">WooCommerce</div><div class="int-category">Plugin + script tag</div></div></div>
+      <div class="int-card"><div class="int-icon">🏪</div><div><div class="int-name">BigCommerce</div><div class="int-category">Script tag install</div></div></div>
+      <div class="int-card"><div class="int-icon">🔮</div><div><div class="int-name">Headless / Custom</div><div class="int-category">REST API available</div></div></div>
+    </div>
+
+    <div class="int-panel" id="int-reviews">
+      <div class="int-card"><div class="int-icon">⭐</div><div><div class="int-name">Yotpo</div><div class="int-category">Reviews & UGC</div></div></div>
+      <div class="int-card"><div class="int-icon">❤️</div><div><div class="int-name">Judge.me</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">✅</div><div><div class="int-name">Okendo</div><div class="int-category">Reviews & Surveys</div></div></div>
+      <div class="int-card"><div class="int-icon">📬</div><div><div class="int-name">Stamped</div><div class="int-category">Reviews & Loyalty</div></div></div>
+      <div class="int-card"><div class="int-icon">📸</div><div><div class="int-name">Loox</div><div class="int-category">Photo Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">🌟</div><div><div class="int-name">Junip</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-card"><div class="int-icon">💬</div><div><div class="int-name">Ali Reviews</div><div class="int-category">Reviews</div></div></div>
+      <div class="int-cta-card">
+        <div class="int-cta-num">Any</div>
+        <div class="int-cta-label">platform with an API</div>
+        <a class="int-cta-link" href="#final-cta">Ask us →</a>
+      </div>
+    </div>
+
+    <div class="int-panel" id="int-marketing">
+      <div class="int-card"><div class="int-icon">📧</div><div><div class="int-name">Klaviyo</div><div class="int-category">Email & SMS</div></div></div>
+      <div class="int-card"><div class="int-icon">📱</div><div><div class="int-name">Attentive</div><div class="int-category">SMS Marketing</div></div></div>
+      <div class="int-card"><div class="int-icon">🚀</div><div><div class="int-name">Postscript</div><div class="int-category">SMS Marketing</div></div></div>
+      <div class="int-card"><div class="int-icon">🎯</div><div><div class="int-name">Meta Ads</div><div class="int-category">Paid Social</div></div></div>
+    </div>
+
+    <div class="int-panel" id="int-support">
+      <div class="int-card"><div class="int-icon">💬</div><div><div class="int-name">Gorgias</div><div class="int-category">Customer Support</div></div></div>
+      <div class="int-card"><div class="int-icon">🔄</div><div><div class="int-name">Loop Returns</div><div class="int-category">Returns Management</div></div></div>
+      <div class="int-card"><div class="int-icon">🎁</div><div><div class="int-name">Recharge</div><div class="int-category">Subscriptions</div></div></div>
+      <div class="int-card"><div class="int-icon">📦</div><div><div class="int-name">ShipBob</div><div class="int-category">Fulfillment</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section" id="compare">
+  <div class="compare-section-inner">
+    <div class="compare-top fade-up">
+      <p class="section-eyebrow">How It Compares</p>
+      <h2 class="section-h2">Reviews alone aren't enough.<br/>Konfident is.</h2>
+      <p class="section-sub" style="margin:0 auto">Every Shopify store has reviews. Most show them. Almost none interpret them for the shopper at the moment of decision. That's the gap Konfident fills.</p>
+    </div>
+    <div class="compare-table-wrap fade-up">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>No widget</th>
+            <th>Reviews displayed</th>
+            <th class="col-konfident">Konfident ✦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-row"><td colspan="4">Shopper experience</td></tr>
+          <tr>
+            <td>Answers the shopper's specific question</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-partial">Sometimes</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Surfaces signal above the fold</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Removes need to read 50+ reviews</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Adapts signal per product category</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr class="section-row"><td colspan="4">Merchant outcomes</td></tr>
+          <tr>
+            <td>Reduces return rate</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-partial">Marginally</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Improves conversion rate</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-partial">Marginally</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>No developer required to install</td>
+            <td><span class="c-yes">✓</span></td>
+            <td><span class="c-partial">Varies</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Works with your existing review platform</td>
+            <td>—</td>
+            <td><span class="c-yes">✓</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr class="section-row"><td colspan="4">Intelligence over time</td></tr>
+          <tr>
+            <td>Gets smarter as reviews accumulate</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-partial">More reviews show</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Learns from purchase outcomes (returns)</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-yes">✓ Pro</span></td>
+          </tr>
+          <tr>
+            <td>SKU-level signal vs. store-level</td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-yes">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BADGE STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-badge">
+      <div class="trust-badge-icon shopify">✓</div>
+      <div><div class="trust-badge-text">Built for Shopify</div><div class="trust-badge-sub">App Store certified</div></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon soc2">SOC2</div>
+      <div><div class="trust-badge-text">SOC 2 Type II</div><div class="trust-badge-sub">Security audited</div></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon gdpr">EU</div>
+      <div><div class="trust-badge-text">GDPR Compliant</div><div class="trust-badge-sub">Data privacy ready</div></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon ccpa">CA</div>
+      <div><div class="trust-badge-text">CCPA Compliant</div><div class="trust-badge-sub">Consumer privacy</div></div>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-badge">
+      <div class="trust-badge-icon g2">G2</div>
+      <div><div class="trust-badge-text">G2 High Performer</div><div class="trust-badge-sub">E-commerce category</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-top fade-up">
+      <p class="section-eyebrow">Pricing</p>
+      <h2 class="section-h2">Start free. Scale when it works.</h2>
+      <p class="section-sub" style="margin:0 auto">No contracts. No setup fees. Cancel anytime. Early access members get the first 30 days on us.</p>
+    </div>
+    <div class="pricing-cards fade-up">
+
+      <!-- Free -->
+      <div class="pc-card">
+        <div class="pc-tier">Free</div>
+        <div class="pc-price">$<span>0</span></div>
+        <div class="pc-period">forever to start</div>
+        <span class="pc-orders">Up to 10 SKUs</span>
+        <div class="pc-desc">For merchants who want to see Konfident work on their store before committing.</div>
+        <ul class="pc-feats">
+          <li class="pc-feat"><span class="pc-check">✓</span> AI review synthesis on up to 10 products</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Konfident widget on product pages</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Shopify integration</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Basic performance dashboard</li>
+          <li class="pc-feat"><span class="pc-dash">–</span> <span style="color:var(--g400)">Multi-platform support</span></li>
+          <li class="pc-feat"><span class="pc-dash">–</span> <span style="color:var(--g400)">Purchase outcome intelligence</span></li>
+        </ul>
+        <button class="pc-btn pc-btn-outline" href="/contact.html">Get started free</button>
+      </div>
+
+      <!-- Growth (featured) -->
+      <div class="pc-card featured">
+        <span class="pc-popular">Most Popular</span>
+        <div class="pc-tier">Growth</div>
+        <div class="pc-price"><sup>$</sup>49</div>
+        <div class="pc-period">/month</div>
+        <span class="pc-orders">Up to 100 SKUs</span>
+        <div class="pc-desc">For scaling brands that want Konfident running across their full catalog.</div>
+        <ul class="pc-feats">
+          <li class="pc-feat"><span class="pc-check">✓</span> Everything in Free</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> AI synthesis on up to 100 products</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Shopify, WooCommerce, BigCommerce</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> All review platform integrations</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Full analytics dashboard</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Priority support</li>
+          <li class="pc-feat"><span class="pc-dash" style="color:rgba(255,255,255,.15)">–</span> <span style="color:rgba(255,255,255,.3)">Purchase outcome intelligence</span></li>
+        </ul>
+        <button class="pc-btn pc-btn-teal" href="/contact.html">Start 30-day free trial</button>
+      </div>
+
+      <!-- Pro -->
+      <div class="pc-card">
+        <div class="pc-tier">Pro</div>
+        <div class="pc-price"><sup>$</sup>99</div>
+        <div class="pc-period">/month</div>
+        <span class="pc-orders">Unlimited SKUs</span>
+        <div class="pc-desc">For high-volume brands who want the full purchase intelligence layer.</div>
+        <ul class="pc-feats">
+          <li class="pc-feat"><span class="pc-check">✓</span> Everything in Growth</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Unlimited products</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Purchase outcome intelligence layer</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Return data integration</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Advanced analytics & SKU reports</li>
+          <li class="pc-feat"><span class="pc-check">✓</span> Early access to new features</li>
+        </ul>
+        <button class="pc-btn pc-btn-outline" href="/contact.html">Request early access</button>
+      </div>
+
+    </div>
+    <div class="pricing-note">Need custom volume or enterprise features? <a href="#contact">Let's talk →</a></div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section class="roi-section" id="roi">
+  <div class="roi-inner">
+    <div class="roi-top fade-up">
+      <p class="section-eyebrow">ROI Calculator</p>
+      <h2 class="section-h2">See what purchase confidence<br/>is worth to your store.</h2>
+      <p class="section-sub">Move the sliders. See the math. Based on documented conversion lift from comparable AI review synthesis tools.</p>
+    </div>
+    <div class="roi-grid fade-up">
+      <div class="roi-inputs">
+        <h4>Your Store Numbers</h4>
+        <div class="roi-field">
+          <label>Monthly Revenue</label>
+          <div class="roi-val" id="roi-rev-val">$250,000</div>
+          <input type="range" min="50000" max="2000000" step="10000" value="250000" oninput="calcROI()" id="roi-rev" />
+        </div>
+        <div class="roi-field">
+          <label>Current Conversion Rate</label>
+          <div class="roi-val" id="roi-cvr-val">2.4%</div>
+          <input type="range" min="0.5" max="8" step="0.1" value="2.4" oninput="calcROI()" id="roi-cvr" />
+        </div>
+        <div class="roi-field">
+          <label>Current Return Rate</label>
+          <div class="roi-val" id="roi-ret-val">22%</div>
+          <input type="range" min="5" max="50" step="1" value="22" oninput="calcROI()" id="roi-ret" />
+        </div>
+        <div class="roi-field">
+          <label>Average Order Value</label>
+          <div class="roi-val" id="roi-aov-val">$95</div>
+          <input type="range" min="25" max="500" step="5" value="95" oninput="calcROI()" id="roi-aov" />
+        </div>
+      </div>
+      <div class="roi-results">
+        <h4>Estimated Impact</h4>
+        <div class="roi-result-item">
+          <div class="roi-result-num" id="roi-lift-rev">+$15,000</div>
+          <div class="roi-result-label">additional monthly revenue from ~5.5% conversion lift*</div>
+        </div>
+        <div class="roi-result-item">
+          <div class="roi-result-num" id="roi-saved">$4,125</div>
+          <div class="roi-result-label">estimated monthly savings from reduced return processing costs</div>
+        </div>
+        <div class="roi-result-item">
+          <div class="roi-result-num" id="roi-total">$19,125</div>
+          <div class="roi-result-label">total estimated monthly impact vs. $49–$99/mo Konfident plan</div>
+        </div>
+        <div class="roi-disclaimer">* Conversion lift estimate based on documented benchmarks from comparable AI review synthesis tools (Yotpo AI Summary data). Actual results vary by catalog, vertical, and traffic quality. This calculator is illustrative only.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES / BLOG -->
+<section class="resources" id="resources">
+  <div class="resources-inner">
+    <div class="resources-top fade-up">
+      <div>
+        <p class="section-eyebrow">Resources</p>
+        <h2 class="section-h2" style="margin-bottom:0">From the Konfident blog.</h2>
+      </div>
+      <a class="resources-cta-link" href="#">View all articles →</a>
+    </div>
+    <div class="resources-grid fade-up">
+
+      <a class="resource-card" href="/blog/ecommerce-returns-2024.html">
+        <div class="resource-card-img rc-img-1">📉</div>
+        <div class="resource-card-body">
+          <div class="rc-cat">Returns Strategy</div>
+          <div class="rc-title">Why Your Return Rate Is a Conversion Problem, Not a Logistics Problem</div>
+          <div class="rc-desc">Most DTC brands treat returns as a fulfillment cost. The brands that grow fastest treat them as a signal that something went wrong before the shopper clicked buy.</div>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-time">6 min read</span>
+          <span class="rc-read">Read →</span>
+        </div>
+      </a>
+
+      <a class="resource-card" href="/blog/ecommerce-returns-2024.html">
+        <div class="resource-card-img rc-img-2">🧪</div>
+        <div class="resource-card-body">
+          <div class="rc-cat">Conversion Optimization</div>
+          <div class="rc-title">The 13-Minute Problem: Why Shoppers Leave Without Buying Even After Reading Reviews</div>
+          <div class="rc-desc">Shoppers read reviews to find one specific answer. When they can't find it — or when they have to read 40 reviews to get it — they leave. Here's what the data says about why and what to do about it.</div>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-time">8 min read</span>
+          <span class="rc-read">Read →</span>
+        </div>
+      </a>
+
+      <a class="resource-card" href="/blog/ecommerce-returns-2024.html">
+        <div class="resource-card-img rc-img-3">🤖</div>
+        <div class="resource-card-body">
+          <div class="rc-cat">AI & Ecommerce</div>
+          <div class="rc-title">AI Review Synthesis vs. AI Review Summarization: What's the Difference and Why It Matters</div>
+          <div class="rc-desc">Not all AI review tools are the same. Summarization gives you a paragraph. Synthesis gives shoppers the specific signal they need to feel confident buying. Here's how to tell them apart.</div>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-time">5 min read</span>
+          <span class="rc-read">Read →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-top fade-up">
+      <p class="section-eyebrow">FAQ</p>
+      <h2 class="section-h2">Common questions.</h2>
+    </div>
+    <div class="fade-up">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I control which reviews power the confidence signal? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — you have full control over your signal mode. <strong>Positive-only</strong> surfaces only your strongest, most confident reviews, maximizing purchase intent. <strong>Balanced</strong> includes positive reviews alongside critical context (e.g. "great for oily skin, less ideal for dry"), which tends to build more trust with skeptical shoppers. <strong>Full-spectrum</strong> draws from all reviews including negative and mixed ones — useful when transparency is part of your brand. Most merchants start with balanced mode; you can change this per product or store-wide at any time from your dashboard.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does Konfident replace my review platform? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No — and that's intentional. Konfident works on top of whatever you already use: Yotpo, Judge.me, Okendo, Stamped, Loox, or any other review platform. It reads your existing reviews and synthesizes them into a confidence signal. Your reviews stay where they are. Konfident adds a layer of interpretation on top.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does setup take? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Under 10 minutes for Shopify merchants — it's a single-click install from the App Store. WooCommerce and BigCommerce merchants add one script tag. No developer, no custom configuration, no onboarding call required. You're live immediately after connecting your review platform.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I don't have many reviews yet? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">The Konfident widget activates once a product has enough review signal to synthesize something meaningful. For products with fewer reviews, the widget stays hidden rather than showing a thin summary. As your review catalog grows, more products activate automatically. You don't need to manage this — it happens on its own.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How is this different from just showing reviews? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Reviews require shoppers to do interpretive work: read through dozens of comments, figure out which ones apply to them, and draw their own conclusions. Most shoppers either spend 13 minutes doing this (and still aren't sure) or abandon the page entirely. Konfident does that interpretive work for them — identifying the specific signal that matters for each product and surfacing it directly, before the shopper has to ask.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my return data shared with other merchants? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. Individual merchant data is never shared. If you opt into the purchase outcome intelligence layer (Pro plan), your return data is anonymized and aggregated — only broad patterns contribute to model improvement. No other merchant can see your specific return rates, SKU data, or customer information.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Will Konfident slow down my product pages? <span class="faq-arr">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No. The confidence signal is pre-synthesized and cached per SKU — it loads asynchronously and doesn't block your page rendering. The widget is lightweight by design. We've built it specifically to avoid any impact on page speed scores or Core Web Vitals.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="final-cta">
+  <div class="final-cta-inner">
+    <h2>Your shoppers are already looking<br />for a reason to buy.<br/><em>Give them one.</em></h2>
+    <p>Install Konfident on your Shopify store today. Free to start. Live in under 10 minutes. No developer needed.</p>
+    <div class="final-cta-btns">
+      <button class="btn-final" href="/contact.html">
+        Install Free on Shopify
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="btn-final-ghost" href="/contact.html">Or request access for WooCommerce / BigCommerce</button>
+    </div>
+    <div class="final-note">No credit card required · Cancel anytime · Installs in under 10 minutes</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Konfident<span>.</span></div>
+        <div class="footer-tagline">Purchase confidence for every product page. Built for Shopify merchants serious about conversion and margin.</div>
+        <div style="margin-top:20px;display:flex;gap:12px;">
+          <a href="/about.html" style="color:rgba(255,255,255,.3);font-size:18px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.3)'">𝕏</a>
+          <a href="/about.html" style="color:rgba(255,255,255,.3);font-size:18px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.3)'">in</a>
+          <a href="/about.html" style="color:rgba(255,255,255,.3);font-size:18px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.3)'">▶</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link" href="/product.html">How It Works</a>
+          <a class="footer-link" href="/product.html#demo">See It Live</a>
+          <a class="footer-link" href="/product.html#features">Platform Features</a>
+          <a class="footer-link" href="#benefits">Why It Works</a>
+          <a class="footer-link" href="/product.html#roi">ROI Calculator</a>
+          <a class="footer-link" href="/pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Solutions</div>
+          <a class="footer-link" href="/merchants.html">Beauty & Skincare</a>
+          <a class="footer-link" href="/merchants.html">Apparel & Fashion</a>
+          <a class="footer-link" href="/merchants.html">Home & Lifestyle</a>
+          <a class="footer-link" href="/merchants.html">Supplements</a>
+          <a class="footer-link" href="/merchants.html">Pet Products</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Integrations</div>
+          <a class="footer-link" href="/product.html#integrations">Shopify</a>
+          <a class="footer-link" href="/product.html#integrations">WooCommerce</a>
+          <a class="footer-link" href="/product.html#integrations">BigCommerce</a>
+          <a class="footer-link" href="/product.html#integrations">Yotpo</a>
+          <a class="footer-link" href="/product.html#integrations">Judge.me</a>
+          <a class="footer-link" href="/product.html#integrations">Klaviyo</a>
+          <a class="footer-link" href="/product.html#integrations">View all →</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a class="footer-link" href="/blog/index.html">Blog</a>
+          <a class="footer-link" href="/faq.html">FAQ</a>
+          <a class="footer-link" href="/product.html#compare">Compare</a>
+          <a class="footer-link" href="/product.html">How It Works</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link" href="/about.html">About</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+          <a class="footer-link" href="/about.html#careers">Careers</a>
+          <a class="footer-link" href="/contact.html">Install on Shopify</a>
+          <a class="footer-link" href="/contact.html">Request Demo</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Konfident, Inc. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Security</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Counter animation for stats
+function animateCounter(el, target, suffix) {
+  const duration = 1800;
+  const start = performance.now();
+  const isDecimal = target % 1 !== 0;
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = isDecimal ? (target * eased).toFixed(1) : Math.floor(target * eased);
+    el.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// Stat counter observer
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      statObs.unobserve(entry.target);
+      // no numeric-only stats in this band, skip counter
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat-num').forEach(el => statObs.observe(el));
+
+// Before / After toggle
+function switchBA(id, el) {
+  document.querySelectorAll('.ba-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ba-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('ba-' + id);
+  if (panel) panel.classList.add('active');
+  if (el) el.classList.add('active');
+}
+
+// Vertical tabs
+function switchVert(id, el) {
+  document.querySelectorAll('.vert-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.vert-tab').forEach(t => t.classList.remove('active'));
+  const panel = document.getElementById('vert-' + id);
+  if (panel) panel.style.display = 'grid';
+  if (el) el.classList.add('active');
+}
+(function() {
+  document.querySelectorAll('.vert-panel').forEach((p, i) => { p.style.display = i === 0 ? 'grid' : 'none'; });
+  const firstBtn = document.querySelector('.vert-tab');
+  if (firstBtn) firstBtn.classList.add('active');
+})();
+
+// Integration filter tabs
+function switchInt(id, el) {
+  document.querySelectorAll('.int-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.int-cat-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById('int-' + id);
+  if (panel) panel.style.display = 'grid';
+  if (el) el.classList.add('active');
+}
+(function() {
+  document.querySelectorAll('.int-panel').forEach((p, i) => { p.style.display = i === 0 ? 'grid' : 'none'; });
+  const firstBtn = document.querySelector('.int-cat-btn');
+  if (firstBtn) firstBtn.classList.add('active');
+})();
+
+// ROI Calculator
+function calcROI() {
+  const rev = parseFloat(document.getElementById('roi-rev').value) || 250000;
+  const cvr = parseFloat(document.getElementById('roi-cvr').value) || 2.5;
+  const ret = parseFloat(document.getElementById('roi-ret').value) || 20;
+  const aov = parseFloat(document.getElementById('roi-aov').value) || 85;
+
+  document.getElementById('roi-rev-val').textContent = '$' + (rev >= 1000000 ? (rev/1000000).toFixed(1)+'M' : (rev/1000).toFixed(0)+'K');
+  document.getElementById('roi-cvr-val').textContent = cvr.toFixed(1) + '%';
+  document.getElementById('roi-ret-val').textContent = ret.toFixed(0) + '%';
+  document.getElementById('roi-aov-val').textContent = '$' + aov.toFixed(0);
+
+  const additionalRev = rev * 0.05;
+  const orders = rev / aov;
+  const returnOrders = orders * (ret / 100);
+  const savedReturns = returnOrders * aov * 0.6 * 0.15;
+  const total = additionalRev + savedReturns;
+
+  document.getElementById('roi-lift-rev').textContent = '$' + Math.round(additionalRev).toLocaleString();
+  document.getElementById('roi-saved').textContent = '$' + Math.round(savedReturns).toLocaleString();
+  document.getElementById('roi-total').textContent = '$' + Math.round(total).toLocaleString();
+}
+['roi-rev','roi-cvr','roi-ret','roi-aov'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', calcROI);
+});
+calcROI();
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Konfident</title>
+<meta name="description" content="The honest story behind Konfident. Early-stage, in private beta, building purchase confidence signals for DTC merchants." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--black:#08090a;--navy:#0d1117;--navy-2:#161b22;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--teal-dim:rgba(0,201,167,.12);--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;margin-right:40px;text-decoration:none;flex-shrink:0}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;transition:color .15s,background .15s;text-decoration:none;display:inline-block}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px;cursor:pointer;transition:color .15s}
+.btn-ghost-nav:hover{color:var(--white)}
+.btn-nav-cta{font-size:14px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:9px 20px;border-radius:8px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-nav-cta:hover{background:var(--teal-d)}
+
+/* HERO */
+.about-hero{background:var(--navy);padding:100px 28px 80px;text-align:center}
+.about-eyebrow{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.about-h1{font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-2px;line-height:1.1;color:var(--white);max-width:780px;margin:0 auto 24px}
+.about-h1 em{font-style:normal;color:var(--teal)}
+.about-hero-sub{font-size:18px;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto}
+
+/* MAIN STORY */
+.story-section{padding:80px 28px}
+.story-inner{max-width:720px;margin:0 auto}
+.story-h2{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-1px;color:var(--g900);margin:48px 0 20px}
+.story-h2:first-child{margin-top:0}
+.story-p{font-size:16px;color:var(--g600);line-height:1.8;margin-bottom:20px}
+.story-p a{color:var(--teal);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.story-callout{background:var(--teal-l);border-left:3px solid var(--teal);padding:20px 24px;border-radius:0 10px 10px 0;margin:32px 0;font-size:15px;color:var(--g700);line-height:1.7}
+.story-callout strong{color:var(--g900)}
+
+/* WHAT WE HAVE SECTION */
+.status-section{background:var(--g50);padding:64px 28px}
+.status-inner{max-width:720px;margin:0 auto}
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.status-card{background:var(--white);border:1.5px solid var(--g200);border-radius:14px;padding:24px}
+.status-card.yes{border-color:rgba(0,201,167,.3)}
+.status-card-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.status-card.yes .status-card-label{color:var(--teal-d)}
+.status-card.no .status-card-label{color:var(--g400)}
+.status-card-title{font-size:15px;font-weight:700;color:var(--g900);margin-bottom:6px}
+.status-card-desc{font-size:13px;color:var(--g500);line-height:1.5}
+
+/* VALUES */
+.values-section{padding:80px 28px}
+.values-inner{max-width:720px;margin:0 auto}
+.value-item{border-bottom:1px solid var(--g100);padding:28px 0}
+.value-item:first-child{padding-top:0}
+.value-item:last-child{border-bottom:none}
+.value-num{font-size:12px;font-weight:800;color:var(--teal);margin-bottom:8px;letter-spacing:.3px}
+.value-title{font-size:18px;font-weight:800;color:var(--g900);margin-bottom:10px;letter-spacing:-.3px}
+.value-desc{font-size:15px;color:var(--g600);line-height:1.7}
+
+/* CTA */
+.about-cta{background:var(--navy);padding:80px 28px;text-align:center}
+.about-cta h2{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-2px;color:var(--white);margin-bottom:16px}
+.about-cta h2 em{font-style:normal;color:var(--teal)}
+.about-cta p{font-size:16px;color:rgba(255,255,255,.5);max-width:440px;margin:0 auto 32px}
+.about-cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-cta-teal{font-size:15px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:14px 28px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-cta-teal:hover{background:var(--teal-d)}
+.btn-cta-ghost{font-size:14px;font-weight:600;color:rgba(255,255,255,.6);background:transparent;border:1px solid rgba(255,255,255,.15);padding:13px 24px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-cta-ghost:hover{background:rgba(255,255,255,.08);color:var(--white)}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 28px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.footer-logo{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.8px;margin-bottom:12px}
+.footer-logo span{color:var(--teal)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;max-width:220px}
+.fc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px}
+.fc-link{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .15s}
+.fc-link:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.25);gap:20px;flex-wrap:wrap}
+@media(max-width:768px){.status-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Solutions</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link active" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <a class="btn-nav-cta" href="/contact.html">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<div class="about-hero">
+  <div class="about-eyebrow">About Konfident</div>
+  <h1 class="about-h1">We're <em>early.</em><br/>Here's the honest version.</h1>
+  <p class="about-hero-sub">No fabricated traction numbers. No investors we haven't met. Just a product we're building because the problem is real — and nobody has solved it right.</p>
+</div>
+
+<div class="story-section">
+  <div class="story-inner">
+
+    <h2 class="story-h2">Where this came from</h2>
+    <p class="story-p">The idea behind Konfident started with a simple observation: shoppers already do the research. Before buying anything online, <strong>99.75% of shoppers read reviews</strong> before purchasing (PowerReviews, 2023). They scroll through dozens of comments, look for someone who matches their situation, try to figure out if the product will actually work for them — and then, most of the time, they either take the leap with residual doubt or leave entirely.</p>
+    <p class="story-p">That residual doubt is where returns come from. The <strong>$890 billion</strong> in merchandise returned in 2024 (NRF) isn't mostly fraud or logistics failure. It's a communication failure — the product didn't match what the shopper believed they were buying. Roughly <strong>31% of returns happen because the item didn't match its description</strong>, and fit/expectation failures account for the majority of the rest (DealNews consumer survey).</p>
+    <p class="story-p">The current tools solve the wrong problem. Review platforms help merchants collect reviews. They don't help shoppers interpret them. A shopper looking at a face serum with 847 reviews still has to read through all of them to figure out if it works for dry skin. A shopper buying a sofa with 200 reviews still doesn't know if the cushions are firm or plush. That's 13+ minutes of research — for a decision a confident signal could resolve in 10 seconds.</p>
+
+    <div class="story-callout">
+      <strong>The hypothesis:</strong> If you synthesize what your existing reviews actually say — per SKU, surfaced at point of purchase — you can close the expectation gap before shoppers buy, not after they return. Fewer returns. Higher conversion. A shopper who bought with confidence rather than doubt.
+    </div>
+
+    <h2 class="story-h2">Where we are right now</h2>
+    <p class="story-p">Konfident is in private beta. We have a working product — the core review synthesis engine and the confidence widget run on Shopify, read from major review platforms (Yotpo, Judge.me, Okendo, Stamped, Loox), and surface a per-SKU confidence signal on product pages without slowing the page down.</p>
+    <p class="story-p">What we don't have yet: a large customer base, published case studies with verified conversion data, or external investors. We're telling you this directly because we believe you should know exactly what you're evaluating when you consider Konfident. We're a small early-stage team, building in public, and looking for a small cohort of merchants who want to be part of figuring this out.</p>
+    <p class="story-p">If you're a DTC merchant with meaningful review volume and a return rate that costs you margin — that's who we built this for. <a href="/contact.html">Request early access</a> and let's talk.</p>
+
+    <h2 class="story-h2">What we believe</h2>
+    <p class="story-p">The reviews already exist. Shoppers are already reading them. The missing piece is the layer between raw reviews and a purchase decision — a signal that tells the shopper what the reviews actually mean for them, without making them do the interpretive work themselves.</p>
+    <p class="story-p">We also believe that transparency matters more than polish. We'd rather tell you we're early than dress up our traction with numbers we don't have. That's the same honesty we're building into the product: Konfident doesn't hide negative signals, it gives you control over how much context to surface. That's the right way to build shopper trust.</p>
+
+  </div>
+</div>
+
+<div class="status-section">
+  <div class="status-inner">
+    <h2 style="font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-1px;color:var(--g900);margin-bottom:8px">What's real right now</h2>
+    <p style="font-size:15px;color:var(--g500)">A clear-eyed snapshot of where the product and company stand today.</p>
+    <div class="status-grid">
+      <div class="status-card yes">
+        <div class="status-card-label">✓ Real</div>
+        <div class="status-card-title">Working product</div>
+        <div class="status-card-desc">The Shopify widget, review synthesis engine, and dashboard are built and functional.</div>
+      </div>
+      <div class="status-card yes">
+        <div class="status-card-label">✓ Real</div>
+        <div class="status-card-title">Private beta live</div>
+        <div class="status-card-desc">We're onboarding a small cohort of early merchants on the Starter plan.</div>
+      </div>
+      <div class="status-card yes">
+        <div class="status-card-label">✓ Real</div>
+        <div class="status-card-title">Shopify integration</div>
+        <div class="status-card-desc">One-click install from Shopify App Store. Connects to major review platforms.</div>
+      </div>
+      <div class="status-card yes">
+        <div class="status-card-label">✓ Real</div>
+        <div class="status-card-title">The market problem</div>
+        <div class="status-card-desc">$890B in returns in 2024. 99.75% of shoppers read reviews before buying. These are real, cited stats — not ours.</div>
+      </div>
+      <div class="status-card no">
+        <div class="status-card-label">Not yet</div>
+        <div class="status-card-title">Published case studies</div>
+        <div class="status-card-desc">We don't have independently verified conversion lift data from merchants yet. We're working on it.</div>
+      </div>
+      <div class="status-card no">
+        <div class="status-card-label">Not yet</div>
+        <div class="status-card-title">External funding</div>
+        <div class="status-card-desc">We haven't raised a round. We're building with our own resources and early merchant revenue.</div>
+      </div>
+      <div class="status-card no">
+        <div class="status-card-label">Not yet</div>
+        <div class="status-card-title">A large team</div>
+        <div class="status-card-desc">We're a small founding team. We won't tell you we have 30 employees if we don't.</div>
+      </div>
+      <div class="status-card no">
+        <div class="status-card-label">Not yet</div>
+        <div class="status-card-title">WooCommerce / BigCommerce</div>
+        <div class="status-card-desc">In development. Currently Shopify-only. Tell us if this is blocking for you.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="values-section">
+  <div class="values-inner">
+    <h2 style="font-size:clamp(24px,3vw,32px);font-weight:800;letter-spacing:-1px;color:var(--g900);margin-bottom:8px">How we work</h2>
+    <p style="font-size:15px;color:var(--g500);margin-bottom:40px">The principles we hold ourselves to — especially when it's easier not to.</p>
+
+    <div class="value-item">
+      <div class="value-num">01</div>
+      <div class="value-title">Honest by default</div>
+      <div class="value-desc">We don't fabricate metrics, testimonials, or traction. Every stat on this site that comes from external research is cited. If we don't have data to back something up, we say so. This is both a product principle (the confidence signals we surface reflect what reviews actually say) and a company principle (we talk about ourselves the same way).</div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-num">02</div>
+      <div class="value-title">Build for the shopper, sell to the merchant</div>
+      <div class="value-desc">Merchants pay us, but shoppers use us. The confidence signal has to actually help shoppers make better decisions — not just feel like it does. If Konfident surfaces a signal that doesn't reflect reality, shoppers return the product anyway, merchants lose trust in the tool, and we've failed at the only thing that matters. Shopper utility is the floor, not a nice-to-have.</div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-num">03</div>
+      <div class="value-title">Slow is smooth, smooth is fast</div>
+      <div class="value-desc">We're not optimizing for a demo. We're building something that has to work at 3am on Black Friday, that loads without slowing down a product page, and that synthesizes reviews accurately enough that a shopper makes a better decision. We'd rather spend another two weeks getting the synthesis right than ship a slick demo with mediocre signals underneath.</div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-num">04</div>
+      <div class="value-title">No manufactured urgency</div>
+      <div class="value-desc">The "private beta" framing is real — we have limited capacity for early merchants right now, and we genuinely can't onboard everyone at once. But we won't use fake countdown timers, "only 3 spots left" copy that resets every week, or pressure tactics to get you to sign up. If Konfident is right for you, the product should convince you.</div>
+    </div>
+
+  </div>
+</div>
+
+<div id="careers" class="about-cta">
+  <h2>Want to work on this?<br/><em>Let's talk.</em></h2>
+  <p>We're not hiring formally right now, but if you're a merchant who wants early access, or an engineer who wants to help build this, we want to hear from you.</p>
+  <div class="about-cta-btns">
+    <a href="/contact.html" class="btn-cta-teal">Get in touch</a>
+    <a href="/product.html" class="btn-cta-ghost">See the product</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Konfident<span>·</span></div>
+      <div class="footer-tagline">Purchase confidence for every product page. Built for DTC merchants serious about conversion and margin.</div>
+    </div>
+    <div><div class="fc-title">Product</div><a class="fc-link" href="/product.html">How It Works</a><a class="fc-link" href="/pricing.html">Pricing</a><a class="fc-link" href="/contact.html">Request Access</a></div>
+    <div><div class="fc-title">Solutions</div><a class="fc-link" href="/merchants.html#beauty">Beauty & Skincare</a><a class="fc-link" href="/merchants.html#apparel">Apparel</a><a class="fc-link" href="/merchants.html#home">Home & Lifestyle</a><a class="fc-link" href="/merchants.html#supplements">Supplements</a></div>
+    <div><div class="fc-title">Resources</div><a class="fc-link" href="/blog/index.html">Blog</a><a class="fc-link" href="/faq.html">FAQ</a><a class="fc-link" href="/about.html">About</a><a class="fc-link" href="/contact.html">Contact</a></div>
+    <div><div class="fc-title">Legal</div><a class="fc-link" href="/privacy.html">Privacy Policy</a><a class="fc-link" href="/terms.html">Terms of Service</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Konfident, Inc. All rights reserved.</span>
+    <div style="display:flex;gap:20px"><a class="fc-link" href="/privacy.html">Privacy</a><a class="fc-link" href="/terms.html">Terms</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

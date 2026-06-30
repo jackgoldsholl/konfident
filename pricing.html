@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing — Konfident</title>
+<meta name="description" content="Simple, transparent pricing for Konfident. Start free, scale as you grow. No per-seat fees, no implementation costs, no long-term contracts." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--black:#08090a;--navy:#0d1117;--navy-2:#161b22;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--teal-dim:rgba(0,201,167,.12);--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'Inter',sans-serif}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;gap:0;margin-right:40px;text-decoration:none;flex-shrink:0}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;transition:color .15s,background .15s;white-space:nowrap;text-decoration:none;display:inline-block}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-link.active{color:var(--white)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px;transition:color .15s,background .15s}
+.btn-ghost-nav:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.btn-nav-cta{font-size:14px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:9px 20px;border-radius:8px;transition:background .15s;white-space:nowrap;text-decoration:none;display:inline-block}
+.btn-nav-cta:hover{background:var(--teal-d)}
+
+/* HERO */
+.pricing-hero{background:var(--navy);padding:80px 28px 64px;text-align:center}
+.pricing-hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--teal-dim);border:1px solid rgba(0,201,167,.3);color:var(--teal);font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:24px;letter-spacing:.2px}
+.pricing-hero-h1{font-size:clamp(36px,5vw,58px);font-weight:900;letter-spacing:-2px;line-height:1.05;color:var(--white);margin-bottom:16px}
+.pricing-hero-h1 em{font-style:normal;color:var(--teal)}
+.pricing-hero-sub{font-size:18px;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 32px}
+.toggle-wrap{display:inline-flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px;gap:2px;margin-bottom:56px}
+.toggle-btn{font-size:13px;font-weight:600;padding:8px 20px;border-radius:999px;border:none;background:transparent;color:rgba(255,255,255,.5);transition:all .2s}
+.toggle-btn.active{background:var(--white);color:var(--g900)}
+.toggle-save{font-size:11px;font-weight:700;background:var(--teal-dim);color:var(--teal);padding:2px 8px;border-radius:999px;margin-left:6px}
+
+/* PRICING CARDS */
+.pricing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1060px;margin:0 auto;padding:0 28px 80px}
+.pricing-card{background:var(--white);border:1.5px solid var(--g200);border-radius:20px;padding:36px;position:relative;transition:border-color .2s,box-shadow .2s}
+.pricing-card:hover{border-color:var(--g300);box-shadow:0 12px 40px rgba(0,0,0,.08)}
+.pricing-card.popular{border-color:var(--teal);box-shadow:0 8px 32px rgba(0,201,167,.15)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:var(--black);font-size:11px;font-weight:800;padding:4px 14px;border-radius:999px;white-space:nowrap;letter-spacing:.3px}
+.plan-name{font-size:13px;font-weight:700;color:var(--g500);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.plan-price{font-size:48px;font-weight:900;letter-spacing:-2px;color:var(--g900);line-height:1;margin-bottom:4px}
+.plan-price span{font-size:20px;font-weight:600;letter-spacing:0;vertical-align:top;margin-top:10px;display:inline-block;color:var(--g500)}
+.plan-period{font-size:13px;color:var(--g400);margin-bottom:20px}
+.plan-desc{font-size:14px;color:var(--g500);margin-bottom:28px;line-height:1.5}
+.plan-cta{display:block;width:100%;text-align:center;padding:13px;border-radius:10px;font-size:14px;font-weight:700;transition:all .15s;margin-bottom:28px}
+.plan-cta-outline{border:2px solid var(--g200);color:var(--g900);background:transparent}
+.plan-cta-outline:hover{border-color:var(--g400);background:var(--g50)}
+.plan-cta-primary{background:var(--teal);color:var(--black);border:none}
+.plan-cta-primary:hover{background:var(--teal-d)}
+.plan-cta-dark{background:var(--g900);color:var(--white);border:none}
+.plan-cta-dark:hover{background:#000}
+.plan-divider{height:1px;background:var(--g100);margin-bottom:24px}
+.plan-features-title{font-size:12px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+.plan-feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:var(--g700)}
+.pf-check{width:18px;height:18px;border-radius:50%;background:var(--teal-l);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:10px;color:var(--teal-d)}
+.pf-check-gray{background:var(--g100);color:var(--g400)}
+
+/* COMPARISON TABLE */
+.compare-section{background:var(--g50);padding:80px 28px}
+.compare-inner{max-width:900px;margin:0 auto}
+.compare-h2{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-1.5px;color:var(--g900);text-align:center;margin-bottom:8px}
+.compare-sub{font-size:16px;color:var(--g500);text-align:center;margin-bottom:48px}
+.compare-table{width:100%;border-collapse:collapse}
+.ct-header th{padding:16px 20px;text-align:left;font-size:13px;font-weight:700;color:var(--g500);border-bottom:2px solid var(--g200)}
+.ct-header th:not(:first-child){text-align:center}
+.ct-row td{padding:14px 20px;border-bottom:1px solid var(--g100);font-size:14px;color:var(--g700)}
+.ct-row td:not(:first-child){text-align:center}
+.ct-row:hover td{background:var(--white)}
+.ct-section-header td{font-size:12px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.6px;padding:20px 20px 10px;background:transparent}
+.ct-check{color:var(--teal-d);font-size:17px;font-weight:700}
+.ct-x{color:var(--g300);font-size:17px}
+.ct-text{font-size:13px;color:var(--g500)}
+.ct-highlight{color:var(--g900);font-weight:600}
+.popular-col{background:rgba(0,201,167,.04)}
+
+/* FAQ SECTION */
+.faq-section{padding:80px 28px;max-width:700px;margin:0 auto}
+.faq-h2{font-size:clamp(28px,3vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:40px;color:var(--g900)}
+.faq-item{border-bottom:1px solid var(--g100)}
+.faq-q{padding:20px 0;font-size:15px;font-weight:600;color:var(--g900);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-arr{font-size:20px;color:var(--g400);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-arr{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{padding:0 0 20px;font-size:14px;color:var(--g600);line-height:1.7}
+
+/* FINAL CTA */
+.final-cta{background:var(--navy);padding:80px 28px;text-align:center}
+.final-cta h2{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-2px;color:var(--white);margin-bottom:16px}
+.final-cta h2 em{font-style:normal;color:var(--teal)}
+.final-cta p{font-size:16px;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 32px}
+.final-cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-final{font-size:15px;font-weight:700;color:var(--black);background:var(--teal);border:none;padding:15px 32px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-final:hover{background:var(--teal-d)}
+.btn-final-ghost{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:14px 24px;border-radius:10px;text-decoration:none;display:inline-block;transition:background .15s}
+.btn-final-ghost:hover{background:rgba(255,255,255,.13)}
+.final-note{font-size:12px;color:rgba(255,255,255,.25);margin-top:20px}
+
+/* FOOTER */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 28px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.footer-logo{font-size:22px;font-weight:900;color:var(--white);letter-spacing:-.8px;margin-bottom:12px}
+.footer-logo span{color:var(--teal)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.35);line-height:1.6;max-width:220px}
+.fc-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px}
+.fc-link{display:block;font-size:13px;color:rgba(255,255,255,.5);margin-bottom:10px;transition:color .15s}
+.fc-link:hover{color:var(--white)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.25);gap:20px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .pricing-cards{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .compare-table{font-size:13px}
+}
+@media(max-width:640px){
+  .pricing-hero{padding:60px 20px 40px}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Solutions</a>
+      <a class="nav-link active" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-ghost-nav">Log in</button>
+      <a class="btn-nav-cta" href="/contact.html">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<div class="pricing-hero">
+  <div class="pricing-hero-pill"><span>💳</span> No credit card required to start</div>
+  <h1 class="pricing-hero-h1">Simple pricing.<br/><em>No surprises.</em></h1>
+  <p class="pricing-hero-sub">Start free. Scale as you grow. Cancel anytime — no long-term contracts required.</p>
+  <div class="toggle-wrap">
+    <button class="toggle-btn active" id="btn-monthly" onclick="setToggle('monthly')">Monthly</button>
+    <button class="toggle-btn" id="btn-annual" onclick="setToggle('annual')">Annual <span class="toggle-save">Save 20%</span></button>
+  </div>
+</div>
+
+<div class="pricing-cards">
+
+  <!-- STARTER -->
+  <div class="pricing-card">
+    <div class="plan-name">Starter</div>
+    <div class="plan-price"><span>$</span><span class="price-val" data-monthly="0" data-annual="0">0</span></div>
+    <div class="plan-period">per month, up to 500 orders/mo</div>
+    <div class="plan-desc">Everything you need to start showing purchase confidence signals. Install in under 10 minutes.</div>
+    <a href="/contact.html" class="plan-cta plan-cta-outline">Get started free</a>
+    <div class="plan-divider"></div>
+    <div class="plan-features-title">What's included</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Confidence widget on all product pages</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Connects to Yotpo, Judge.me, Okendo & more</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Positive-only signal mode</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Up to 500 monthly orders</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Shopify one-click install</div>
+    <div class="plan-feature"><span class="pf-check pf-check-gray">✗</span><span style="color:var(--g400)">Signal mode controls</span></div>
+    <div class="plan-feature"><span class="pf-check pf-check-gray">✗</span><span style="color:var(--g400)">Analytics dashboard</span></div>
+    <div class="plan-feature"><span class="pf-check pf-check-gray">✗</span><span style="color:var(--g400)">A/B testing</span></div>
+  </div>
+
+  <!-- GROWTH (POPULAR) -->
+  <div class="pricing-card popular">
+    <div class="popular-badge">Most popular</div>
+    <div class="plan-name">Growth</div>
+    <div class="plan-price"><span>$</span><span class="price-val" data-monthly="149" data-annual="119">149</span></div>
+    <div class="plan-period">per month, up to 5,000 orders/mo</div>
+    <div class="plan-desc">Full signal control, conversion analytics, and A/B testing. For merchants serious about reducing returns.</div>
+    <a href="/contact.html" class="plan-cta plan-cta-primary">Start free trial</a>
+    <div class="plan-divider"></div>
+    <div class="plan-features-title">Everything in Starter, plus</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Balanced & full-spectrum signal modes</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Per-SKU signal customization</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Conversion analytics dashboard</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>A/B test signal modes per product</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Return rate tracking by SKU</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Email support (48h response)</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Up to 5,000 monthly orders</div>
+    <div class="plan-feature"><span class="pf-check pf-check-gray">✗</span><span style="color:var(--g400)">Purchase outcome intelligence</span></div>
+  </div>
+
+  <!-- PRO -->
+  <div class="pricing-card">
+    <div class="plan-name">Pro</div>
+    <div class="plan-price"><span>$</span><span class="price-val" data-monthly="349" data-annual="279">349</span></div>
+    <div class="plan-period">per month, unlimited orders</div>
+    <div class="plan-desc">Purchase outcome intelligence, priority support, and dedicated onboarding for high-volume DTC brands.</div>
+    <a href="/contact.html" class="plan-cta plan-cta-dark">Talk to us</a>
+    <div class="plan-divider"></div>
+    <div class="plan-features-title">Everything in Growth, plus</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Purchase outcome intelligence layer</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Return prediction per SKU (Pro)</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Klaviyo & Gorgias integration</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>WooCommerce & BigCommerce support</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Priority chat support (4h response)</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Dedicated onboarding call</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Custom widget styling</div>
+    <div class="plan-feature"><span class="pf-check">✓</span>Unlimited monthly orders</div>
+  </div>
+
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="compare-section">
+  <div class="compare-inner">
+    <h2 class="compare-h2">Full feature comparison</h2>
+    <p class="compare-sub">See exactly what's in each plan before you commit.</p>
+    <table class="compare-table">
+      <thead>
+        <tr class="ct-header">
+          <th>Feature</th>
+          <th>Starter</th>
+          <th class="popular-col">Growth</th>
+          <th>Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ct-row ct-section-header"><td colspan="4">Core Widget</td></tr>
+        <tr class="ct-row"><td>Confidence widget on product pages</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Monthly order limit</td><td><span class="ct-text">500/mo</span></td><td class="popular-col"><span class="ct-text">5,000/mo</span></td><td><span class="ct-text">Unlimited</span></td></tr>
+        <tr class="ct-row"><td>One-click Shopify install</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Widget auto-hides on low-review products</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+
+        <tr class="ct-row ct-section-header"><td colspan="4">Signal Controls</td></tr>
+        <tr class="ct-row"><td>Positive-only signal mode</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Balanced signal mode</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Full-spectrum signal mode</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Per-SKU signal customization</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+
+        <tr class="ct-row ct-section-header"><td colspan="4">Integrations</td></tr>
+        <tr class="ct-row"><td>Yotpo, Judge.me, Okendo, Stamped</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Loox, REVIEWS.io, Bazaarvoice</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Klaviyo & Gorgias</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-x">—</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>WooCommerce & BigCommerce</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-x">—</span></td><td><span class="ct-check">✓</span></td></tr>
+
+        <tr class="ct-row ct-section-header"><td colspan="4">Analytics</td></tr>
+        <tr class="ct-row"><td>Basic widget impressions</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Conversion analytics dashboard</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>A/B testing by signal mode</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Return rate tracking by SKU</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Purchase outcome intelligence</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-x">—</span></td><td><span class="ct-check">✓</span></td></tr>
+
+        <tr class="ct-row ct-section-header"><td colspan="4">Support</td></tr>
+        <tr class="ct-row"><td>Documentation & help center</td><td><span class="ct-check">✓</span></td><td class="popular-col"><span class="ct-check">✓</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Email support</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-text">48h SLA</span></td><td><span class="ct-text">4h SLA</span></td></tr>
+        <tr class="ct-row"><td>Dedicated onboarding call</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-x">—</span></td><td><span class="ct-check">✓</span></td></tr>
+        <tr class="ct-row"><td>Custom widget styling</td><td><span class="ct-x">—</span></td><td class="popular-col"><span class="ct-x">—</span></td><td><span class="ct-check">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2 class="faq-h2">Pricing FAQ</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">What counts as an "order"? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">An order is any completed purchase on your store. We count the total monthly orders processed through your Shopify store, not just orders where the Konfident widget was shown. This makes tracking simple and predictable.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I upgrade or downgrade at any time? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes. You can switch plans at any point from your dashboard. Upgrades take effect immediately. Downgrades take effect at the start of your next billing cycle, so you keep your current features until then. No penalties, no long-term commitments.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What happens if I exceed my monthly order limit? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">We'll notify you when you approach your limit. If you go over, the widget continues to show — we won't disrupt your shoppers mid-month. We'll suggest upgrading at your next billing cycle. We won't charge overage fees without warning.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is there a free trial on paid plans? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">During the current private beta, we're offering extended trial access on Growth and Pro. <a href="/contact.html" style="color:var(--teal);font-weight:600">Request early access</a> and we'll discuss what makes sense for your store's size and category.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Do you offer discounts for early-stage or small brands? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes. We're in a private beta with a small cohort of early merchants, and pricing is flexible for brands that are a strong fit for the product. If you're a small DTC brand with meaningful review volume, <a href="/contact.html" style="color:var(--teal);font-weight:600">get in touch</a> — we'd rather have you use it than not.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is my review data secure? <span class="faq-arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Your review data is read-only — Konfident never modifies your reviews or adds to them. We access your existing review platform through OAuth or read-only API keys. Individual merchant data is never shared with other merchants. We store only what's needed to generate and cache confidence signals per SKU.</div></div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2>Start free.<br/><em>Upgrade when it pays for itself.</em></h2>
+  <p>The Starter plan is free, with no credit card required. See purchase confidence signals on your product pages in under 10 minutes.</p>
+  <div class="final-cta-btns">
+    <a href="/contact.html" class="btn-final">Request Early Access →</a>
+    <a href="/product.html" class="btn-final-ghost">See how it works</a>
+  </div>
+  <div class="final-note">Private beta · No credit card required · Installs in under 10 minutes</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Konfident<span>·</span></div>
+      <div class="footer-tagline">Purchase confidence for every product page. Built for DTC merchants serious about conversion and margin.</div>
+    </div>
+    <div>
+      <div class="fc-title">Product</div>
+      <a class="fc-link" href="/product.html">How It Works</a>
+      <a class="fc-link" href="/pricing.html">Pricing</a>
+      <a class="fc-link" href="/contact.html">Request Access</a>
+    </div>
+    <div>
+      <div class="fc-title">Solutions</div>
+      <a class="fc-link" href="/merchants.html#beauty">Beauty & Skincare</a>
+      <a class="fc-link" href="/merchants.html#apparel">Apparel & Fashion</a>
+      <a class="fc-link" href="/merchants.html#home">Home & Lifestyle</a>
+      <a class="fc-link" href="/merchants.html#supplements">Supplements</a>
+      <a class="fc-link" href="/merchants.html#pets">Pet Products</a>
+    </div>
+    <div>
+      <div class="fc-title">Resources</div>
+      <a class="fc-link" href="/blog/index.html">Blog</a>
+      <a class="fc-link" href="/faq.html">FAQ</a>
+      <a class="fc-link" href="/about.html">About</a>
+      <a class="fc-link" href="/contact.html">Contact</a>
+    </div>
+    <div>
+      <div class="fc-title">Legal</div>
+      <a class="fc-link" href="/privacy.html">Privacy Policy</a>
+      <a class="fc-link" href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Konfident, Inc. All rights reserved.</span>
+    <div style="display:flex;gap:20px">
+      <a class="fc-link" href="/privacy.html">Privacy</a>
+      <a class="fc-link" href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function setToggle(mode) {
+  document.getElementById('btn-monthly').classList.toggle('active', mode==='monthly');
+  document.getElementById('btn-annual').classList.toggle('active', mode==='annual');
+  document.querySelectorAll('.price-val').forEach(el => {
+    el.textContent = el.dataset[mode];
+  });
+}
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

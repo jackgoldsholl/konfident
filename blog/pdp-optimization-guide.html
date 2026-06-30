@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Product Detail Page Optimization Guide for Shopify Merchants — Konfident Blog</title>
+<meta name="description" content="Most PDP optimization advice focuses on images, copy, and layout. The harder problem — the one that drives returns — is the expectation gap. Here's how to close it." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--navy:#0d1117;--white:#fff;--teal:#00c9a7;--teal-d:#00a88d;--teal-l:#e6fdf9;--g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g900:#111827;--nav-h:64px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}body{font-family:'Inter',-apple-system,sans-serif;background:var(--white);color:var(--g900);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:var(--teal)}a:hover{text-decoration:underline}
+.nav{position:sticky;top:0;z-index:999;height:var(--nav-h);background:rgba(8,9,10,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:100%;display:flex;align-items:center}
+.nav-logo{display:flex;align-items:center;margin-right:40px;text-decoration:none}
+.nav-logo-k{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.8px}
+.nav-logo-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-left:1px;margin-bottom:6px}
+.nav-link{font-size:14px;font-weight:500;color:rgba(255,255,255,.6);padding:8px 14px;border-radius:7px;text-decoration:none}
+.nav-link:hover{color:var(--white)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn-ghost-nav{font-size:14px;font-weight:600;color:rgba(255,255,255,.7);background:none;border:none;padding:8px 14px;border-radius:7px;cursor:pointer}
+.btn-nav-cta{font-size:14px;font-weight:700;color:#08090a;background:var(--teal);border:none;padding:9px 20px;border-radius:8px;text-decoration:none;display:inline-block}
+.article-hero{background:var(--navy);padding:72px 28px 56px;text-align:center;position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(239,68,68,.15),transparent 70%)}
+.article-cat{display:inline-block;font-size:11px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;position:relative}
+.article-h1{font-size:clamp(26px,4vw,48px);font-weight:900;letter-spacing:-2px;line-height:1.1;color:var(--white);max-width:740px;margin:0 auto 20px;position:relative}
+.article-meta{font-size:13px;color:rgba(255,255,255,.4);position:relative}
+.article-body{max-width:700px;margin:0 auto;padding:64px 28px 80px}
+h2{font-size:clamp(20px,3vw,26px);font-weight:800;letter-spacing:-.6px;color:var(--g900);margin:48px 0 16px}
+p{font-size:16px;color:var(--g600);line-height:1.8;margin-bottom:20px}
+ul,ol{margin:0 0 20px 22px}li{font-size:16px;color:var(--g600);line-height:1.8;margin-bottom:8px}
+strong{color:var(--g900)}
+.callout{background:var(--teal-l);border-left:3px solid var(--teal);padding:20px 24px;border-radius:0 10px 10px 0;margin:28px 0}
+.callout p{margin-bottom:0;color:var(--g700)}
+.checklist-section{background:var(--g50);border:1.5px solid var(--g200);border-radius:14px;padding:28px;margin:32px 0}
+.checklist-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--g500);margin-bottom:16px}
+.checklist-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:14px;color:var(--g700)}
+.ci-check{width:18px;height:18px;border-radius:4px;background:var(--teal-l);border:1.5px solid rgba(0,201,167,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:var(--teal-d);margin-top:1px}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--g400);margin-bottom:32px;text-decoration:none}
+.back-link:hover{color:var(--g900)}
+.article-cta{background:var(--g50);border:1.5px solid var(--g200);border-radius:16px;padding:32px;text-align:center;margin-top:64px}
+.article-cta h3{font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--g900);margin-bottom:8px}
+.article-cta p{font-size:14px;color:var(--g500);margin-bottom:20px}
+.btn-teal{display:inline-block;background:var(--teal);color:#08090a;font-size:14px;font-weight:700;padding:12px 24px;border-radius:8px;text-decoration:none}
+.btn-teal:hover{background:var(--teal-d);text-decoration:none}
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:40px 28px 24px;text-align:center}
+.footer-logo{font-size:18px;font-weight:900;color:var(--white)}.footer-logo span{color:var(--teal)}
+.footer-links{display:flex;justify-content:center;gap:20px;margin:12px 0;flex-wrap:wrap}
+.fl{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none}.fl:hover{color:var(--white)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.2)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html"><span class="nav-logo-k">Konfident</span><span class="nav-logo-dot"></span></a>
+    <a class="nav-link" href="/product.html">Product</a><a class="nav-link" href="/pricing.html">Pricing</a><a class="nav-link" href="/blog/index.html">Blog</a>
+    <div class="nav-right"><button class="btn-ghost-nav">Log in</button><a class="btn-nav-cta" href="/contact.html">Request Access</a></div>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="article-cat">DTC strategy</div>
+  <h1 class="article-h1">The Product Detail Page Optimization Guide: What Shopify Merchants Get Wrong About PDP Conversion</h1>
+  <div class="article-meta">May 30, 2025 · 11 min read · By the Konfident team</div>
+</div>
+
+<div class="article-body">
+  <a class="back-link" href="/blog/index.html">← Back to blog</a>
+
+  <p>Baymard Institute — which has been running usability research on ecommerce checkout flows since 2010 — has documented an average cart abandonment rate of <strong>70.22%</strong> across 50+ studies. For every 100 shoppers who add a product to their cart, 70 leave before buying.</p>
+
+  <p>Most PDP optimization advice focuses on the elements that are easy to A/B test: button color, hero image quality, product title length, the placement of the price. This advice isn't wrong. These things matter. But they address a surface-level symptom while the underlying cause of abandonment often sits deeper — in the information gap between what shoppers need to know to feel confident buying and what the product page actually tells them.</p>
+
+  <h2>The PDP's real job</h2>
+
+  <p>A product detail page has two distinct jobs, and most optimization discussion treats them as one. The first job is attraction: getting a browsing shopper interested enough to consider the product. The second job is conversion: taking an interested shopper and giving them enough confidence to complete the purchase.</p>
+
+  <p>Most PDP optimization advice targets job one — make the hero image more compelling, write a more persuasive headline, lead with benefits not features. This is reasonable advice for increasing interest. But shoppers who leave the product page aren't usually leaving because they weren't interested. They're leaving because they couldn't answer their specific question well enough to commit.</p>
+
+  <div class="callout">
+    <p><strong>Baymard Institute's research finds that 15% of cart abandonment is specifically driven by concerns about the returns policy.</strong> This is the shopper's hedge against purchase regret — they're asking themselves, implicitly, "if this is wrong, how bad will it be?" More importantly, if you could reduce the likelihood that the purchase was wrong in the first place, you'd eliminate the need for that hedge entirely.</p>
+  </div>
+
+  <h2>What the expectation gap actually looks like</h2>
+
+  <p>The expectation gap is the distance between what a shopper believes the product will do for them and what it actually does. When that gap exists at purchase and gets discovered post-delivery, the result is a return. When that gap exists and the shopper is aware of it before buying, the result is abandonment.</p>
+
+  <p>The expectation gap shows up differently in each product category:</p>
+
+  <ul>
+    <li><strong>Beauty and skincare:</strong> Shopper expects the serum to work for their skin type and within a certain timeline. Reviews say it works great — but for whom? With what skin type? How long until visible results? The gap lives in the dimensions the product copy doesn't specify.</li>
+    <li><strong>Apparel:</strong> The size chart says "M = 34–36 inch chest." The shopper is a 35 chest. Does the shirt run true to size? Relaxed fit or structured? These are the questions the size chart doesn't answer and the reviews could — if synthesized correctly.</li>
+    <li><strong>Home goods:</strong> Photos show the sofa in a spacious, styled living room. The shopper's living room is 12 feet wide. Does it actually fit? Is the cushion firmness what it looks like in the photo? Reviews know the answer. The product page doesn't.</li>
+    <li><strong>Supplements:</strong> Claims on the packaging say "improves sleep." But when? For whom? At what dosage? The shopper has been burned by supplements before. The difference between a purchase and an abandonment is whether they believe the specific claim applies to them.</li>
+  </ul>
+
+  <h2>The PDP elements that actually close the expectation gap</h2>
+
+  <h2>1. Specific, not general product copy</h2>
+  <p>Generic benefit statements ("nourishing and hydrating formula") don't close expectation gaps. Specific, audience-targeted copy does: "formulated for combination and dry skin; lighter texture than most hydrating serums." Write your product descriptions to answer the most common questions your reviews reveal shoppers have — not to sound aspirational.</p>
+
+  <h2>2. Photos that answer questions</h2>
+  <p>Hero photos typically show the product in its most attractive presentation. But the photos that close purchase confidence gaps are contextual: the sofa next to a standard door (for scale), the supplement next to a water bottle (for context on serving size), the face serum showing before/after texture on skin (to answer "what will this feel like on my face"). These aren't product photography. They're information delivery.</p>
+
+  <h2>3. Size guides that answer "what size am I?"</h2>
+  <p>Most size charts tell shoppers what measurement corresponds to which size. Shoppers already know their measurement. The question they're actually asking is "what size will fit me the way I want to be fit?" That requires language about the fit profile (relaxed/structured), context about how the product tends to run (true to size, runs small, runs large), and ideally model measurements so the shopper can calibrate.</p>
+
+  <h2>4. Synthesized review signals at point of purchase</h2>
+  <p>This is the highest-leverage element for closing expectation gaps at scale — because it works across your entire catalog simultaneously. Rather than requiring your shoppers to read 200 reviews to extract the specific signal they need, synthesized review signals surface that signal directly on the product page. What skin type does this work for? Does the sizing run true? What results timeline do reviewers report? The answers are already in your reviews — synthesizing them is the remaining step.</p>
+
+  <div class="checklist-section">
+    <div class="checklist-title">PDP expectation gap checklist</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>Product copy answers "who is this for?" not just "what does it do?"</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>At least one photo answers a contextual question (size, texture, scale)</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>Size guide includes fit profile language, not just measurements</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>Review section is visible above the fold or within one scroll</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>High-volume products have synthesized review signals (not just star ratings)</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>Return policy is visible on the PDP (not just in the footer)</div>
+    <div class="checklist-item"><span class="ci-check">✓</span>Product FAQs answer the most common questions found in reviews</div>
+  </div>
+
+  <h2>What A/B testing won't catch</h2>
+
+  <p>A/B testing is the right tool for testing elements that have a measurable short-term effect on conversion rate: button copy, image sequence, price presentation. It's a poor tool for testing expectation gap interventions, because the expectation gap doesn't always express itself immediately as abandonment. Sometimes the shopper buys despite the gap — and you only learn about it 3 weeks later when the return lands.</p>
+
+  <p>Return rate by SKU is a better metric for measuring whether your PDP is closing the expectation gap effectively. If a particular product has a conversion rate that looks fine and a return rate that's elevated, that's the expectation gap at work: shoppers are buying, but their expectations aren't being met.</p>
+
+  <div class="article-cta">
+    <h3>Close the PDP expectation gap with synthesized review signals</h3>
+    <p>Konfident adds per-SKU confidence signals to your Shopify product pages. Free to start. No developer required.</p>
+    <a href="/contact.html" class="btn-teal">Request early access →</a>
+  </div>
+
+  <p style="margin-top:32px;font-size:13px;color:var(--g400)"><strong>Sources:</strong> Baymard Institute cart abandonment research (September 2025 update, 50-study compilation); NRF + Happy Returns 2024 returns report; PowerReviews 2023 consumer survey.</p>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo">Konfident<span>·</span></div>
+  <div class="footer-links"><a class="fl" href="/index.html">Home</a><a class="fl" href="/product.html">Product</a><a class="fl" href="/pricing.html">Pricing</a><a class="fl" href="/blog/index.html">Blog</a><a class="fl" href="/privacy.html">Privacy</a><a class="fl" href="/terms.html">Terms</a></div>
+  <div class="footer-copy">© 2025 Konfident, Inc.</div>
+</footer>
+</body>
+</html>
