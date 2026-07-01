@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Konfident</title>
+<meta name="description" content="Konfident reads your store's existing reviews and synthesizes a per-SKU purchase-confidence signal that shows up right on the product page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">Konfident<span>.</span></a>
+    <div class="nav-links">
+      <a class="nav-link active" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Merchants</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Product</div>
+  <h1>A purchase-confidence signal, synthesized from the reviews you already have.</h1>
+  <p class="lede">Konfident connects to your store, reads the reviews already sitting in your review app, and synthesizes them per product into a confidence signal that appears right on the product page—at the exact moment a shopper is deciding whether to buy.</p>
+</div>
+
+<section class="section">
+  <p class="big-sub">Shoppers already lean on reviews to decide. The Baymard Institute found that <strong>95% of users relied on reviews</strong> in large-scale product-page UX testing, and Yotpo reports that shoppers who engage with reviews and photos are roughly <strong>161% more likely to convert</strong>. The problem is that the signal is scattered across dozens or hundreds of individual reviews. Konfident does the reading and interpreting for the shopper, per SKU, so the decision gets easier instead of harder.</p>
+</section>
+
+<section class="section">
+  <h2>How it works</h2>
+  <p class="body">Three steps, and the heavy lifting is Konfident's.</p>
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">🔌</div>
+      <h3>1. Connect your store and existing reviews</h3>
+      <p>Install on Shopify and point Konfident at the reviews you already collect—whether they live in Yotpo, Judge.me, Okendo, Stamped, Loox, or another supported app. There is nothing to migrate and nothing to re-collect. Your review platform stays exactly where it is.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🧠</div>
+      <h3>2. Konfident synthesizes a per-SKU signal</h3>
+      <p>For each product, Konfident reads the full body of review content and ratings and synthesizes them into a purchase-confidence signal: what a product is actually for, what to expect, and where the trade-offs are. Every product gets its own signal—there is no store-wide average standing in for the specifics.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🛍️</div>
+      <h3>3. The widget shows it on the product page</h3>
+      <p>The synthesized signal renders in a lightweight widget on the product page, where the shopper is making the decision. Instead of leaving them to excavate a wall of reviews on their own, Konfident surfaces the interpretation at the point of purchase.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What makes it different</h2>
+  <p class="body">Most review tools <strong>summarize</strong>—they compress a pile of reviews into a shorter pile of reviews. Konfident <strong>synthesizes</strong>. The distinction matters: a summary tells you what people said on average, while a synthesis interprets what the reviews mean for the specific decision a shopper is trying to make right now. "Is this right for <em>me</em>, specifically?" is a different question from "is this good in general," and it is the one that determines whether an add-to-cart becomes a keeper or a return.</p>
+  <p class="body">Konfident is built around that decision moment. It reads for signal a shopper would otherwise have to reconstruct by hand—fit, expectations, who the product suits, where it falls short—and presents it as an interpretation rather than a digest. We wrote about why this line matters in <a href="/blog/ai-review-synthesis-vs-summarization.html">AI review synthesis vs. summarization</a>.</p>
+</section>
+
+<section class="section">
+  <h2>Signal modes</h2>
+  <p class="big-sub">You control the posture of the signal. Konfident offers three modes, so the confidence signal matches your brand's voice and your category's honesty norms.</p>
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">➕</div>
+      <h3>Positive-only</h3>
+      <p>Surfaces the strengths and best-fit use cases that the reviews consistently support. Useful for categories where the primary job is reinforcing genuine strengths a shopper might otherwise miss.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">⚖️</div>
+      <h3>Balanced</h3>
+      <p>Leads with strengths but names the honest trade-offs alongside them. This is the default posture for merchants who want confidence built on candor rather than cheerleading.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🔎</div>
+      <h3>Full-spectrum</h3>
+      <p>Presents the complete picture—who a product is for, who it isn't, and the caveats worth knowing before buying. Best suited to considered purchases where a mismatch is expensive for both sides.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🙈</div>
+      <h3>Hidden when the signal is thin</h3>
+      <p>When a product has too few reviews to synthesize an honest signal, the widget stays hidden rather than manufacturing false confidence. Konfident would rather show nothing than show something it can't stand behind.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Built for performance and privacy</h2>
+  <p class="body">Konfident is designed to be a good citizen on your product page and a conservative handler of data. It reads <strong>only public review data</strong>—the reviews and ratings already displayed on your store—plus product metadata. It does not collect or store shopper PII.</p>
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">🔒</div>
+      <h3>No shopper PII</h3>
+      <p>Konfident reads public review content and product metadata—nothing about the individual shopper viewing the page. There is no browsing identity, no payment data, and no personal profile involved in generating a signal.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">⚡</div>
+      <h3>Async and cached</h3>
+      <p>Synthesis happens asynchronously and the resulting signal is cached per SKU, so the widget serves a precomputed signal on the product page rather than doing expensive work in the shopper's critical rendering path.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🛡️</div>
+      <h3>Compliant by design</h3>
+      <p>Because Konfident works from public review data and avoids shopper PII, it is GDPR compliant by design and CCPA ready. See the <a href="/data-hub.html">Data Hub</a> for exactly what we read, use, and never store, and <a href="/security.html">Security</a> for our posture.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">📄</div>
+      <h3>Transparent about limits</h3>
+      <p>We are precise about what Konfident does and does not do. The signal is an interpretation of your reviews, not a guarantee, and the widget stays honest—including staying hidden when the underlying review signal is too thin to synthesize.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Works with your stack</h2>
+  <p class="body">Konfident is designed to sit on top of the tools you already run, not replace them. Today it installs on <strong>Shopify</strong>, with <strong>WooCommerce and BigCommerce</strong> support on paid plans. It reads from the major review platforms, so there is no rip-and-replace of the review app you have already invested in.</p>
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">🛒</div>
+      <h3>Platforms</h3>
+      <p>Shopify today, coming to the Shopify App Store as part of early access. WooCommerce and BigCommerce are available on paid plans.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">⭐</div>
+      <h3>Review apps it reads</h3>
+      <p>Yotpo, Judge.me, Okendo, Stamped, and Loox among others. Konfident reads the reviews where they already live—your review platform stays in place.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🧩</div>
+      <h3>No rip-and-replace</h3>
+      <p>Konfident is additive. It layers a confidence signal on top of your existing reviews rather than asking you to migrate reviews, re-collect ratings, or switch vendors.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Put a confidence signal on every product page</h2>
+  <p>Konfident is in early access for Shopify merchants. Connect your store and existing reviews, and let the synthesis do the reading for your shoppers.</p>
+  <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Konfident<span>.</span></div>
+        <div class="footer-tagline">Purchase confidence for every product page. Built for Shopify merchants serious about conversion and margin.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link" href="/product.html">Overview</a>
+          <a class="footer-link" href="/data-hub.html">Data Hub</a>
+          <a class="footer-link" href="/pricing.html">Pricing</a>
+          <a class="footer-link" href="/index.html#roi">ROI Calculator</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link" href="/about.html">About</a>
+          <a class="footer-link" href="/merchants.html">For Merchants</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+          <a class="footer-link" href="/faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a class="footer-link" href="/blog.html">Blog</a>
+          <a class="footer-link" href="/index.html#compare">Compare</a>
+          <a class="footer-link" href="/index.html">Home</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a class="footer-link" href="/privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="/terms.html">Terms of Service</a>
+          <a class="footer-link" href="/security.html">Security</a>
+          <a class="footer-link" href="/sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Konfident. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* ==========================================================================
+   Konfident — shared stylesheet for content sub-pages
+   Brand tokens mirror index.html. Homepage keeps its own inline styles.
+   ========================================================================== */
+:root {
+  --black:#08090a; --navy:#0d1117; --navy-2:#161b22; --navy-3:#1c2333;
+  --white:#ffffff; --teal:#00c9a7; --teal-d:#00a88d; --teal-l:#e6fdf9;
+  --teal-dim:rgba(0,201,167,.12);
+  --g50:#f9fafb; --g100:#f3f4f6; --g200:#e5e7eb; --g300:#d1d5db;
+  --g400:#9ca3af; --g500:#6b7280; --g600:#4b5563; --g700:#374151; --g900:#111827;
+  --ind:#6366f1; --nav-h:64px;
+  --maxw:760px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--white);color:var(--g900);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+
+/* ---- Nav ---- */
+.nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--g200)}
+.nav-inner{max-width:1180px;margin:0 auto;height:100%;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-logo{font-size:20px;font-weight:900;letter-spacing:-.6px;color:var(--g900)}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-link{font-size:14px;font-weight:600;color:var(--g600);transition:color .15s}
+.nav-link:hover,.nav-link.active{color:var(--g900)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.btn-ghost-nav{background:none;border:none;font-size:14px;font-weight:600;color:var(--g600);cursor:pointer}
+.btn-ghost-nav:hover{color:var(--g900)}
+.btn-cta{display:inline-flex;align-items:center;gap:6px;background:var(--g900);color:var(--white);font-size:14px;font-weight:600;padding:9px 16px;border-radius:8px;border:none;cursor:pointer;transition:background .15s}
+.btn-cta:hover{background:#000}
+.btn-cta.teal{background:var(--teal)}
+.btn-cta.teal:hover{background:var(--teal-d)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---- Page hero ---- */
+.page-hero{max-width:var(--maxw);margin:0 auto;padding:64px 24px 28px}
+.page-hero.wide{max-width:1100px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--teal-d);margin-bottom:14px}
+.page-hero h1{font-size:clamp(30px,5vw,46px);font-weight:900;letter-spacing:-1.2px;line-height:1.1;color:var(--g900)}
+.page-hero .lede{font-size:18px;color:var(--g500);margin-top:16px;max-width:640px;line-height:1.6}
+.crumbs{font-size:13px;color:var(--g400);margin-bottom:18px}
+.crumbs a:hover{color:var(--g600)}
+
+/* ---- Article / prose ---- */
+.prose{max-width:var(--maxw);margin:0 auto;padding:8px 24px 72px}
+.article-meta{display:flex;gap:14px;align-items:center;font-size:13px;color:var(--g400);margin:0 0 6px;padding:0 24px;max-width:var(--maxw);margin-left:auto;margin-right:auto}
+.article-meta .cat{color:var(--teal-d);font-weight:700}
+.prose h2{font-size:26px;font-weight:800;letter-spacing:-.5px;margin:40px 0 14px;color:var(--g900)}
+.prose h3{font-size:19px;font-weight:700;margin:30px 0 10px;color:var(--g900)}
+.prose p{font-size:17px;color:var(--g700);margin:0 0 20px}
+.prose ul,.prose ol{margin:0 0 22px;padding-left:22px}
+.prose li{font-size:17px;color:var(--g700);margin-bottom:9px}
+.prose strong{color:var(--g900);font-weight:700}
+.prose a{color:var(--teal-d);text-decoration:underline;text-underline-offset:2px}
+.prose blockquote{border-left:3px solid var(--teal);background:var(--g50);padding:16px 22px;margin:0 0 24px;border-radius:0 10px 10px 0;font-size:18px;color:var(--g700);font-style:italic}
+.stat-callout{background:var(--navy);color:var(--white);border-radius:14px;padding:26px 28px;margin:26px 0}
+.stat-callout .big{font-size:38px;font-weight:900;letter-spacing:-1px;color:var(--teal);line-height:1}
+.stat-callout .cap{font-size:15px;color:rgba(255,255,255,.75);margin-top:10px}
+.stat-callout .src{font-size:12px;color:rgba(255,255,255,.4);margin-top:8px}
+.sources{margin-top:40px;padding-top:22px;border-top:1px solid var(--g200)}
+.sources h3{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--g400);margin-bottom:10px}
+.sources li{font-size:13px;color:var(--g500);margin-bottom:6px;list-style:none}
+.sources a{color:var(--g600)}
+
+/* ---- Cards (blog index / feature grids) ---- */
+.section{max-width:1100px;margin:0 auto;padding:40px 24px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;border:1px solid var(--g200);border-radius:16px;overflow:hidden;background:var(--white);transition:box-shadow .18s,transform .18s}
+.card:hover{box-shadow:0 16px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
+.card-thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,var(--teal-l),#eef2ff)}
+.card-body{padding:22px}
+.card .cat{font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--teal-d);margin-bottom:8px}
+.card .title{font-size:18px;font-weight:800;letter-spacing:-.3px;line-height:1.3;color:var(--g900);margin-bottom:10px}
+.card .desc{font-size:14px;color:var(--g500);line-height:1.55}
+.card .foot{padding:14px 22px;border-top:1px solid var(--g100);display:flex;justify-content:space-between;font-size:13px;color:var(--g400)}
+.card .foot .read{color:var(--teal-d);font-weight:700}
+
+/* ---- Generic content blocks ---- */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.feature{border:1px solid var(--g200);border-radius:14px;padding:24px;background:var(--white)}
+.feature .ico{font-size:26px;margin-bottom:12px}
+.feature h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.feature p{font-size:14px;color:var(--g500);line-height:1.6}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split h2,.section h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;letter-spacing:-.8px;margin-bottom:16px}
+.section p.big-sub{font-size:18px;color:var(--g500);max-width:680px;margin-bottom:8px}
+.section p.body{font-size:16px;color:var(--g700);margin-bottom:16px}
+@media(max-width:760px){.split{grid-template-columns:1fr;gap:28px}}
+
+/* ---- Legal pages ---- */
+.legal-banner{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;font-size:14px;padding:14px 18px;border-radius:10px;max-width:var(--maxw);margin:0 auto 8px;display:flex;gap:10px}
+.legal .prose h2{font-size:20px;margin-top:34px}
+.legal .prose p,.legal .prose li{font-size:15px}
+.updated{font-size:13px;color:var(--g400);max-width:var(--maxw);margin:0 auto;padding:0 24px 8px}
+
+/* ---- FAQ ---- */
+.faq-list{max-width:var(--maxw);margin:0 auto;padding:8px 24px 60px}
+.faq-item{border-bottom:1px solid var(--g200)}
+.faq-q{font-size:17px;font-weight:700;color:var(--g900);padding:22px 40px 22px 0;cursor:pointer;position:relative}
+.faq-q .arr{position:absolute;right:0;top:20px;font-size:22px;color:var(--teal);font-weight:400;transition:transform .2s}
+.faq-item.open .arr{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-item.open .faq-a{max-height:600px}
+.faq-a-inner{padding:0 0 22px;font-size:15px;color:var(--g600);line-height:1.7}
+
+/* ---- CTA band ---- */
+.cta-band{background:var(--navy);color:var(--white);text-align:center;padding:64px 24px;margin-top:20px}
+.cta-band h2{font-size:clamp(24px,3.4vw,32px);font-weight:900;letter-spacing:-.6px;margin-bottom:12px}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:24px}
+
+/* ---- Footer (mirrors homepage) ---- */
+.footer{background:var(--navy);color:var(--white);padding:60px 24px 32px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;gap:60px;flex-wrap:wrap;margin-bottom:44px}
+.footer-logo{font-size:22px;font-weight:900;letter-spacing:-.8px;margin-bottom:10px}
+.footer-logo span{color:var(--teal)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.3);max-width:230px;line-height:1.6}
+.footer-links{display:flex;gap:56px;flex-wrap:wrap;flex:1}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px}
+.footer-link{display:block;font-size:14px;color:rgba(255,255,255,.45);margin-bottom:9px;transition:color .15s}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.2)}
+.footer-legal{display:flex;gap:20px;flex-wrap:wrap}
+.footer-legal a{font-size:13px;color:rgba(255,255,255,.2);transition:color .15s}
+.footer-legal a:hover{color:rgba(255,255,255,.5)}

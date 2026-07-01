@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security — Konfident</title>
+<meta name="description" content="An honest, early-stage overview of how Konfident protects data: encryption, least-privilege access, no shopper PII, and our compliance posture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">Konfident<span>.</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Merchants</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="crumbs"><a href="/index.html">Home</a> / Security</div>
+  <div class="eyebrow">Trust &amp; Security</div>
+  <h1>Security at Konfident</h1>
+  <p class="lede">An honest, early-stage overview of how we protect data. We are pre-launch and building carefully — this page describes what we do today and what is on our roadmap, not a certification we have not earned.</p>
+</div>
+
+<div class="legal-banner">⚖️ This page describes our security posture in good faith at an early stage. It is not a legal commitment or a certification, and it — along with our Privacy Policy and Terms — should be reviewed by qualified counsel before you rely on it commercially.</div>
+
+<div class="prose">
+  <p>Security and privacy are core design constraints for Konfident, not afterthoughts. The most important thing to understand is architectural: Konfident reads only a store's <strong>public review data</strong> and <strong>does not collect or store shopper personal information</strong>. On our Pro plan, purchase-outcome and return data is <strong>anonymized before any aggregation</strong>. The less sensitive data a system holds, the less there is to lose — and we designed Konfident to hold as little as possible.</p>
+  <p>We are transparent about our stage. Konfident is pre-launch and operating in private beta. This page describes the controls we have in place now and the maturity work planned as we scale. It is not an audit report or a certification claim.</p>
+</div>
+
+<div class="section">
+  <div class="feature-grid">
+    <div class="feature">
+      <div class="ico">🔒</div>
+      <h3>Data Encryption</h3>
+      <p>Data is encrypted in transit using TLS and encrypted at rest by our cloud infrastructure providers. Secrets and credentials are stored in managed secret storage rather than in application code.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🔑</div>
+      <h3>Least-Privilege Access</h3>
+      <p>Access to production systems and data is limited to what is strictly needed to operate the service. We use scoped credentials, restrict integration permissions to the minimum required, and avoid broad standing access.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🙈</div>
+      <h3>No Shopper PII Collected</h3>
+      <p>Konfident does not ask for, receive, or store the names, emails, addresses, or payment details of your shoppers. We read only public review content. This is our single strongest privacy control.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">📊</div>
+      <h3>Anonymized Aggregation (Pro)</h3>
+      <p>Where the Pro plan uses purchase-outcome and return signals, that data is anonymized before it is aggregated, so insights cannot reasonably be tied back to an individual shopper.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">☁️</div>
+      <h3>Infrastructure &amp; Hosting</h3>
+      <p>The service runs on reputable, industry-standard cloud infrastructure with managed networking, backups, and physical-security controls provided by the underlying platform. We keep our environment small and auditable.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🛡️</div>
+      <h3>Vulnerability Reporting</h3>
+      <p>We welcome responsible disclosure. If you believe you have found a vulnerability, email <a href="mailto:hello@konfident.app">hello@konfident.app</a> with details. Please give us a reasonable chance to remediate before any public disclosure.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">✅</div>
+      <h3>Compliance Posture</h3>
+      <p>GDPR compliant by design, CCPA ready. To be explicit: we have <strong>not</strong> completed a SOC 2 audit and do not claim one. We describe only the controls we actually operate.</p>
+    </div>
+    <div class="feature">
+      <div class="ico">🗺️</div>
+      <h3>Roadmap</h3>
+      <p>As we scale, we plan to formalize our security program — documented policies, expanded logging and monitoring, penetration testing, and evaluating a formal SOC 2 effort when the stage and demand justify it.</p>
+    </div>
+  </div>
+</div>
+
+<div class="prose">
+  <h2>Our data-minimal architecture</h2>
+  <p>Most security incidents that harm shoppers involve the loss of personal data a company never needed to hold. Konfident sidesteps a large part of that risk by design: we read the reviews already public on your storefront, synthesize them into a per-product confidence signal, and display that signal. Shopper identities are simply not part of the pipeline. On the Pro plan, return outcomes are anonymized before aggregation so we can surface useful patterns without profiling individuals.</p>
+
+  <h2>Access and operations</h2>
+  <p>We keep our production footprint deliberately small so it is easier to reason about and secure. Access to systems and data follows least-privilege principles, credentials are scoped and stored in managed secret storage, and integrations with commerce and review platforms request only the permissions required to function. As a founder-led, early-stage company, we favor simple, auditable systems over sprawling infrastructure.</p>
+
+  <h2>Responsible disclosure</h2>
+  <p>If you are a security researcher or a merchant who notices something that looks wrong, we want to hear from you. Email <a href="mailto:hello@konfident.app">hello@konfident.app</a> with a description of the issue and steps to reproduce it. We ask that you act in good faith, avoid accessing or modifying data that is not yours, and give us a reasonable window to investigate and fix the issue before disclosing it publicly. We will acknowledge legitimate reports and keep you updated on remediation.</p>
+
+  <h2>Honest about our stage</h2>
+  <p>We would rather under-claim than over-claim. Konfident does not hold a SOC 2, ISO 27001, or similar certification today, and we will not imply otherwise. What we offer now is a data-minimal architecture, sensible baseline controls, and a clear roadmap to mature our program as we grow. If your organization has specific security requirements, contact us at <a href="mailto:hello@konfident.app">hello@konfident.app</a> and we will tell you honestly where we stand.</p>
+</div>
+
+<section class="cta-band">
+  <h2>Have a security question?</h2>
+  <p>We are happy to walk merchants and researchers through exactly how Konfident handles data.</p>
+  <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Konfident<span>.</span></div>
+        <div class="footer-tagline">Purchase confidence for every product page. Built for Shopify merchants serious about conversion and margin.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link" href="/product.html">Overview</a>
+          <a class="footer-link" href="/data-hub.html">Data Hub</a>
+          <a class="footer-link" href="/pricing.html">Pricing</a>
+          <a class="footer-link" href="/index.html#roi">ROI Calculator</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link" href="/about.html">About</a>
+          <a class="footer-link" href="/merchants.html">For Merchants</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+          <a class="footer-link" href="/faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a class="footer-link" href="/blog.html">Blog</a>
+          <a class="footer-link" href="/index.html#compare">Compare</a>
+          <a class="footer-link" href="/index.html">Home</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a class="footer-link" href="/privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="/terms.html">Terms of Service</a>
+          <a class="footer-link" href="/security.html">Security</a>
+          <a class="footer-link" href="/sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Konfident. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Hub — Konfident</title>
+<meta name="description" content="Exactly what Konfident reads, uses, stores, and never collects—plus how the confidence signal is generated and the controls you have over it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">Konfident<span>.</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Merchants</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog.html">Blog</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Data Hub</div>
+  <h1>Exactly what we do with data.</h1>
+  <p class="lede">Konfident works from the reviews already public on your store—and deliberately avoids the shopper. This page spells out what we read, what we generate, what we never collect, and the controls you hold.</p>
+</div>
+
+<article class="prose">
+
+<p>Konfident's job is narrow: read your existing reviews and synthesize a per-SKU purchase-confidence signal for the product page. That narrowness is the point. Because the signal is built from public review content rather than shopper behavior, Konfident never needs to touch the personal data most tools reach for. Below is the full picture, in plain terms.</p>
+
+<h2>What we read</h2>
+<p>Konfident reads two things, both of which are already public on your store:</p>
+<ul>
+  <li><strong>Public review content and ratings</strong> from your connected review app—Yotpo, Judge.me, Okendo, Stamped, Loox, or another supported platform. This is the same review text and star rating already displayed to any visitor on your product pages.</li>
+  <li><strong>Product metadata</strong>—things like product title, variant, and category—so the synthesis is attached to the right SKU and reads for the signal that matters in that category.</li>
+</ul>
+<p>Your review platform stays exactly where it is. Konfident reads from it; it does not migrate, replace, or re-collect your reviews.</p>
+
+<h2>What we do NOT collect</h2>
+<p>Konfident is defined as much by what it ignores as by what it reads. It does not collect:</p>
+<ul>
+  <li><strong>Shopper PII.</strong> No names, emails, addresses, or personal profiles of the people browsing your store.</li>
+  <li><strong>Payment data.</strong> Konfident is nowhere near checkout or card details. It has no role in the payment flow.</li>
+  <li><strong>Browsing identity.</strong> No cross-site tracking, no shopper fingerprinting, no per-visitor behavioral profile. The signal a shopper sees is computed from your reviews, not from anything about that individual shopper.</li>
+</ul>
+
+<h2>How the confidence signal is generated</h2>
+<p>For each product, Konfident synthesizes the body of public review content and ratings into a purchase-confidence signal—an interpretation of what a product is for, what to expect, and where the trade-offs are. The work is done <strong>per SKU</strong> and the result is <strong>cached</strong>, so the widget serves a precomputed signal on the product page rather than doing expensive work in the shopper's critical path.</p>
+<p>When a product has too little review signal to synthesize honestly, Konfident keeps the widget hidden rather than manufacturing false confidence. A signal only appears where the underlying reviews can genuinely support it.</p>
+
+<h2>Return data (Pro)</h2>
+<p>On the Pro plan, Konfident's purchase-outcome intelligence can incorporate return data to sharpen the signal over time. That data is handled conservatively:</p>
+<ul>
+  <li>It is <strong>anonymized before any aggregation</strong>—return signals are stripped of shopper identity before they are ever combined.</li>
+  <li>It is <strong>never shared per-merchant.</strong> Your store's return data is not exposed to other merchants, and other merchants' data is not exposed to you.</li>
+</ul>
+
+<h2>Your controls</h2>
+<p>You decide how the signal behaves on your store:</p>
+<div class="feature-grid">
+  <div class="feature">
+    <div class="ico">🎚️</div>
+    <h3>Signal modes</h3>
+    <p>Choose positive-only, balanced, or full-spectrum to set how candidly the signal presents strengths and trade-offs, matching your brand and category.</p>
+  </div>
+  <div class="feature">
+    <div class="ico">🔀</div>
+    <h3>Per-product on/off</h3>
+    <p>Turn the signal on or off at the individual product level, so you stay in control of where and whether the widget appears.</p>
+  </div>
+  <div class="feature">
+    <div class="ico">🗑️</div>
+    <h3>Data deletion on request</h3>
+    <p>Request deletion of your data and we will remove it. Your reviews remain yours, in your review app, throughout.</p>
+  </div>
+</div>
+
+<h2>Compliance posture</h2>
+<p>Because Konfident works from public review data and avoids shopper PII, payment data, and browsing identity, it is <strong>GDPR compliant by design</strong> and <strong>CCPA ready</strong>. We are equally clear about what we are <em>not</em>: Konfident is <strong>not SOC 2 certified</strong>, and we make no such claim. We would rather state our posture precisely than imply an audit we have not completed.</p>
+<p>For more on how we handle security and privacy, see <a href="/security.html">Security</a> and our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+<div class="sources">
+  <h3>Sources</h3>
+  <ul>
+    <li><a href="https://nrf.com/media-center/press-releases/nrf-and-appriss-retail-report-743-billion-merchandise-returned-2023">NRF &amp; Appriss Retail — 2023 Consumer Returns in the Retail Industry</a></li>
+    <li><a href="https://baymard.com/blog/current-state-ecommerce-product-page-ux">Baymard Institute — The Current State of Ecommerce Product Page UX</a></li>
+  </ul>
+</div>
+
+</article>
+
+<section class="cta-band">
+  <h2>Confidence without the data grab</h2>
+  <p>Konfident synthesizes the reviews you already have—no shopper PII, no payment data, no browsing identity. Join the early access program.</p>
+  <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Konfident<span>.</span></div>
+        <div class="footer-tagline">Purchase confidence for every product page. Built for Shopify merchants serious about conversion and margin.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link" href="/product.html">Overview</a>
+          <a class="footer-link" href="/data-hub.html">Data Hub</a>
+          <a class="footer-link" href="/pricing.html">Pricing</a>
+          <a class="footer-link" href="/index.html#roi">ROI Calculator</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link" href="/about.html">About</a>
+          <a class="footer-link" href="/merchants.html">For Merchants</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+          <a class="footer-link" href="/faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a class="footer-link" href="/blog.html">Blog</a>
+          <a class="footer-link" href="/index.html#compare">Compare</a>
+          <a class="footer-link" href="/index.html">Home</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a class="footer-link" href="/privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="/terms.html">Terms of Service</a>
+          <a class="footer-link" href="/security.html">Security</a>
+          <a class="footer-link" href="/sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Konfident. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

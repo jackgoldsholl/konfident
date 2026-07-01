@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Konfident</title>
+<meta name="description" content="Honest answers about how Konfident synthesizes your existing reviews into a per-SKU purchase confidence signal — signal modes, setup, data, and early access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/index.html">Konfident<span>.</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/product.html">Product</a>
+      <a class="nav-link" href="/merchants.html">Merchants</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/blog.html">Blog</a>
+      <a class="nav-link active" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="eyebrow">FAQ</div>
+  <h1>Questions, answered.</h1>
+  <p class="lede">Straight answers about how Konfident works, what it does with your data, and where we are as an early-access product. If something isn't here, <a href="/contact.html" style="color:var(--teal-d);text-decoration:underline">just ask us</a>.</p>
+</header>
+
+<div class="faq-list">
+
+  <div class="faq-item">
+    <div class="faq-q">Can I control which reviews power the confidence signal?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Yes. Every product runs in one of three signal modes: positive-only, balanced (positive plus critical), or full-spectrum, which includes every review. You choose the mode, and you can change it per product at any time. That means you decide whether a given SKU leans reassuring or fully transparent, rather than us imposing one style across your whole catalog.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does Konfident replace my review platform?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No. Konfident works on top of the reviews you already collect. It connects to platforms like Yotpo, Judge.me, Okendo, Stamped, and Loox, reads that existing review content, and synthesizes it into a per-SKU confidence signal. Your review platform keeps doing everything it does today — collecting, moderating, and displaying reviews — and Konfident adds an interpretation layer alongside it.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How long does setup take?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">It's fast. On Shopify, installation is a quick app connection; on WooCommerce and BigCommerce it's a single script added to your theme. Once connected, Konfident reads your existing reviews and begins synthesizing signals per SKU automatically. To be upfront: there is no live Shopify App Store listing yet — that's coming to the Shopify App Store — so during early access we help you get connected directly.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What if I don't have many reviews yet?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">That's fine — Konfident simply stays quiet until it has enough to say something honest. If a product doesn't have enough review signal to synthesize responsibly, the widget stays hidden on that product page rather than manufacturing a thin or misleading impression. As reviews accumulate, the signal activates automatically. Baymard Institute found 95% of users rely on reviews during product-page evaluation, so it matters that what shows up is trustworthy, not padded.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How is this different from just showing reviews?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Raw reviews make shoppers do the work: read dozens of entries, weigh conflicting opinions, and try to reach a verdict. Konfident does the interpretation for them — it reads all the reviews for a specific SKU, identifies the themes that actually drive the purchase decision, and distills them into a clear confidence signal. It's the difference between handing someone a stack of testimonials and answering the question they were actually asking before they buy.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is my return data shared with other merchants?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No. If you connect return data on the Pro plan, it is anonymized before any aggregation and is never exposed to other merchants as your data. It's used to sharpen the accuracy of your own SKU-level signals — turning "what buyers said" into "what buyers actually did." Your return data stays yours.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Will Konfident slow down my product pages?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">No. Signals are pre-synthesized and cached per SKU rather than computed when a shopper lands on the page, and the widget loads asynchronously so it never blocks your content from rendering. Your Core Web Vitals stay intact. The widget appears when the page is ready, without holding anything up.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What happens when a product has negative reviews?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">You decide how they're handled through the signal mode. In balanced or full-spectrum mode, Konfident surfaces the honest trade-offs — the things some buyers didn't love — rather than hiding them. That transparency tends to help the right shoppers self-select and sets accurate expectations, which is exactly what reduces expectation-gap returns. Negative reviews aren't a problem to bury; used honestly, they're part of building real confidence.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How do you handle review gating?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">We do not gate reviews. Konfident never suppresses genuine reviews to inflate a rating or fake a better picture than reality. The signal modes control emphasis for synthesis — how much weight the summary gives to positive versus critical themes — not censorship of what your buyers actually wrote. Major review platforms treat gating as a violation of review integrity, and we align with that: honest input in, honest signal out.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I white-label the widget?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">The widget's styling is designed to match your store so it feels native rather than bolted on. Deeper white-label control is on our roadmap for higher tiers, but to be honest it's planned, not guaranteed — we don't want to promise a feature before it ships. If full white-labeling is important to you, tell us; early feedback directly shapes what we build next.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What data do you store about my customers?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Nothing personally identifying. Konfident reads public review content — the text and ratings your buyers already left publicly — not shopper PII, browsing profiles, or payment data. We built it that way on purpose: GDPR compliant by design and CCPA ready. You can read exactly what we access and how it's handled on our <a href="/data-hub.html">Data Hub</a>.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">How does Konfident handle products with fewer than 10 reviews?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">It holds off. When a product doesn't have enough reviews to synthesize a reliable signal, the widget stays hidden on that page rather than presenting a thin or misleading summary from a handful of opinions. The moment a product crosses the threshold where an honest synthesis is possible, the signal activates automatically — no manual step from you. We'd rather show nothing than show something we can't stand behind.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Can I customize the widget copy?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">To a degree today, and more over time. You can adjust tone and labels so the widget speaks in your brand's voice, and you set the signal mode that determines what it emphasizes. Full end-to-end copy control is expanding as the product matures. If there's specific wording you need to control, let us know — early access is when that feedback has the most influence.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What's the difference between the Free and Growth plans in practice?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Free is for trying Konfident: up to 10 SKUs, Shopify only, and a basic dashboard — enough to see it work on your bestsellers with no card required. Growth is for running it for real: up to 100 SKUs, multi-platform support across Shopify, WooCommerce, and BigCommerce, all review-platform integrations, a full analytics dashboard, and priority support. In short, Free proves the value on a few products; Growth deploys it across the catalog. See full details on the <a href="/pricing.html">pricing page</a>.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Do you have a Shopify App Store listing yet?<span class="arr">+</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Not yet — and we'd rather be honest about that than imply otherwise. Konfident is currently in private beta / early access, and we onboard merchants directly during this phase. A public Shopify App Store listing is coming, but it isn't live today. If you want in early, join the waitlist at <a href="/contact.html">our contact page</a> and we'll get you set up.</div></div>
+  </div>
+
+</div>
+
+<section class="cta-band">
+  <h2>Still have a question?</h2>
+  <p>We're founder-led and early — real answers, straight from the people building it.</p>
+  <a class="btn-cta teal" href="/contact.html">Get Early Access →</a>
+</section>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const i=q.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');});});
+</script>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Konfident<span>.</span></div>
+        <div class="footer-tagline">Purchase confidence for every product page. Built for Shopify merchants serious about conversion and margin.</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link" href="/product.html">Overview</a>
+          <a class="footer-link" href="/data-hub.html">Data Hub</a>
+          <a class="footer-link" href="/pricing.html">Pricing</a>
+          <a class="footer-link" href="/index.html#roi">ROI Calculator</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link" href="/about.html">About</a>
+          <a class="footer-link" href="/merchants.html">For Merchants</a>
+          <a class="footer-link" href="/contact.html">Contact</a>
+          <a class="footer-link" href="/faq.html">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Resources</div>
+          <a class="footer-link" href="/blog.html">Blog</a>
+          <a class="footer-link" href="/index.html#compare">Compare</a>
+          <a class="footer-link" href="/index.html">Home</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a class="footer-link" href="/privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="/terms.html">Terms of Service</a>
+          <a class="footer-link" href="/security.html">Security</a>
+          <a class="footer-link" href="/sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Konfident. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+        <a href="/sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
